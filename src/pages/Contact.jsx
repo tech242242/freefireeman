@@ -24,10 +24,10 @@ export default function Contact() {
       className="relative z-10"
     >
       <div className="text-center mb-12">
-        <h2 className="bebas text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500 italic mb-4 drop-shadow-md">
+        <h2 className="bebas text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 italic mb-4 drop-shadow-md">
           GET IN TOUCH
         </h2>
-        <div className="h-1 w-24 bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto mb-4"></div>
+        <div className="h-1 w-24 bg-gradient-to-r from-transparent via-pink-500 to-transparent mx-auto mb-4"></div>
         <p className="text-gray-400 uppercase tracking-widest text-sm md:text-base font-medium">
           Contact Ms Eman Army Management & Support Team
         </p>
@@ -36,18 +36,18 @@ export default function Contact() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
         {/* Contact Info Card */}
         <div className="lg:col-span-5 space-y-6 flex flex-col justify-between">
-          <div className="glass rounded-3xl p-8 border border-white/5 relative overflow-hidden group hover:border-yellow-500/30 transition-all flex-1">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 blur-[50px] rounded-full pointer-events-none"></div>
+          <div className="glass rounded-3xl p-8 border border-white/5 relative overflow-hidden group hover:border-pink-500/30 transition-all flex-1">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/5 blur-[50px] rounded-full pointer-events-none"></div>
             
             <h3 className="bebas text-3xl text-white mb-6 italic tracking-wide">OFFICIAL SUPPORT CHANNEL</h3>
             
             <div className="space-y-6">
               <div className="flex gap-4 items-center">
-                <div className="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-xl shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-xl shrink-0">
                   📍
                 </div>
                 <div>
-                  <h4 className="text-[10px] uppercase tracking-widest font-bold text-yellow-500/80">Location</h4>
+                  <h4 className="text-[10px] uppercase tracking-widest font-bold text-pink-500/80">Location</h4>
                   <p className="text-white text-sm font-semibold">Faisalabad, Pakistan</p>
                 </div>
               </div>
@@ -76,13 +76,13 @@ export default function Contact() {
             <div className="mt-8 pt-8 border-t border-white/5 space-y-3">
               <h4 className="text-[10px] uppercase tracking-widest font-bold text-gray-500">Connect with us</h4>
               <div className="flex gap-3">
-                <a href="https://www.instagram.com/mr_saqib242" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-yellow-500/40 flex items-center justify-center hover:bg-yellow-500/10 text-slate-400 hover:text-yellow-400 transition-all text-sm" title="Instagram">
+                <a href="https://www.instagram.com/mr_saqib242" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-pink-500/40 flex items-center justify-center hover:bg-pink-500/10 text-slate-400 hover:text-pink-400 transition-all text-sm" title="Instagram">
                   📸
                 </a>
-                <a href="https://wa.me/923478936242" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-yellow-500/40 flex items-center justify-center hover:bg-yellow-500/10 text-slate-400 hover:text-yellow-400 transition-all text-sm" title="WhatsApp">
+                <a href="https://wa.me/923478936242" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-pink-500/40 flex items-center justify-center hover:bg-pink-500/10 text-slate-400 hover:text-pink-400 transition-all text-sm" title="WhatsApp">
                   💬
                 </a>
-                <a href="https://www.tiktok.com/@mr_saqib_242" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-yellow-500/40 flex items-center justify-center hover:bg-yellow-500/10 text-slate-400 hover:text-yellow-400 transition-all text-sm" title="TikTok">
+                <a href="https://www.tiktok.com/@mr_saqib_242" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-pink-500/40 flex items-center justify-center hover:bg-pink-500/10 text-slate-400 hover:text-pink-400 transition-all text-sm" title="TikTok">
                   🎵
                 </a>
               </div>
@@ -105,7 +105,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Enter full name"
-                    className="w-full bg-black/60 border border-white/10 focus:border-yellow-500/50 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none transition-all text-sm font-semibold"
+                    className="w-full bg-black/60 border border-white/10 focus:border-pink-500/50 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none transition-all text-sm font-semibold"
                   />
                 </div>
                 <div className="space-y-2">
@@ -116,7 +116,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="Enter email address"
-                    className="w-full bg-black/60 border border-white/10 focus:border-yellow-500/50 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none transition-all text-sm font-semibold"
+                    className="w-full bg-black/60 border border-white/10 focus:border-pink-500/50 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none transition-all text-sm font-semibold"
                   />
                 </div>
               </div>
@@ -129,7 +129,7 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   placeholder="e.g. Sponsorship, Registration issues"
-                  className="w-full bg-black/60 border border-white/10 focus:border-yellow-500/50 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none transition-all text-sm font-semibold"
+                  className="w-full bg-black/60 border border-white/10 focus:border-pink-500/50 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none transition-all text-sm font-semibold"
                 />
               </div>
 
@@ -141,14 +141,14 @@ export default function Contact() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Type your message here..."
-                  className="w-full bg-black/60 border border-white/10 focus:border-yellow-500/50 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none transition-all text-sm font-semibold resize-none"
+                  className="w-full bg-black/60 border border-white/10 focus:border-pink-500/50 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none transition-all text-sm font-semibold resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={status.loading}
-                className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] py-4 rounded-xl font-black uppercase tracking-[0.2em] text-xs transition-all duration-300 flex items-center justify-center gap-2 text-black"
+                className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] py-4 rounded-xl font-black uppercase tracking-[0.2em] text-xs transition-all duration-300 flex items-center justify-center gap-2 text-white"
               >
                 {status.loading ? (
                   <>

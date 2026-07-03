@@ -31,7 +31,7 @@ export default function Landing() {
             <img 
               src="https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png" 
               alt="Character Left" 
-              className="w-full max-w-[280px] lg:max-w-[340px] h-auto drop-shadow-[0_0_35px_rgba(34,197,94,0.4)] object-contain object-bottom scale-[1.2] lg:scale-[1.3] origin-bottom"
+              className="w-full max-w-[280px] lg:max-w-[340px] h-auto drop-shadow-[0_0_35px_rgba(236,72,153,0.4)] object-contain object-bottom scale-[1.2] lg:scale-[1.3] origin-bottom"
             />
             {/* Smooth bottom fade to cover cropped flat line completely */}
             <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#030303] via-[#030303]/40 to-transparent pointer-events-none"></div>
@@ -45,48 +45,48 @@ export default function Landing() {
           transition={{ duration: 0.8 }}
           className="w-full md:w-1/3 flex flex-col items-center text-center px-2 z-20"
         >
-          <p className="text-green-500 font-bold uppercase tracking-widest text-[10px] md:text-xs mb-4">
+          <p className="text-pink-500 font-bold uppercase tracking-widest text-[10px] md:text-xs mb-4">
             ★ EMAN FF ARMY × SAQIB X EMAN GAMING ★
           </p>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase italic leading-tight mb-8">
-            SHAPING THE FUTURE OF <br/>
-            <span className="text-green-500 drop-shadow-[0_0_15px_rgba(34,197,94,0.5)]">ESPORTS</span>
+            WELCOME TO <br/>
+            <span className="text-pink-500 drop-shadow-[0_0_15px_rgba(236,72,153,0.5)]">TOURNAMENTS</span>
           </h1>
           
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <motion.button 
-              whileHover={{ scale: 1.08, y: -2, boxShadow: "0 10px 20px rgba(34,197,94,0.3)" }}
+              whileHover={{ scale: 1.08, y: -2, boxShadow: "0 10px 20px rgba(236,72,153,0.4)" }}
               whileTap={{ scale: 0.96 }}
               onClick={() => window.open("https://mrsaqib242.vercel.app", "_blank")}
-              className="bg-green-500 hover:bg-green-400 text-black px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all cursor-pointer"
+              className="bg-pink-500 hover:bg-pink-400 text-white px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all cursor-pointer"
               style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)' }}
             >
               Explore More →
             </motion.button>
             <motion.button 
-              whileHover={{ scale: 1.08, y: -2, brightness: 1.1, boxShadow: "0 12px 25px rgba(234,179,8,0.5)" }}
+              whileHover={{ scale: 1.08, y: -2, brightness: 1.1, boxShadow: "0 12px 25px rgba(236,72,153,0.5)" }}
               whileTap={{ scale: 0.96 }}
               onClick={() => navigate('/proxy-panels')}
-              className="bg-gradient-to-r from-red-600 via-amber-500 to-yellow-500 text-white px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(234,179,8,0.4)] cursor-pointer"
+              className="bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-500 text-white px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(236,72,153,0.4)] cursor-pointer"
               style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)' }}
             >
               VIP PROXY & PANELS 💀
             </motion.button>
             <motion.button 
-              whileHover={{ scale: 1.08, y: -2, boxShadow: "0 10px 20px rgba(234,179,8,0.3)" }}
+              whileHover={{ scale: 1.08, y: -2, boxShadow: "0 10px 20px rgba(168,85,247,0.3)" }}
               whileTap={{ scale: 0.96 }}
               onClick={() => window.open("https://whatsapp.com/channel/0029Vb8oiIrKGGGDehRhyJ18", "_blank")}
-              className="bg-yellow-500 hover:bg-yellow-400 text-black px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all cursor-pointer"
+              className="bg-purple-600 hover:bg-purple-500 text-white px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all cursor-pointer"
               style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)' }}
             >
               Join Channel →
             </motion.button>
             <motion.button 
-              whileHover={{ scale: 1.08, y: -2, boxShadow: "0 10px 20px rgba(34,197,94,0.2)" }}
+              whileHover={{ scale: 1.08, y: -2, boxShadow: "0 10px 20px rgba(168,85,247,0.2)" }}
               whileTap={{ scale: 0.96 }}
               onClick={() => navigate('/team')}
-              className="bg-gradient-to-r from-red-600 to-green-600 text-white px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(34,197,94,0.3)] cursor-pointer"
+              className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(168,85,247,0.3)] cursor-pointer"
               style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)' }}
             >
               OUR TEAM ★
@@ -94,11 +94,11 @@ export default function Landing() {
           </div>
 
           <motion.div 
-            whileHover={{ scale: 1.03, y: -5, borderColor: "rgba(34,197,94,0.4)", boxShadow: "0 25px 50px -12px rgba(34,197,94,0.25)" }}
+            whileHover={{ scale: 1.03, y: -5, borderColor: "rgba(236,72,153,0.4)", boxShadow: "0 25px 50px -12px rgba(236,72,153,0.25)" }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="glass border border-green-500/20 rounded-3xl p-8 md:p-10 w-full max-w-sm relative overflow-hidden backdrop-blur-xl"
+            className="glass border border-pink-500/20 rounded-3xl p-8 md:p-10 w-full max-w-sm relative overflow-hidden backdrop-blur-xl"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-green-500/10 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-pink-500/10 to-transparent"></div>
             
             <h2 className="text-2xl font-black text-white mb-3 relative z-10 uppercase italic">
               Join The Big Tournaments
@@ -111,7 +111,7 @@ export default function Landing() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate('/home')}
-              className="bg-green-500 hover:bg-green-400 text-black px-8 py-3.5 rounded-sm font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)] relative z-10 w-full cursor-pointer"
+              className="bg-pink-500 hover:bg-pink-400 text-white px-8 py-3.5 rounded-sm font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(236,72,153,0.3)] relative z-10 w-full cursor-pointer"
               style={{ clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0 100%)' }}
             >
               JOIN NOW →
@@ -131,7 +131,7 @@ export default function Landing() {
               <img 
                 src="https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png" 
                 alt="Character Left" 
-                className="w-full max-w-[110px] h-auto drop-shadow-[0_0_25px_rgba(34,197,94,0.4)] object-contain scale-[1.85] origin-bottom translate-y-[2px]"
+                className="w-full max-w-[110px] h-auto drop-shadow-[0_0_25px_rgba(236,72,153,0.4)] object-contain scale-[1.85] origin-bottom translate-y-[2px]"
               />
             </motion.div>
 
@@ -144,12 +144,12 @@ export default function Landing() {
               <img 
                 src="https://ik.imagekit.io/19imy4f1u/lite_1783018986990_YwvGM9ty_.png" 
                 alt="Character Right" 
-                className="w-full max-w-[115px] h-auto drop-shadow-[0_0_25px_rgba(59,130,246,0.4)] object-contain scale-[1.1] origin-bottom"
+                className="w-full max-w-[115px] h-auto drop-shadow-[0_0_25px_rgba(168,85,247,0.4)] object-contain scale-[1.1] origin-bottom"
               />
             </motion.div>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-4 md:justify-between w-full mt-12 text-green-400 font-bold tracking-widest uppercase text-[9px] md:text-[10px]">
+          <div className="flex flex-wrap justify-center gap-4 md:justify-between w-full mt-12 text-pink-400 font-bold tracking-widest uppercase text-[9px] md:text-[10px]">
             <span className="flex items-center gap-1">✨ Gaming Spanning</span>
             <span className="flex items-center gap-1">✨ Action-Packed</span>
             <span className="flex items-center gap-1">✨ Mind-Bending</span>
@@ -167,7 +167,7 @@ export default function Landing() {
             <img 
               src="https://ik.imagekit.io/19imy4f1u/lite_1783018986990_YwvGM9ty_.png" 
               alt="Character Right" 
-              className="w-full max-w-[280px] lg:max-w-[340px] h-auto drop-shadow-[0_0_35px_rgba(59,130,246,0.4)] object-contain object-bottom"
+              className="w-full max-w-[280px] lg:max-w-[340px] h-auto drop-shadow-[0_0_35px_rgba(168,85,247,0.4)] object-contain object-bottom"
             />
             {/* Smooth bottom fade to cover cropped flat line completely */}
             <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#030303] via-[#030303]/40 to-transparent pointer-events-none"></div>
@@ -188,7 +188,7 @@ export default function Landing() {
           <img 
             src="https://ik.imagekit.io/19imy4f1u/lite_1783071731677_58B39hkfm.png" 
             alt="About Our Gaming Site" 
-            className="w-full h-auto rounded-3xl border-2 border-green-500/20 shadow-[0_0_50px_rgba(34,197,94,0.15)] object-cover"
+            className="w-full h-auto rounded-3xl border-2 border-pink-500/20 shadow-[0_0_50px_rgba(236,72,153,0.15)] object-cover"
           />
         </motion.div>
         
@@ -201,8 +201,8 @@ export default function Landing() {
         >
           <div>
             <div className="flex items-center gap-4 mb-4">
-              <img src="https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png" className="w-12 h-12 object-cover object-top rounded-full bg-green-500/10 border border-green-500/30" alt="" />
-              <p className="text-green-500 font-bold uppercase tracking-widest text-[10px] md:text-xs">
+              <img src="https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png" className="w-12 h-12 object-cover object-top rounded-full bg-pink-500/10 border border-pink-500/30" alt="" />
+              <p className="text-pink-500 font-bold uppercase tracking-widest text-[10px] md:text-xs">
                 # About Our Gaming Site
               </p>
             </div>
@@ -221,15 +221,15 @@ export default function Landing() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="flex gap-6 items-start cursor-pointer group"
             >
-              <div className="w-16 h-16 shrink-0 rounded-2xl border border-green-500/30 flex items-center justify-center bg-green-500/10 relative overflow-hidden group-hover:border-green-400 group-hover:bg-green-500/20 transition-colors">
-                <div className="absolute inset-0 bg-green-500/20 animate-pulse"></div>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-400 relative z-10 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-16 h-16 shrink-0 rounded-2xl border border-pink-500/30 flex items-center justify-center bg-pink-500/10 relative overflow-hidden group-hover:border-pink-400 group-hover:bg-pink-500/20 transition-colors">
+                <div className="absolute inset-0 bg-pink-500/20 animate-pulse"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-pink-400 relative z-10 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-white font-bold text-xl mb-2 tracking-wide group-hover:text-green-400 transition-colors">Over <span className="text-green-500">1k+</span> Affiliate Game Programs</h3>
+                <h3 className="text-white font-bold text-xl mb-2 tracking-wide group-hover:text-pink-400 transition-colors">Over <span className="text-pink-500">1k+</span> Affiliate Game Programs</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">
                   Keep users informed about the gaming industry with news articles on releases, updates, and events.
                 </p>
@@ -245,14 +245,14 @@ export default function Landing() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex gap-6 items-start cursor-pointer group"
             >
-              <div className="w-16 h-16 shrink-0 rounded-2xl border border-yellow-500/30 flex items-center justify-center bg-yellow-500/10 relative overflow-hidden group-hover:border-yellow-400 group-hover:bg-yellow-500/20 transition-colors">
-                <div className="absolute inset-0 bg-yellow-500/20 animate-pulse" style={{ animationDelay: '500ms' }}></div>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-yellow-400 relative z-10 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-16 h-16 shrink-0 rounded-2xl border border-purple-500/30 flex items-center justify-center bg-purple-500/10 relative overflow-hidden group-hover:border-purple-400 group-hover:bg-purple-500/20 transition-colors">
+                <div className="absolute inset-0 bg-purple-500/20 animate-pulse" style={{ animationDelay: '500ms' }}></div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-400 relative z-10 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-white font-bold text-xl mb-2 tracking-wide group-hover:text-yellow-400 transition-colors">Great Tournaments</h3>
+                <h3 className="text-white font-bold text-xl mb-2 tracking-wide group-hover:text-purple-400 transition-colors">Great Tournaments</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">
                   Display a calendar of upcoming tournaments with dates, times, and game titles and provide live updates.
                 </p>
@@ -268,14 +268,14 @@ export default function Landing() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex gap-6 items-start cursor-pointer group"
             >
-              <div className="w-16 h-16 shrink-0 rounded-2xl border border-blue-500/30 flex items-center justify-center bg-blue-500/10 relative overflow-hidden group-hover:border-blue-400 group-hover:bg-blue-500/20 transition-colors">
-                <div className="absolute inset-0 bg-blue-500/20 animate-pulse" style={{ animationDelay: '1000ms' }}></div>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-400 relative z-10 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-16 h-16 shrink-0 rounded-2xl border border-fuchsia-500/30 flex items-center justify-center bg-fuchsia-500/10 relative overflow-hidden group-hover:border-fuchsia-400 group-hover:bg-fuchsia-500/20 transition-colors">
+                <div className="absolute inset-0 bg-fuchsia-500/20 animate-pulse" style={{ animationDelay: '1000ms' }}></div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-fuchsia-400 relative z-10 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-white font-bold text-xl mb-2 tracking-wide group-hover:text-blue-400 transition-colors">Get Online Supports</h3>
+                <h3 className="text-white font-bold text-xl mb-2 tracking-wide group-hover:text-fuchsia-400 transition-colors">Get Online Supports</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">
                   Create profiles for professional esports players, including their bios, achievements, and current teams.
                 </p>
@@ -286,18 +286,18 @@ export default function Landing() {
       </div>
 
       {/* Premium Cyber Footer */}
-      <footer className="w-full relative z-10 bg-black/60 border-t border-green-500/15 py-12 mt-12 backdrop-blur-md overflow-hidden">
+      <footer className="w-full relative z-10 bg-black/60 border-t border-pink-500/15 py-12 mt-12 backdrop-blur-md overflow-hidden">
         {/* Subtle decorative bottom glow */}
-        <div className="absolute -bottom-48 left-1/2 -translate-x-1/2 w-[80%] h-96 bg-green-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute -bottom-48 left-1/2 -translate-x-1/2 w-[80%] h-96 bg-pink-500/10 blur-[120px] rounded-full pointer-events-none"></div>
         
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
           <div className="flex flex-col items-center md:items-start gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-                <span className="text-black font-black text-lg italic">S</span>
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-[0_0_15px_rgba(236,72,153,0.3)]">
+                <span className="text-white font-black text-lg italic">E</span>
               </div>
               <span className="text-white font-black text-2xl tracking-widest italic uppercase">
-                SAQIB X <span className="text-green-500">EMAN</span>
+                EMAN FF <span className="text-pink-500">ARMY</span>
               </span>
             </div>
             <p className="text-slate-500 text-xs text-center md:text-left max-w-sm leading-relaxed font-medium">
@@ -306,9 +306,9 @@ export default function Landing() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-8 text-xs font-bold tracking-widest uppercase text-slate-400">
-            <button onClick={() => navigate('/home')} className="hover:text-green-400 transition-colors">Home</button>
-            <button onClick={() => navigate('/portal')} className="hover:text-green-400 transition-colors">Portal</button>
-            <button onClick={() => navigate('/login')} className="hover:text-green-400 transition-colors">Admin Login</button>
+            <button onClick={() => navigate('/home')} className="hover:text-pink-400 transition-colors">Home</button>
+            <button onClick={() => navigate('/portal')} className="hover:text-pink-400 transition-colors">Portal</button>
+            <button onClick={() => navigate('/login')} className="hover:text-pink-400 transition-colors">Admin Login</button>
           </div>
 
           <div className="flex flex-wrap gap-5 justify-center md:justify-end">
@@ -391,9 +391,9 @@ export default function Landing() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-[10px] text-slate-600 tracking-wider font-mono">
-          <p>© 2026 SAQIB X EMAN GAMING. ALL RIGHTS RESERVED.</p>
+          <p>© 2026 EMAN FF ARMY. ALL RIGHTS RESERVED.</p>
           <p className="flex items-center gap-1 mt-2 md:mt-0">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse"></span>
             SECURE PORTAL CORE V2.4.1
           </p>
         </div>

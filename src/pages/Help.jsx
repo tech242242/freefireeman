@@ -35,10 +35,10 @@ export default function Help() {
       className="relative z-10"
     >
       <div className="text-center mb-12">
-        <h2 className="bebas text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500 italic mb-4 drop-shadow-md">
+        <h2 className="bebas text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 italic mb-4 drop-shadow-md">
           FREQUENTLY ASKED QUESTIONS
         </h2>
-        <div className="h-1 w-24 bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto mb-4"></div>
+        <div className="h-1 w-24 bg-gradient-to-r from-transparent via-pink-500 to-transparent mx-auto mb-4"></div>
         <p className="text-gray-400 uppercase tracking-widest text-sm md:text-base font-medium">
           Tournament Rules & Registration Guide
         </p>
@@ -52,21 +52,21 @@ export default function Help() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="glass rounded-2xl overflow-hidden border border-white/5 hover:border-yellow-500/30 transition-colors"
+            className="glass rounded-2xl overflow-hidden border border-white/5 hover:border-pink-500/30 transition-colors"
           >
             <button
               onClick={() => setActiveFaq(activeFaq === index ? null : index)}
               className="w-full text-left flex justify-between items-center p-6 md:p-8 bg-black/40 hover:bg-white/5 transition-colors group"
             >
               <div className="flex items-center gap-4">
-                <span className="text-yellow-500 font-black text-xl opacity-50 group-hover:opacity-100 transition-opacity">
+                <span className="text-pink-500 font-black text-xl opacity-50 group-hover:opacity-100 transition-opacity">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <span className="font-bold text-white tracking-wide group-hover:text-yellow-400 transition-colors">
+                <span className="font-bold text-white tracking-wide group-hover:text-pink-400 transition-colors">
                   {faq.question}
                 </span>
               </div>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300 ${activeFaq === index ? 'bg-yellow-500 border-yellow-500 text-black rotate-180' : 'border-white/20 text-white/50 group-hover:border-yellow-500/50'}`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300 ${activeFaq === index ? 'bg-pink-500 border-pink-500 text-white rotate-180' : 'border-white/20 text-white/50 group-hover:border-pink-500/50'}`}>
                 <span className="transform -mt-0.5">▼</span>
               </div>
             </button>
@@ -81,7 +81,7 @@ export default function Help() {
                 >
                   <div className="px-6 md:px-8 pb-8 pt-2 text-gray-400 leading-relaxed font-light border-t border-white/5">
                     <div className="flex gap-4">
-                      <div className="w-0.5 bg-gradient-to-b from-yellow-500 to-transparent"></div>
+                      <div className="w-0.5 bg-gradient-to-b from-pink-500 to-transparent"></div>
                       <p>{faq.answer}</p>
                     </div>
                   </div>
@@ -96,9 +96,9 @@ export default function Help() {
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="mt-12 max-w-4xl mx-auto p-8 glass rounded-3xl border border-yellow-500/20 relative overflow-hidden"
+        className="mt-12 max-w-4xl mx-auto p-8 glass rounded-3xl border border-pink-500/20 relative overflow-hidden"
       >
-        <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-500/10 blur-[80px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-pink-500/10 blur-[80px] rounded-full pointer-events-none"></div>
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h3 className="bebas text-3xl md:text-4xl text-white mb-2 tracking-wide">Still need help?</h3>

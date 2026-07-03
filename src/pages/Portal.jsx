@@ -73,6 +73,17 @@ export default function Portal() {
     checkSession();
   }, []);
 
+  // Auto-login to squad portal when credentials are available
+  useEffect(() => {
+    if (activeScreen === "squadPortal" && !squadActiveUser) {
+      const authId = assignedCredentials.username || formData.authId;
+      const authPass = assignedCredentials.password || formData.authPass;
+      if (authId && authPass) {
+        handleSquadLogin();
+      }
+    }
+  }, [activeScreen, squadActiveUser, assignedCredentials, formData.authId, formData.authPass]);
+
   // Session management
   const checkSession = () => {
     const session = localStorage.getItem('k_army_user');
@@ -367,7 +378,6 @@ export default function Portal() {
         authPass: authPass
       }));
 
-      copyToClipboard(`ID: ${authId}\nPass: ${authPass}`);
       showToast("Access Granted! Opening Squad Portal...");
       setActiveScreen("squadPortal");
     } catch (err) {
@@ -518,7 +528,7 @@ export default function Portal() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
       </button>
-      <h1 className="text-3xl font-black text-orange-500 rgb-text italic mb-2 uppercase mt-4">MS EMAN ARMY</h1>
+      <h1 className="text-3xl font-black text-pink-500 rgb-text italic mb-2 uppercase mt-4">MS EMAN ARMY</h1>
       <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Tournament Gate Pass</p>
 
       {/* Signup Form */}
@@ -551,7 +561,7 @@ export default function Portal() {
           <button 
             onClick={handleSignup} 
             disabled={isLoading}
-            className="w-full bg-orange-600 hover:bg-orange-500 py-4 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-50"
+            className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-50"
           >
             {isLoading ? "Registering..." : "Register Now"}
           </button>
@@ -581,7 +591,7 @@ export default function Portal() {
           <button 
             onClick={handleLogin} 
             disabled={isLoading}
-            className="w-full bg-blue-600 hover:bg-blue-500 py-4 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-50"
+            className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-50"
           >
             {isLoading ? "Logging in..." : "Login"}
           </button>
@@ -608,7 +618,7 @@ export default function Portal() {
 
       {/* Bank Account Details */}
       <div className="bg-white/5 p-6 rounded-2xl mb-6 border border-white/10 text-left">
-        <p className="text-[10px] text-orange-500 font-black uppercase tracking-widest mb-4">Account Information</p>
+        <p className="text-[10px] text-pink-500 font-black uppercase tracking-widest mb-4">Account Information</p>
         <div className="space-y-3">
           <div className="flex">
             <span className="text-xs text-slate-400 font-bold w-40">Account Holder:</span>
@@ -673,7 +683,7 @@ export default function Portal() {
           required
         />
         <div 
-          className="relative border-2 border-dashed border-slate-600 rounded-xl p-4 text-center cursor-pointer hover:border-orange-500 transition-all"
+          className="relative border-2 border-dashed border-slate-600 rounded-xl p-4 text-center cursor-pointer hover:border-pink-500 transition-all"
           onClick={() => fileInputRef.current?.click()}
         >
           <input 
@@ -698,7 +708,7 @@ export default function Portal() {
         <button 
           type="submit" 
           disabled={isLoading}
-          className="w-full bg-green-600 hover:bg-green-500 py-4 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-50"
+          className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-50"
         >
           {isLoading ? "Uploading..." : "Verify Payment"}
         </button>
@@ -714,7 +724,7 @@ export default function Portal() {
       transition={{ duration: 0.4 }}
       className="glass-card p-10 w-full max-w-md text-center"
     >
-      <div className="w-20 h-20 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+      <div className="w-20 h-20 border-4 border-pink-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
       <h2 className="text-2xl font-black text-white uppercase mb-2">Payment Under Review</h2>
       <p className="text-slate-400 text-sm font-bold">
         Admin aapki payment check kar raha hai. Refresh karne ki zaroorat nahi, hum record save rakhengy.
@@ -736,8 +746,8 @@ export default function Portal() {
       transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
       className="glass-card p-8 w-full max-w-md text-center relative overflow-hidden"
     >
-      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500"></div>
-      <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_#22c55e]">
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600"></div>
+      <div className="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_#ec4899]">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" />
         </svg>
@@ -747,7 +757,7 @@ export default function Portal() {
       
       <button 
         onClick={goToSquadPortal}
-        className="w-full bg-orange-600 hover:bg-orange-500 py-5 rounded-2xl font-black uppercase text-lg shadow-xl shadow-orange-600/20 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+        className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] text-white py-5 rounded-2xl font-black uppercase text-lg shadow-xl shadow-pink-600/20 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
       >
         Access Squad Portal
       </button>
@@ -758,9 +768,10 @@ export default function Portal() {
     <div className="min-h-screen font-sans text-slate-200 antialiased overflow-x-hidden">
       {/* Background Image */}
       <div 
-        className="fixed top-0 left-0 w-full h-full bg-cover bg-center opacity-75 -z-10"
+        className="fixed top-0 left-0 w-full h-full bg-cover opacity-75 -z-10"
         style={{
-          backgroundImage: "url('https://i.pinimg.com/736x/c4/55/fd/c455fdd685e8c67c5600c14f35aa5226.jpg')"
+          backgroundImage: "url('https://i.pinimg.com/736x/c4/55/fd/c455fdd685e8c67c5600c14f35aa5226.jpg')",
+          backgroundPosition: "center 50%"
         }}
       />
 
@@ -770,7 +781,7 @@ export default function Portal() {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           className={`fixed top-6 inset-x-6 md:inset-x-auto md:right-6 md:w-80 z-[100] p-6 rounded-[2.5rem] shadow-2xl text-white font-bold text-center backdrop-blur-xl ${
-            statusBox.isError ? 'bg-red-500/80' : 'bg-orange-600/80 border border-orange-500/30'
+            statusBox.isError ? 'bg-red-500/80' : 'bg-pink-600/80 border border-pink-500/30'
           }`}
         >
           {statusBox.text}
@@ -783,33 +794,27 @@ export default function Portal() {
           <div className="glass-card-ios p-8 md:p-12 w-full max-w-md animate-ios">
             <div className="text-center mb-10">
               <h2 className="text-xs font-black text-white/60 tracking-[0.6em] uppercase mb-1">Free Fire</h2>
-              <h1 className="text-4xl font-black text-orange-500 rgb-glow italic tracking-tighter">MS EMAN ARMY</h1>
+              <h1 className="text-4xl font-black text-pink-500 rgb-glow italic tracking-tighter">MS EMAN ARMY</h1>
               <p className="text-slate-400 mt-6 text-[10px] font-bold uppercase tracking-widest border-t border-white/10 pt-4">Squad Portal Login</p>
             </div>
             
             <div className="space-y-4">
               <input 
-                type="text" 
+                type="hidden" 
                 name="authId"
-                value={formData.authId}
-                onChange={handleInputChange}
-                placeholder="AUTH ID" 
-                className="w-full p-5 input-ios rounded-3xl font-bold uppercase tracking-widest placeholder:text-slate-600"
+                value={formData.authId || assignedCredentials.username}
               />
               <input 
-                type="password" 
+                type="hidden" 
                 name="authPass"
-                value={formData.authPass}
-                onChange={handleInputChange}
-                placeholder="PASSWORD" 
-                className="w-full p-5 input-ios rounded-3xl font-bold placeholder:text-slate-600"
+                value={formData.authPass || assignedCredentials.password}
               />
               <button 
                 onClick={handleSquadLogin}
                 disabled={isLoading}
-                className="w-full bg-orange-500 hover:bg-orange-400 text-white font-black py-5 rounded-3xl shadow-xl active:scale-95 transition-all mt-2 text-lg uppercase tracking-wider disabled:opacity-50"
+                className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] text-white font-black py-5 rounded-3xl shadow-xl active:scale-95 transition-all mt-2 text-lg uppercase tracking-wider disabled:opacity-50"
               >
-                {isLoading ? "AUTHENTICATING..." : "Verify Identity"}
+                {isLoading ? "AUTHENTICATING..." : "ACCESS SECURED PORTAL"}
               </button>
             </div>
           </div>
@@ -820,7 +825,7 @@ export default function Portal() {
           <header className="flex justify-between items-start mb-14 animate-ios">
             <div>
               <h2 className="text-xs font-black text-white/50 tracking-[0.5em] uppercase mb-1">Free Fire</h2>
-              <h1 className="text-4xl font-black text-orange-500 rgb-glow italic">MS EMAN ARMY</h1>
+              <h1 className="text-4xl font-black text-pink-500 rgb-glow italic">MS EMAN ARMY</h1>
               <div className="mt-3">
                 <span className="text-[9px] font-black text-white/40 tracking-[0.2em] bg-white/5 px-4 py-1.5 rounded-full uppercase border border-white/5">
                   {squadActiveUser}
@@ -837,8 +842,8 @@ export default function Portal() {
 
           <form onSubmit={handleSquadRegistration} className="space-y-8 animate-ios">
             {/* Squad Identity */}
-            <div className="glass-card-ios p-8 border-orange-500/20">
-              <label className="text-[10px] font-black text-orange-400 uppercase tracking-[0.4em] mb-4 block">Team Name</label>
+            <div className="glass-card-ios p-8 border-pink-500/20">
+              <label className="text-[10px] font-black text-pink-400 uppercase tracking-[0.4em] mb-4 block">Team Name</label>
               <input 
                 type="text" 
                 name="squad_name"
@@ -853,7 +858,7 @@ export default function Portal() {
             {/* Leader Info */}
             <div className="glass-card-ios p-8">
               <h3 className="text-sm font-black text-white mb-8 uppercase flex items-center gap-3 italic">
-                <span className="w-2 h-6 bg-orange-500 rounded-full shadow-[0_0_10px_#f97316]"></span> Squad Leader (P1)
+                <span className="w-2 h-6 bg-pink-500 rounded-full shadow-[0_0_10px_#ec4899]"></span> Squad Leader (P1)
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="space-y-2">
@@ -899,7 +904,7 @@ export default function Portal() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Player 2 */}
               <div className="glass-card-ios p-8">
-                <p className="text-[11px] font-black text-orange-400 mb-6 uppercase tracking-widest border-b border-white/5 pb-3">Teammate 02</p>
+                <p className="text-[11px] font-black text-pink-400 mb-6 uppercase tracking-widest border-b border-white/5 pb-3">Teammate 02</p>
                 <div className="space-y-4">
                   <input 
                     type="text" 
@@ -929,7 +934,7 @@ export default function Portal() {
               </div>
               {/* Player 3 */}
               <div className="glass-card-ios p-8">
-                <p className="text-[11px] font-black text-orange-400 mb-6 uppercase tracking-widest border-b border-white/5 pb-3">Teammate 03</p>
+                <p className="text-[11px] font-black text-pink-400 mb-6 uppercase tracking-widest border-b border-white/5 pb-3">Teammate 03</p>
                 <div className="space-y-4">
                   <input 
                     type="text" 
@@ -959,7 +964,7 @@ export default function Portal() {
               </div>
               {/* Player 4 */}
               <div className="glass-card-ios p-8">
-                <p className="text-[11px] font-black text-orange-400 mb-6 uppercase tracking-widest border-b border-white/5 pb-3">Teammate 04</p>
+                <p className="text-[11px] font-black text-pink-400 mb-6 uppercase tracking-widest border-b border-white/5 pb-3">Teammate 04</p>
                 <div className="space-y-4">
                   <input 
                     type="text" 
@@ -994,7 +999,7 @@ export default function Portal() {
               <button 
                 type="submit" 
                 disabled={isLoading}
-                className="w-full bg-orange-600 text-white font-black py-7 rounded-[2.5rem] shadow-[0_20px_40px_rgba(249,115,22,0.3)] text-2xl active:scale-[0.98] transition-all flex items-center justify-center gap-4 uppercase tracking-widest disabled:opacity-50"
+                className="w-full btn-gradient hover:shadow-[0_0_30px_rgba(236,72,153,0.5)] text-white font-black py-7 rounded-[2.5rem] text-2xl active:scale-[0.98] transition-all flex items-center justify-center gap-4 uppercase tracking-widest disabled:opacity-50"
               >
                 {isLoading ? (
                   "Saving..."
@@ -1043,9 +1048,10 @@ export default function Portal() {
     <div className="min-h-screen">
       {/* Background Image */}
       <div 
-        className="fixed top-0 left-0 w-full h-full bg-cover bg-center opacity-75 -z-10"
+        className="fixed top-0 left-0 w-full h-full bg-cover opacity-75 -z-10"
         style={{
-          backgroundImage: "url('https://i.pinimg.com/736x/c4/55/fd/c455fdd685e8c67c5600c14f35aa5226.jpg')"
+          backgroundImage: "url('https://i.pinimg.com/736x/c4/55/fd/c455fdd685e8c67c5600c14f35aa5226.jpg')",
+          backgroundPosition: "center 50%"
         }}
       />
 
@@ -1102,21 +1108,21 @@ export default function Portal() {
           background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);
           color: white; border-radius: 1rem; transition: 0.3s;
         }
-        .input-field:focus { border-color: #f97316; outline: none; background: rgba(0, 0, 0, 0.7); }
+        .input-field:focus { border-color: #ec4899; outline: none; background: rgba(0, 0, 0, 0.7); }
         .input-ios { 
           background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1); 
           color: white; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .input-ios:focus { 
-          border-color: #f97316; background: rgba(0, 0, 0, 0.6);
+          border-color: #ec4899; background: rgba(0, 0, 0, 0.6);
           outline: none; transform: translateY(-2px);
         }
         .rgb-text {
-          text-shadow: 0 0 10px rgba(249, 115, 22, 0.8), 0 0 20px rgba(59, 130, 246, 0.5);
+          text-shadow: 0 0 10px rgba(236, 72, 153, 0.8), 0 0 20px rgba(168, 85, 247, 0.5);
           animation: pulse 3s infinite;
         }
         .rgb-glow {
-          text-shadow: 0 0 8px rgba(249, 115, 22, 0.8), 0 0 20px rgba(59, 130, 246, 0.4), 0 0 30px rgba(249, 115, 22, 0.2);
+          text-shadow: 0 0 8px rgba(236, 72, 153, 0.8), 0 0 20px rgba(168, 85, 247, 0.4), 0 0 30px rgba(236, 72, 153, 0.2);
           animation: rgbShift 4s infinite alternate;
         }
         @keyframes pulse { 
@@ -1133,17 +1139,17 @@ export default function Portal() {
         }
         .animate-ios { animation: iosReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .copy-btn {
-          background: rgba(249, 115, 22, 0.1);
-          border: 1px solid rgba(249, 115, 22, 0.3);
+          background: rgba(236, 72, 153, 0.1);
+          border: 1px solid rgba(236, 72, 153, 0.3);
           padding: 4px 8px;
           border-radius: 8px;
           font-size: 10px;
           font-weight: bold;
-          color: #f97316;
+          color: #ec4899;
           transition: all 0.2s;
         }
         .copy-btn:hover { 
-          background: #f97316; 
+          background: #ec4899; 
           color: white; 
         }
       `}</style>
