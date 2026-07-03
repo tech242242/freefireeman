@@ -1,6 +1,6 @@
 {
   "name": "Remix: freefiretourment",
-  "description": "A client outreach tool to quickly send templated emails and messages via local storage.",
+  "description": "Professional Free Fire tournament and sensitivity config platform for Ms Eman Army, featuring squad registrations, creator visual stats, and live match portals.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

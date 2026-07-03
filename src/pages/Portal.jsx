@@ -8,9 +8,9 @@ export default function Portal() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "Squad Registration Portal | Es Freefire Arm - Kachu Army",
-    description: "Access the official Squad Registration and Player Verification portal of Kachu Army. Set up your squad name, verify teammate IDs, and register for active custom tournaments.",
-    keywords: "squad registration, player verification, freefire squad portal, kachu army player login, es freefire arm squad, freefire registration pakistan",
+    title: "Squad Registration Portal | Es Freefire Arm - Ms Eman Army",
+    description: "Access the official Squad Registration and Player Verification portal of Ms Eman Army. Set up your squad name, verify teammate IDs, and register for active custom tournaments.",
+    keywords: "squad registration, player verification, freefire squad portal, ms eman army player login, es freefire arm squad, freefire registration pakistan",
     ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
   });
 
@@ -482,7 +482,7 @@ export default function Portal() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
       </button>
-      <h1 className="text-3xl font-black text-orange-500 rgb-text italic mb-2 uppercase mt-4">kachu ARMY</h1>
+      <h1 className="text-3xl font-black text-orange-500 rgb-text italic mb-2 uppercase mt-4">MS EMAN ARMY</h1>
       <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Tournament Gate Pass</p>
 
       {/* Signup Form */}
@@ -773,7 +773,7 @@ export default function Portal() {
           <div className="glass-card-ios p-8 md:p-12 w-full max-w-md animate-ios">
             <div className="text-center mb-10">
               <h2 className="text-xs font-black text-white/60 tracking-[0.6em] uppercase mb-1">Free Fire</h2>
-              <h1 className="text-4xl font-black text-orange-500 rgb-glow italic tracking-tighter">Kachu ARMY</h1>
+              <h1 className="text-4xl font-black text-orange-500 rgb-glow italic tracking-tighter">MS EMAN ARMY</h1>
               <p className="text-slate-400 mt-6 text-[10px] font-bold uppercase tracking-widest border-t border-white/10 pt-4">Squad Portal Login</p>
             </div>
             
@@ -810,7 +810,7 @@ export default function Portal() {
           <header className="flex justify-between items-start mb-14 animate-ios">
             <div>
               <h2 className="text-xs font-black text-white/50 tracking-[0.5em] uppercase mb-1">Free Fire</h2>
-              <h1 className="text-4xl font-black text-orange-500 rgb-glow italic">KHUSHU ARMY</h1>
+              <h1 className="text-4xl font-black text-orange-500 rgb-glow italic">MS EMAN ARMY</h1>
               <div className="mt-3">
                 <span className="text-[9px] font-black text-white/40 tracking-[0.2em] bg-white/5 px-4 py-1.5 rounded-full uppercase border border-white/5">
                   {squadActiveUser}

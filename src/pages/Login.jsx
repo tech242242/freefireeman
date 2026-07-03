@@ -12,9 +12,9 @@ const Login = () => {
   const navigate = useNavigate();
 
   useSEO({
-    title: "Admin Organizer Login | Es Freefire Arm - Kachu Army",
-    description: "Secure login for organizers and administrators of Kachu Army & Es Freefire Arm esports. Manage tournaments, custom match rooms, squad placements, and user confirmations.",
-    keywords: "admin login freefire, esports administrator, kachu army moderator login, tournament control dashboard",
+    title: "Admin Organizer Login | Es Freefire Arm - Ms Eman Army",
+    description: "Secure login for organizers and administrators of Ms Eman Army & Es Freefire Arm esports. Manage tournaments, custom match rooms, squad placements, and user confirmations.",
+    keywords: "admin login freefire, esports administrator, ms eman army moderator login, tournament control dashboard",
     ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
   });
 

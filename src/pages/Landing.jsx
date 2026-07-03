@@ -6,9 +6,9 @@ export default function Landing() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "★ SAQIB X EMAN GAMING ★ | Es Freefire Arm - Kachu Army Tournaments",
-    description: "Welcome to SAQIB X EMAN GAMING, the official Es Freefire Arm and Kachu Army custom tournaments platform. Join registered matches, form squads, and dominate the battle royale esports scene.",
-    keywords: "es freefire arm, free fire, freefire tournament, kachu army, saqib x eman gaming, saqib visuals, saqib242, eman.zone.id, free fire tournaments pakistan, saqib esports, free fire custom room",
+    title: "★ SAQIB X EMAN GAMING ★ | Es Freefire Arm - Ms Eman Army Tournaments",
+    description: "Welcome to SAQIB X EMAN GAMING, the official Es Freefire Arm and Ms Eman Army custom tournaments platform. Join registered matches, form squads, and dominate the battle royale esports scene.",
+    keywords: "es freefire arm, free fire, freefire tournament, ms eman army, saqib x eman gaming, saqib visuals, saqib242, eman.zone.id, free fire tournaments pakistan, saqib esports, free fire custom room",
     ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
   });
 
@@ -301,7 +301,7 @@ export default function Landing() {
               </span>
             </div>
             <p className="text-slate-500 text-xs text-center md:text-left max-w-sm leading-relaxed font-medium">
-              Shaping the future of esports by delivering high-tier tournaments, real-time tracking, and legendary leagues for Kachu Army.
+              Shaping the future of esports by delivering high-tier tournaments, real-time tracking, and legendary leagues for Ms Eman Army.
             </p>
           </div>
 

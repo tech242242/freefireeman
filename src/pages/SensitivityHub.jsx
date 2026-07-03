@@ -42,7 +42,7 @@ export default function SensitivityHub() {
 
   // Set SEO metadata
   useEffect(() => {
-    document.title = "Free Fire Pro Sensitivity Hub - AI Powered 2X Boost | Kachu Army";
+    document.title = "Free Fire Pro Sensitivity Hub - AI Powered 2X Boost | Ms Eman Army";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute("content", "Get 100% headshot accuracy with custom Free Fire 2X Sensitivity settings. Use Saqib's AI Generator to get optimal settings for any device.");
@@ -140,7 +140,7 @@ export default function SensitivityHub() {
     statLabels.forEach((label, idx) => {
       text += `${statIcons[idx]} ${label}: ${values[idx]}\n`;
     });
-    text += `\nConfigured safely with anti-ban filters on Kachu Army Pro Sensitivity Hub.`;
+    text += `\nConfigured safely with anti-ban filters on Ms Eman Army Pro Sensitivity Hub.`;
     copyToClipboard(text, "All Settings");
   };
 
@@ -158,7 +158,7 @@ export default function SensitivityHub() {
     statLabels.forEach((label, idx) => {
       text += `${statIcons[idx]} ${label}: ${values[idx]}\n`;
     });
-    text += `\nOptimal headshot performance matrix generated on Kachu Army.`;
+    text += `\nOptimal headshot performance matrix generated on Ms Eman Army.`;
     copyToClipboard(text, "AI Settings");
   };
 
@@ -178,7 +178,7 @@ export default function SensitivityHub() {
               className="w-8 h-8 object-contain rounded-full border border-yellow-500/30"
             />
             <span className="bebas text-xl md:text-2xl tracking-widest text-white italic">
-              KACHU <span className="text-yellow-500">ARMY</span>
+              MS EMAN <span className="text-yellow-500">ARMY</span>
             </span>
           </div>
 

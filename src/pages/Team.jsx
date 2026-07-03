@@ -8,7 +8,7 @@ export default function Team() {
   useSEO({
     title: "Meet the Team | Es Freefire Arm - SAQIB X EMAN GAMING",
     description: "Discover the visionaries behind SAQIB X EMAN GAMING. Meet Eman, our expert dropshipping strategist, and Saqib, our lead AI developer.",
-    keywords: "saqib, eman, saqib x eman gaming, dropshipping expert, developer ai, freefire tournament organizers, kachu army founders",
+    keywords: "saqib, eman, saqib x eman gaming, dropshipping expert, developer ai, freefire tournament organizers, ms eman army founders",
     ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
   });
 

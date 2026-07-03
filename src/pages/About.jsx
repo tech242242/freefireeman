@@ -28,7 +28,7 @@ export default function About() {
     >
       <div className="text-center mb-12">
         <h2 className="bebas text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500 italic mb-4 drop-shadow-md">
-          ABOUT KACHU ARMY
+          ABOUT MS EMAN ARMY
         </h2>
         <div className="h-1 w-24 bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto mb-4"></div>
         <p className="text-gray-400 uppercase tracking-widest text-sm md:text-base font-medium">
@@ -49,11 +49,11 @@ export default function About() {
           </h3>
           
           <p className="text-slate-400 text-sm md:text-base leading-relaxed">
-            Kachu Army is an industry-grade esports tournament framework built exclusively for passionate gamers, competitive squads, and content creators. We organize daily matches, weekly cups, and major seasonal championships with thousands of active fighters.
+            Ms Eman Army is an industry-grade esports tournament framework built exclusively for passionate gamers, competitive squads, and content creators. We organize daily matches, weekly cups, and major seasonal championships with thousands of active fighters.
           </p>
 
           <p className="text-slate-400 text-sm md:text-base leading-relaxed">
-            Whether you are looking to kickstart your professional mobile gaming career or dominate the community with your elite squad, Kachu Army provides the ultimate platform, flawless coordination, and instant prize redemption.
+            Whether you are looking to kickstart your professional mobile gaming career or dominate the community with your elite squad, Ms Eman Army provides the ultimate platform, flawless coordination, and instant prize redemption.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4 text-xs font-bold tracking-widest uppercase text-yellow-400">

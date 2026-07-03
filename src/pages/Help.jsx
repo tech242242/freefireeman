@@ -11,7 +11,7 @@ export default function Help() {
     },
     {
       question: "What is the tournament format?",
-      answer: "All official Kachu Army tournaments run on a 4v4 squad format. Each room has a strict 12 teams maximum capacity to ensure fair play and optimal server performance."
+      answer: "All official Ms Eman Army tournaments run on a 4v4 squad format. Each room has a strict 12 teams maximum capacity to ensure fair play and optimal server performance."
     },
     {
       question: "How to make a payment?",

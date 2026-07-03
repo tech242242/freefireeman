@@ -29,7 +29,7 @@ export default function Contact() {
         </h2>
         <div className="h-1 w-24 bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto mb-4"></div>
         <p className="text-gray-400 uppercase tracking-widest text-sm md:text-base font-medium">
-          Contact Kachu Army Management & Support Team
+          Contact Ms Eman Army Management & Support Team
         </p>
       </div>
 

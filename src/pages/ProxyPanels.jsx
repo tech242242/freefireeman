@@ -17,9 +17,9 @@ export default function ProxyPanels() {
   }, []);
 
   useSEO({
-    title: "Free Fire Proxy & VIP Injection Panels | Kachu Army",
+    title: "Free Fire Proxy & VIP Injection Panels | Ms Eman Army",
     description: "Get 100% working Free Fire Proxy. Unlock unlimited diamonds, bundles, gold, level 100, evo guns, emotes and elite VIP gameplay injection panels.",
-    keywords: "free fire proxy, free fire unlimited diamonds, free fire vip panels, free fire mod apk, hg panel mediafire, spg4x, ffmax hack panel, kachu army vip panel",
+    keywords: "free fire proxy, free fire unlimited diamonds, free fire vip panels, free fire mod apk, hg panel mediafire, spg4x, ffmax hack panel, ms eman army vip panel",
     ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
   });
 
@@ -117,7 +117,7 @@ export default function ProxyPanels() {
               className="w-8 h-8 object-contain rounded-full border border-yellow-500/30"
             />
             <span className="bebas text-xl md:text-2xl tracking-widest text-white italic">
-              KACHU <span className="text-yellow-500">ARMY</span>
+              MS EMAN <span className="text-yellow-500">ARMY</span>
             </span>
           </div>
 

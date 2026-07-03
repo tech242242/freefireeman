@@ -16,12 +16,12 @@ export default function TournamentHome() {
   useSEO({
     title: "Esports Arena | Es Freefire Arm - Active Custom Matches",
     description: "Explore ongoing and upcoming Free Fire tournaments at SAQIB X EMAN GAMING. Register squads, check map details, slot distribution, rules, and win heavy cash prizes.",
-    keywords: "es freefire arm, free fire matches, register squad free fire, kachu army tournaments, free fire custom rooms, saqib esports tournament",
+    keywords: "es freefire arm, free fire matches, register squad free fire, ms eman army tournaments, free fire custom rooms, saqib esports tournament",
     ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
   });
 
   const [settings, setSettings] = useState({
-    name: "KACHU ARMY",
+    name: "MS EMAN ARMY",
     uid: "---",
     cover_url: "",
     profile_url: "",
@@ -237,8 +237,8 @@ export default function TournamentHome() {
                 />
               </div>
               <div className="flex flex-col">
-                <h1 className="bebas text-3xl text-white tracking-widest leading-none group-hover:text-yellow-400 transition-colors hidden sm:block drop-shadow-md">KACHU <span className="text-yellow-500">ARMY</span></h1>
-                <h1 className="bebas text-2xl text-white tracking-widest leading-none group-hover:text-yellow-400 transition-colors sm:hidden">KACHU <span className="text-yellow-500">ARMY</span></h1>
+                <h1 className="bebas text-3xl text-white tracking-widest leading-none group-hover:text-yellow-400 transition-colors hidden sm:block drop-shadow-md">MS EMAN <span className="text-yellow-500">ARMY</span></h1>
+                <h1 className="bebas text-2xl text-white tracking-widest leading-none group-hover:text-yellow-400 transition-colors sm:hidden">MS EMAN <span className="text-yellow-500">ARMY</span></h1>
                 <span className="text-[9px] uppercase tracking-[0.3em] text-gray-500 font-bold hidden sm:block mt-1">Esports Portal</span>
               </div>
             </motion.div>
@@ -646,7 +646,7 @@ export default function TournamentHome() {
         <footer className="bg-black/80 backdrop-blur-md border-t border-yellow-500/20 mt-20 relative z-10">
           <div className="max-w-6xl mx-auto px-4 py-12">
             <div className="text-center">
-              <h2 className="bebas text-3xl text-yellow-500 mb-2 italic tracking-wider">KACHU ARMY</h2>
+              <h2 className="bebas text-3xl text-yellow-500 mb-2 italic tracking-wider">MS EMAN ARMY</h2>
               <p className="text-gray-400 text-sm mb-6 tracking-widest uppercase">
                 Professional Free Fire Tournament Platform
               </p>
@@ -654,7 +654,7 @@ export default function TournamentHome() {
               <div className="h-px w-32 bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent mx-auto mb-6"></div>
               
               <p className="text-gray-500 text-xs mb-8 uppercase tracking-wider font-bold">
-                © {new Date().getFullYear()} Khushu Army Official. All rights reserved.
+                © {new Date().getFullYear()} Ms Eman Army Official. All rights reserved.
               </p>
 
               {/* Creator Socials */}
