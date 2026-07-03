@@ -58,7 +58,7 @@ export default function Landing() {
             <motion.button 
               whileHover={{ scale: 1.08, y: -2, boxShadow: "0 10px 20px rgba(34,197,94,0.3)" }}
               whileTap={{ scale: 0.96 }}
-              onClick={() => window.open("https://www.google.com/search?q=saqib242", "_blank")}
+              onClick={() => window.open("https://mrsaqib242.vercel.app", "_blank")}
               className="bg-green-500 hover:bg-green-400 text-black px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all cursor-pointer"
               style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)' }}
             >
@@ -186,7 +186,7 @@ export default function Landing() {
           className="w-full md:w-1/2"
         >
           <img 
-            src="https://ik.imagekit.io/19imy4f1u/lite_1783019323177_dFKKyacLl.webp" 
+            src="https://ik.imagekit.io/19imy4f1u/lite_1783071731677_58B39hkfm.png" 
             alt="About Our Gaming Site" 
             className="w-full h-auto rounded-3xl border-2 border-green-500/20 shadow-[0_0_50px_rgba(34,197,94,0.15)] object-cover"
           />
@@ -311,11 +311,82 @@ export default function Landing() {
             <button onClick={() => navigate('/login')} className="hover:text-green-400 transition-colors">Admin Login</button>
           </div>
 
-          <div className="flex gap-4">
-            {/* Social Icons */}
-            <a href="https://www.youtube.com/@saqib242" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg border border-white/10 hover:border-green-500/50 flex items-center justify-center hover:bg-green-500/10 text-slate-400 hover:text-green-400 transition-all">
-              <span className="text-sm">📺</span>
-            </a>
+          <div className="flex flex-wrap gap-5 justify-center md:justify-end">
+            {/* WhatsApp - Glossy 3D App Icon Style */}
+            <motion.a 
+              whileHover={{ scale: 1.12, y: -4, rotate: -2 }}
+              whileTap={{ scale: 0.92 }}
+              href="https://wa.me/923478936242" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#2be673] to-[#1cb854] text-white shadow-[0_10px_25px_rgba(37,211,102,0.45)] overflow-hidden cursor-pointer group"
+            >
+              {/* Glossy Diagonal Shine Highlight */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/35 pointer-events-none z-20 group-hover:left-[100%] transition-all duration-1000 ease-out" style={{ left: '-100%', width: '200%' }} />
+              {/* Inner Soft Gradient Ring */}
+              <div className="absolute inset-[1px] rounded-[14px] bg-gradient-to-b from-white/15 to-transparent pointer-events-none z-10" />
+              
+              <svg className="w-7 h-7 fill-white z-10 drop-shadow-[0_2px_5px_rgba(0,0,0,0.25)]" viewBox="0 0 24 24">
+                <path d="M12.031 0C5.39 0 0 5.402 0 12.044c0 2.116.547 4.192 1.586 6.012L0 24l6.12-1.61c1.765.966 3.753 1.48 5.799 1.48C18.57 23.87 24 18.468 24 11.82 24 5.18 18.57 0 12.031 0zm0 21.873c-1.9 0-3.75-.512-5.36-1.478l-.38-.22-3.64.954.97-3.543-.24-.384c-1.06-1.69-1.62-3.664-1.62-5.71C1.76 5.92 6.37 1.306 12.03 1.306c2.74 0 5.31 1.07 7.25 3.012a10.16 10.16 0 0 1 3.01 7.26c0 5.652-4.61 10.267-10.26 10.267zm5.55-7.59c-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.36.23-.66.08-1.03-.52-1.81-.94-2.49-2.11-.27-.46.27-.43.77-1.43.08-.15.04-.28-.02-.38-.06-.1-.68-1.63-.93-2.23-.25-.59-.5-.51-.68-.52-.17-.01-.37-.01-.57-.01-.2 0-.52.08-.79.37-.27.3-1.03 1-1.03 2.44 0 1.44 1.05 2.83 1.2 3.03.15.2 2.06 3.15 5 4.41.7.3 1.24.48 1.66.61.71.22 1.35.19 1.85.12.56-.08 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.08-.13-.28-.2-.58-.35z"/>
+              </svg>
+            </motion.a>
+
+            {/* TikTok - Premium Sleek Dark Style */}
+            <motion.a 
+              whileHover={{ scale: 1.12, y: -4, rotate: 2 }}
+              whileTap={{ scale: 0.92 }}
+              href="https://www.tiktok.com/@mr_saqib_242" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#242428] to-[#0a0a0c] text-white shadow-[0_10px_25px_rgba(0,0,0,0.6)] overflow-hidden cursor-pointer group"
+            >
+              {/* Glossy Diagonal Shine Highlight */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/30 pointer-events-none z-20 group-hover:left-[100%] transition-all duration-1000 ease-out" style={{ left: '-100%', width: '200%' }} />
+              {/* Inner Soft Ring */}
+              <div className="absolute inset-[1px] rounded-[14px] bg-gradient-to-b from-white/10 to-transparent pointer-events-none z-10" />
+
+              <svg className="w-7 h-7 text-white fill-current z-10 drop-shadow-[0_2px_5px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .8.11V9.4a6.27 6.27 0 0 0-3.11.3 6.3 6.3 0 0 0-3.64 5.39 6.3 6.3 0 0 0 5.4 7.07 6.3 6.3 0 0 0 6.94-5.27V11a8.27 8.27 0 0 0 5.74 2.29V9.83a4.8 4.8 0 0 1-1.97-.84 4.75 4.75 0 0 1-1.62-2.3z"/>
+              </svg>
+            </motion.a>
+
+            {/* Instagram - Vibrant Premium Sunset Style */}
+            <motion.a 
+              whileHover={{ scale: 1.12, y: -4, rotate: -2 }}
+              whileTap={{ scale: 0.92 }}
+              href="https://www.instagram.com/mr_saqib242" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-tr from-[#f9ce3f] via-[#e1306c] to-[#833ab4] text-white shadow-[0_10px_25px_rgba(225,48,108,0.45)] overflow-hidden cursor-pointer group"
+            >
+              {/* Glossy Diagonal Shine Highlight */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/35 pointer-events-none z-20 group-hover:left-[100%] transition-all duration-1000 ease-out" style={{ left: '-100%', width: '200%' }} />
+              {/* Inner Soft Ring */}
+              <div className="absolute inset-[1px] rounded-[14px] bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
+
+              <svg className="w-7 h-7 fill-white z-10 drop-shadow-[0_2px_5px_rgba(0,0,0,0.25)]" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </motion.a>
+
+            {/* Facebook - Royal Metallic Blue Style */}
+            <motion.a 
+              whileHover={{ scale: 1.12, y: -4, rotate: 2 }}
+              whileTap={{ scale: 0.92 }}
+              href="https://web.facebook.com/muhammad.saqib.718278" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#18acf8] to-[#1877F2] text-white shadow-[0_10px_25px_rgba(24,119,242,0.45)] overflow-hidden cursor-pointer group"
+            >
+              {/* Glossy Diagonal Shine Highlight */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/35 pointer-events-none z-20 group-hover:left-[100%] transition-all duration-1000 ease-out" style={{ left: '-100%', width: '200%' }} />
+              {/* Inner Soft Ring */}
+              <div className="absolute inset-[1px] rounded-[14px] bg-gradient-to-b from-white/15 to-transparent pointer-events-none z-10" />
+
+              <svg className="w-7 h-7 fill-white z-10 drop-shadow-[0_2px_5px_rgba(0,0,0,0.25)]" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </motion.a>
           </div>
         </div>
 

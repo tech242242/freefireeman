@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate, useLocation } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import WelcomeAnimation from "./components/WelcomeAnimation";
 import Landing from "./pages/Landing";
@@ -14,6 +14,16 @@ import Admin from "./pages/Admin";
 import WebDashboard from "./pages/WebDashboard";
 import SquadManager from "./pages/SquadManager";
 import AdminNavbar from "./components/AdminNavbar"; // Admin کے لیے الگ Navbar
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
   const [showWelcome, setShowWelcome] = useState(true);
@@ -38,6 +48,7 @@ export default function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       {showWelcome ? (
         <WelcomeAnimation onComplete={handleWelcomeComplete} />
       ) : (

@@ -35,7 +35,7 @@ export default function Team() {
       id: "saqib",
       name: "Muhammad Saqib",
       role: "Developer AI",
-      avatar: "https://ik.imagekit.io/19imy4f1u/lite_1783018986990_YwvGM9ty_.png",
+      avatar: "https://ik.imagekit.io/shaban/SHABAN-1768573425069_nIPVZQOaT.jpg",
       glowColor: "rgba(34,197,94,0.4)", // Green glow
       borderColor: "border-green-500/30",
       accentColor: "text-green-500",
