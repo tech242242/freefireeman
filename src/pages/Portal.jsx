@@ -330,16 +330,52 @@ export default function Portal() {
   };
 
   // Squad portal functions
-  const goToSquadPortal = () => {
-    copyToClipboard(`ID: ${assignedCredentials.username}\nPass: ${assignedCredentials.password}`);
-    showToast("Credentials copied! Opening Squad Portal...");
-    
-    setActiveScreen("squadPortal");
-    setFormData(prev => ({
-      ...prev,
-      authId: assignedCredentials.username,
-      authPass: assignedCredentials.password
-    }));
+  const goToSquadPortal = async () => {
+    const authId = assignedCredentials.username;
+    const authPass = assignedCredentials.password;
+
+    if (!authId || !authPass) {
+      setActiveScreen("squadPortal");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const { data, error } = await supabase
+        .from('squad_auth')
+        .select('*')
+        .eq('user_id', authId.toUpperCase().trim())
+        .eq('password', authPass)
+        .single();
+
+      if (error || !data) {
+        setActiveScreen("squadPortal");
+        setFormData(prev => ({
+          ...prev,
+          authId,
+          authPass
+        }));
+        return;
+      }
+
+      setSquadActiveUser(authId.toUpperCase().trim());
+      await checkIfRegistrationExists(authId.toUpperCase().trim());
+      
+      setFormData(prev => ({
+        ...prev,
+        authId: authId,
+        authPass: authPass
+      }));
+
+      copyToClipboard(`ID: ${authId}\nPass: ${authPass}`);
+      showToast("Access Granted! Opening Squad Portal...");
+      setActiveScreen("squadPortal");
+    } catch (err) {
+      console.error(err);
+      setActiveScreen("squadPortal");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const goBackToMain = () => {
@@ -707,34 +743,8 @@ export default function Portal() {
         </svg>
       </div>
       <h2 className="text-3xl font-black text-white italic uppercase mb-1">Access Granted</h2>
-      <p className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-6">Your Slot is Confirmed!</p>
-      <div className="bg-black/40 p-6 rounded-2xl border border-white/10 mb-6 text-left relative">
-        <p className="text-[10px] font-black text-orange-500 uppercase mb-4">Assigned Credentials</p>
-        <div className="flex justify-between items-center mb-4 pb-4 border-b border-white/5">
-          <div>
-            <span className="text-[10px] text-slate-500 block uppercase">Username</span>
-            <span className="font-mono font-black text-xl text-white">{assignedCredentials.username}</span>
-          </div>
-          <button 
-            onClick={() => copyToClipboard(assignedCredentials.username)}
-            className="copy-btn"
-          >
-            COPY
-          </button>
-        </div>
-        <div className="flex justify-between items-center">
-          <div>
-            <span className="text-[10px] text-slate-500 block uppercase">Password</span>
-            <span className="font-mono font-black text-xl text-white tracking-widest">{assignedCredentials.password}</span>
-          </div>
-          <button 
-            onClick={() => copyToClipboard(assignedCredentials.password)}
-            className="copy-btn"
-          >
-            COPY
-          </button>
-        </div>
-      </div>
+      <p className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-8">Your Slot is Confirmed!</p>
+      
       <button 
         onClick={goToSquadPortal}
         className="w-full bg-orange-600 hover:bg-orange-500 py-5 rounded-2xl font-black uppercase text-lg shadow-xl shadow-orange-600/20 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
@@ -750,7 +760,7 @@ export default function Portal() {
       <div 
         className="fixed top-0 left-0 w-full h-full bg-cover bg-center opacity-75 -z-10"
         style={{
-          backgroundImage: "url('https://ik.imagekit.io/shaban/SHABAN-1768916053366_fxqIWiUP-.jpg')"
+          backgroundImage: "url('https://i.pinimg.com/736x/c4/55/fd/c455fdd685e8c67c5600c14f35aa5226.jpg')"
         }}
       />
 
@@ -1035,7 +1045,7 @@ export default function Portal() {
       <div 
         className="fixed top-0 left-0 w-full h-full bg-cover bg-center opacity-75 -z-10"
         style={{
-          backgroundImage: "url('https://ik.imagekit.io/shaban/SHABAN-1768916053366_fxqIWiUP-.jpg')"
+          backgroundImage: "url('https://i.pinimg.com/736x/c4/55/fd/c455fdd685e8c67c5600c14f35aa5226.jpg')"
         }}
       />
 
