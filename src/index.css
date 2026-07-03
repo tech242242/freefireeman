@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Gaming & Esports Styles */
+@layer base {
+  body {
+    font-family: 'Oxanium', 'Rajdhani', system-ui, -apple-system, sans-serif;
+    background-color: #030303;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+}
+
+/* Background Cyber Grid */
+.bg-cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+/* Custom font utilities */
+.bebas {
+  font-family: 'Bebas Neue', 'Oxanium', sans-serif;
+  letter-spacing: 0.08em;
+}
+
+/* Glassmorphism panel styling */
+.glass {
+  background: rgba(10, 10, 12, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(234, 179, 8, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(234, 179, 8, 0.02);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass:hover {
+  border-color: rgba(234, 179, 8, 0.5);
+  box-shadow: 0 8px 40px rgba(234, 179, 8, 0.15), inset 0 0 30px rgba(234, 179, 8, 0.05);
+  transform: translateY(-2px);
+}
+
+/* High-intensity gaming gradient button */
+.btn-gradient {
+  background: linear-gradient(135deg, #facc15 0%, #ea580c 100%);
+  color: #000000;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-gradient::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ea580c 0%, #facc15 100%);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.btn-gradient:hover:not(:disabled)::after {
+  opacity: 1;
+}
+
+.btn-gradient:hover:not(:disabled) {
+  color: #000;
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(250, 204, 21, 0.5);
+}
+
+/* RGB / Golden Spinning Border Ring */
+.rgb-ring {
+  position: relative;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(90deg, #facc15, #f97316, #ea580c, #facc15);
+  background-size: 300% 300%;
+  animation: rgb-glow-spin 3s linear infinite;
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+}
+
+@keyframes rgb-glow-spin {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Tournament banner image container */
+.tour-img-container {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+  background-color: #050505;
+}
+
+.tour-img-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(5, 5, 5, 1) 0%, rgba(5, 5, 5, 0.8) 30%, transparent 100%);
+  pointer-events: none;
+}
+
+.tour-img-full {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass:hover .tour-img-full {
+  transform: scale(1.08) translateY(-2%);
+}
+
+/* Custom Scrollbar for gaming style */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ca8a04;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #facc15;
+}
