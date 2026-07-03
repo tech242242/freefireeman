@@ -8,9 +8,9 @@ export default function Portal() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "Squad Registration Portal | Es Freefire Arm - Ms Eman Army",
-    description: "Access the official Squad Registration and Player Verification portal of Ms Eman Army. Set up your squad name, verify teammate IDs, and register for active custom tournaments.",
-    keywords: "squad registration, player verification, freefire squad portal, ms eman army player login, es freefire arm squad, freefire registration pakistan",
+    title: "Squad Registration Portal | Es Freefire Arm - Eman FF Army",
+    description: "Access the official Squad Registration and Player Verification portal of Eman FF Army & Saqib x Eman Gaming. Set up your squad name, verify teammate IDs, and register for active custom tournaments.",
+    keywords: "eman ff army, squad registration, player verification, freefire squad portal, ms eman army player login, es freefire arm squad, freefire registration pakistan, saqib x eman gaming",
     ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
   });
 

@@ -6,9 +6,9 @@ export default function Landing() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "★ SAQIB X EMAN GAMING ★ | Es Freefire Arm - Ms Eman Army Tournaments",
-    description: "Welcome to SAQIB X EMAN GAMING, the official Es Freefire Arm and Ms Eman Army custom tournaments platform. Join registered matches, form squads, and dominate the battle royale esports scene.",
-    keywords: "es freefire arm, free fire, freefire tournament, ms eman army, saqib x eman gaming, saqib visuals, saqib242, eman.zone.id, free fire tournaments pakistan, saqib esports, free fire custom room",
+    title: "★ EMAN FF ARMY ★ | Saqib x Eman Gaming - Es Freefire Arm Tournaments",
+    description: "Welcome to EMAN FF ARMY, the official Es Freefire Arm and Saqib x Eman Gaming custom tournaments platform. Join registered matches, form squads, and dominate the battle royale esports scene.",
+    keywords: "eman ff army, eman ff, ff eman army, eman army ff, es freefire arm, free fire, freefire tournament, ms eman army, saqib x eman gaming, saqib visuals, saqib242, eman.zone.id, free fire tournaments pakistan, saqib esports, free fire custom room",
     ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
   });
 
@@ -46,7 +46,7 @@ export default function Landing() {
           className="w-full md:w-1/3 flex flex-col items-center text-center px-2 z-20"
         >
           <p className="text-green-500 font-bold uppercase tracking-widest text-[10px] md:text-xs mb-4">
-            ★ SAQIB X EMAN GAMING ★
+            ★ EMAN FF ARMY × SAQIB X EMAN GAMING ★
           </p>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase italic leading-tight mb-8">

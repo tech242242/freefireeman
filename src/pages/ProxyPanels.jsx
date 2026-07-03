@@ -17,9 +17,9 @@ export default function ProxyPanels() {
   }, []);
 
   useSEO({
-    title: "Free Fire Proxy & VIP Injection Panels | Ms Eman Army",
+    title: "Free Fire Proxy & VIP Injection Panels | Eman FF Army",
     description: "Get 100% working Free Fire Proxy. Unlock unlimited diamonds, bundles, gold, level 100, evo guns, emotes and elite VIP gameplay injection panels.",
-    keywords: "free fire proxy, free fire unlimited diamonds, free fire vip panels, free fire mod apk, hg panel mediafire, spg4x, ffmax hack panel, ms eman army vip panel",
+    keywords: "eman ff army, free fire proxy, free fire unlimited diamonds, free fire vip panels, free fire mod apk, hg panel mediafire, spg4x, ffmax hack panel, ms eman army vip panel, saqib x eman gaming",
     ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
   });
 

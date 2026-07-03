@@ -42,7 +42,7 @@ export default function SensitivityHub() {
 
   // Set SEO metadata
   useEffect(() => {
-    document.title = "Free Fire Pro Sensitivity Hub - AI Powered 2X Boost | Ms Eman Army";
+    document.title = "Free Fire Pro Sensitivity Hub - AI Powered 2X Boost | Eman FF Army";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute("content", "Get 100% headshot accuracy with custom Free Fire 2X Sensitivity settings. Use Saqib's AI Generator to get optimal settings for any device.");

@@ -14,9 +14,9 @@ import Owner from "./Owner";
 export default function TournamentHome() {
   const navigate = useNavigate();
   useSEO({
-    title: "Esports Arena | Es Freefire Arm - Active Custom Matches",
-    description: "Explore ongoing and upcoming Free Fire tournaments at SAQIB X EMAN GAMING. Register squads, check map details, slot distribution, rules, and win heavy cash prizes.",
-    keywords: "es freefire arm, free fire matches, register squad free fire, ms eman army tournaments, free fire custom rooms, saqib esports tournament",
+    title: "Esports Arena | Es Freefire Arm - Eman FF Army Tournaments",
+    description: "Explore ongoing and upcoming Free Fire tournaments organized by EMAN FF ARMY & SAQIB X EMAN GAMING. Register squads, check map details, slot distribution, rules, and win heavy cash prizes.",
+    keywords: "eman ff army, es freefire arm, free fire matches, register squad free fire, ms eman army tournaments, free fire custom rooms, saqib esports tournament, saqib x eman gaming",
     ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
   });
 
