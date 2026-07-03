@@ -85,7 +85,7 @@ export default function TournamentHome() {
 
       if (settingsData) {
         setSettings({
-          name: settingsData.name || "KUASHU ARMY",
+          name: settingsData.name || "MS EMAN ARMY",
           uid: settingsData.uid || "---",
           cover_url: settingsData.cover_url || "",
           profile_url: settingsData.profile_url || "",
