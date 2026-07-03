@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { createClient } from '@supabase/supabase-js';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import useSEO from "../hooks/useSEO";
 
@@ -467,7 +467,13 @@ export default function Portal() {
 
   // Render different screens
   const renderAuthScreen = () => (
-    <div className="relative glass-card p-8 w-full max-w-md text-center">
+    <motion.div 
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -30, scale: 0.95 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="relative glass-card p-8 w-full max-w-md text-center"
+    >
       <button 
         onClick={() => navigate('/home')} 
         className="absolute top-4 left-4 text-slate-400 hover:text-white transition-colors flex items-center justify-center bg-white/5 w-8 h-8 rounded-full border border-white/10 hover:bg-white/10 shadow-lg"
@@ -548,11 +554,17 @@ export default function Portal() {
           </p>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 
   const renderPaymentScreen = () => (
-    <div className="glass-card p-8 w-full max-w-lg">
+    <motion.div 
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -30, scale: 0.95 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="glass-card p-8 w-full max-w-lg"
+    >
       <div className="text-center mb-6">
         <h2 className="text-2xl font-black text-white uppercase italic">Bank Transfer Details</h2>
         <p className="text-slate-400 text-xs mt-1">Send Payment to Bank Account</p>
@@ -655,11 +667,17 @@ export default function Portal() {
           {isLoading ? "Uploading..." : "Verify Payment"}
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 
   const renderPendingScreen = () => (
-    <div className="glass-card p-10 w-full max-w-md text-center">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.4 }}
+      className="glass-card p-10 w-full max-w-md text-center"
+    >
       <div className="w-20 h-20 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
       <h2 className="text-2xl font-black text-white uppercase mb-2">Payment Under Review</h2>
       <p className="text-slate-400 text-sm font-bold">
@@ -671,11 +689,17 @@ export default function Portal() {
       >
         Check Status Now
       </button>
-    </div>
+    </motion.div>
   );
 
   const renderSuccessScreen = () => (
-    <div className="glass-card p-8 w-full max-w-md text-center relative overflow-hidden">
+    <motion.div 
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -30, scale: 0.95 }}
+      transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
+      className="glass-card p-8 w-full max-w-md text-center relative overflow-hidden"
+    >
       <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500"></div>
       <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_#22c55e]">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -713,11 +737,11 @@ export default function Portal() {
       </div>
       <button 
         onClick={goToSquadPortal}
-        className="w-full bg-orange-600 hover:bg-orange-500 py-5 rounded-2xl font-black uppercase text-lg shadow-xl shadow-orange-600/20 active:scale-95 transition-all flex items-center justify-center gap-2"
+        className="w-full bg-orange-600 hover:bg-orange-500 py-5 rounded-2xl font-black uppercase text-lg shadow-xl shadow-orange-600/20 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
       >
         Access Squad Portal
       </button>
-    </div>
+    </motion.div>
   );
 
   const renderSquadPortal = () => (
@@ -1042,7 +1066,9 @@ export default function Portal() {
       {/* Main Portal Content */}
       {activeScreen !== "squadPortal" && (
         <div className="min-h-screen flex items-center justify-center p-4">
-          {renderScreen()}
+          <AnimatePresence mode="wait">
+            {renderScreen()}
+          </AnimatePresence>
         </div>
       )}
 

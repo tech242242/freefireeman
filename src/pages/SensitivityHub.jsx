@@ -384,13 +384,21 @@ export default function SensitivityHub() {
                 className="grid grid-cols-2 md:grid-cols-3 gap-4"
               >
                 {Object.keys(phoneData).map((brand, idx) => (
-                  <div 
+                  <motion.div 
                     key={idx}
                     onClick={() => {
                       setSelectedBrand(brand);
                       setActiveStep("models");
                     }}
-                    className="glass border border-white/5 hover:border-yellow-500/30 bg-black/60 rounded-2xl p-6 text-center cursor-pointer hover:bg-white/[0.01] transition-all relative group overflow-hidden"
+                    whileHover={{ 
+                      y: -6, 
+                      scale: 1.02,
+                      borderColor: "rgba(234,179,8,0.4)",
+                      boxShadow: "0 15px 30px rgba(234,179,8,0.15)"
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="glass border border-white/5 bg-black/60 rounded-2xl p-6 text-center cursor-pointer relative group overflow-hidden"
                   >
                     <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-yellow-500/5 to-transparent pointer-events-none"></div>
                     <Smartphone className="w-8 h-8 mx-auto text-yellow-500/40 group-hover:text-yellow-500 transition-colors mb-3" />
@@ -400,7 +408,7 @@ export default function SensitivityHub() {
                     <span className="text-[9px] text-gray-500 font-mono tracking-widest uppercase">
                       {Object.keys(phoneData[brand]).length} configs active
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
               </motion.div>
             )}
@@ -415,7 +423,7 @@ export default function SensitivityHub() {
                 <div className="flex items-center justify-between">
                   <button 
                     onClick={() => setActiveStep("brands")}
-                    className="text-[10px] text-gray-400 hover:text-white uppercase font-black tracking-widest flex items-center gap-1"
+                    className="text-[10px] text-gray-400 hover:text-white uppercase font-black tracking-widest flex items-center gap-1 cursor-pointer"
                   >
                     <ArrowLeft className="w-3.5 h-3.5" /> Back to Brands
                   </button>
@@ -426,13 +434,19 @@ export default function SensitivityHub() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-96 overflow-y-auto pr-1">
                   {Object.keys(phoneData[selectedBrand]).map((model, idx) => (
-                    <div 
+                    <motion.div 
                       key={idx}
                       onClick={() => {
                         setSelectedModel(model);
                         setIsDbLocked(true);
                       }}
-                      className="glass border border-white/5 hover:border-yellow-500/30 bg-black/60 hover:bg-white/[0.01] px-5 py-4 rounded-xl cursor-pointer flex justify-between items-center transition-all group"
+                      whileHover={{ 
+                        x: 6, 
+                        borderColor: "rgba(234,179,8,0.4)",
+                        backgroundColor: "rgba(255,255,255,0.02)"
+                      }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      className="glass border border-white/5 bg-black/60 px-5 py-4 rounded-xl cursor-pointer flex justify-between items-center transition-all group"
                     >
                       <span className="font-bold text-sm tracking-wide text-gray-300 group-hover:text-white">
                         {selectedBrand} {model}
@@ -440,7 +454,7 @@ export default function SensitivityHub() {
                       <span className="text-yellow-500/50 group-hover:text-yellow-500 transition-colors flex items-center gap-1 text-[10px] uppercase tracking-widest font-black">
                         <Lock className="w-3.5 h-3.5" /> UNLOCK PRO
                       </span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>

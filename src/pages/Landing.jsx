@@ -55,37 +55,49 @@ export default function Landing() {
           </h1>
           
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <button 
+            <motion.button 
+              whileHover={{ scale: 1.08, y: -2, boxShadow: "0 10px 20px rgba(34,197,94,0.3)" }}
+              whileTap={{ scale: 0.96 }}
               onClick={() => window.open("https://www.google.com/search?q=saqib242", "_blank")}
-              className="bg-green-500 hover:bg-green-400 text-black px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all hover:scale-105"
+              className="bg-green-500 hover:bg-green-400 text-black px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all cursor-pointer"
               style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)' }}
             >
               Explore More →
-            </button>
-            <button 
+            </motion.button>
+            <motion.button 
+              whileHover={{ scale: 1.08, y: -2, brightness: 1.1, boxShadow: "0 12px 25px rgba(234,179,8,0.5)" }}
+              whileTap={{ scale: 0.96 }}
               onClick={() => navigate('/proxy-panels')}
-              className="bg-gradient-to-r from-red-600 via-amber-500 to-yellow-500 hover:brightness-110 text-white px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all hover:scale-105 shadow-[0_0_20px_rgba(234,179,8,0.4)]"
+              className="bg-gradient-to-r from-red-600 via-amber-500 to-yellow-500 text-white px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(234,179,8,0.4)] cursor-pointer"
               style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)' }}
             >
               VIP PROXY & PANELS 💀
-            </button>
-            <button 
+            </motion.button>
+            <motion.button 
+              whileHover={{ scale: 1.08, y: -2, boxShadow: "0 10px 20px rgba(234,179,8,0.3)" }}
+              whileTap={{ scale: 0.96 }}
               onClick={() => window.open("https://whatsapp.com/channel/0029Vb8oiIrKGGGDehRhyJ18", "_blank")}
-              className="bg-yellow-500 hover:bg-yellow-400 text-black px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all hover:scale-105"
+              className="bg-yellow-500 hover:bg-yellow-400 text-black px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all cursor-pointer"
               style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)' }}
             >
               Join Channel →
-            </button>
-            <button 
+            </motion.button>
+            <motion.button 
+              whileHover={{ scale: 1.08, y: -2, boxShadow: "0 10px 20px rgba(34,197,94,0.2)" }}
+              whileTap={{ scale: 0.96 }}
               onClick={() => navigate('/team')}
-              className="bg-gradient-to-r from-red-600 to-green-600 hover:from-red-500 hover:to-green-500 text-white px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all hover:scale-105 shadow-[0_0_15px_rgba(34,197,94,0.3)]"
+              className="bg-gradient-to-r from-red-600 to-green-600 text-white px-5 py-2.5 rounded-sm font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(34,197,94,0.3)] cursor-pointer"
               style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)' }}
             >
               OUR TEAM ★
-            </button>
+            </motion.button>
           </div>
 
-          <div className="glass border border-green-500/20 rounded-3xl p-8 md:p-10 w-full max-w-sm relative overflow-hidden backdrop-blur-xl">
+          <motion.div 
+            whileHover={{ scale: 1.03, y: -5, borderColor: "rgba(34,197,94,0.4)", boxShadow: "0 25px 50px -12px rgba(34,197,94,0.25)" }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="glass border border-green-500/20 rounded-3xl p-8 md:p-10 w-full max-w-sm relative overflow-hidden backdrop-blur-xl"
+          >
             <div className="absolute inset-0 bg-gradient-to-b from-green-500/10 to-transparent"></div>
             
             <h2 className="text-2xl font-black text-white mb-3 relative z-10 uppercase italic">
@@ -95,14 +107,16 @@ export default function Landing() {
               Beyond esports tournaments, include a broader calendar of gaming events, conferences, and conventions.
             </p>
             
-            <button 
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => navigate('/home')}
-              className="bg-green-500 hover:bg-green-400 text-black px-8 py-3.5 rounded-sm font-black uppercase tracking-widest transition-all hover:scale-105 shadow-[0_0_20px_rgba(34,197,94,0.3)] relative z-10 w-full"
+              className="bg-green-500 hover:bg-green-400 text-black px-8 py-3.5 rounded-sm font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)] relative z-10 w-full cursor-pointer"
               style={{ clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0 100%)' }}
             >
               JOIN NOW →
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
           {/* Premium Mobile Characters Display - Perfect for small screens */}
           <div className="flex md:hidden w-full items-end justify-center gap-10 mt-10 relative max-w-sm px-4">
@@ -199,53 +213,74 @@ export default function Landing() {
 
           <div className="flex flex-col gap-8 mt-4">
             {/* Feature 1 */}
-            <div className="flex gap-6 items-start">
-              <div className="w-16 h-16 shrink-0 rounded-2xl border border-green-500/30 flex items-center justify-center bg-green-500/10 relative overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ x: 8, transition: { duration: 0.2 } }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex gap-6 items-start cursor-pointer group"
+            >
+              <div className="w-16 h-16 shrink-0 rounded-2xl border border-green-500/30 flex items-center justify-center bg-green-500/10 relative overflow-hidden group-hover:border-green-400 group-hover:bg-green-500/20 transition-colors">
                 <div className="absolute inset-0 bg-green-500/20 animate-pulse"></div>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-400 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-400 relative z-10 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-white font-bold text-xl mb-2 tracking-wide">Over <span className="text-green-500">1k+</span> Affiliate Game Programs</h3>
+                <h3 className="text-white font-bold text-xl mb-2 tracking-wide group-hover:text-green-400 transition-colors">Over <span className="text-green-500">1k+</span> Affiliate Game Programs</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">
                   Keep users informed about the gaming industry with news articles on releases, updates, and events.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Feature 2 */}
-            <div className="flex gap-6 items-start">
-              <div className="w-16 h-16 shrink-0 rounded-2xl border border-yellow-500/30 flex items-center justify-center bg-yellow-500/10 relative overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ x: 8, transition: { duration: 0.2 } }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex gap-6 items-start cursor-pointer group"
+            >
+              <div className="w-16 h-16 shrink-0 rounded-2xl border border-yellow-500/30 flex items-center justify-center bg-yellow-500/10 relative overflow-hidden group-hover:border-yellow-400 group-hover:bg-yellow-500/20 transition-colors">
                 <div className="absolute inset-0 bg-yellow-500/20 animate-pulse" style={{ animationDelay: '500ms' }}></div>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-yellow-400 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-yellow-400 relative z-10 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-white font-bold text-xl mb-2 tracking-wide">Great Tournaments</h3>
+                <h3 className="text-white font-bold text-xl mb-2 tracking-wide group-hover:text-yellow-400 transition-colors">Great Tournaments</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">
                   Display a calendar of upcoming tournaments with dates, times, and game titles and provide live updates.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Feature 3 */}
-            <div className="flex gap-6 items-start">
-              <div className="w-16 h-16 shrink-0 rounded-2xl border border-blue-500/30 flex items-center justify-center bg-blue-500/10 relative overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ x: 8, transition: { duration: 0.2 } }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex gap-6 items-start cursor-pointer group"
+            >
+              <div className="w-16 h-16 shrink-0 rounded-2xl border border-blue-500/30 flex items-center justify-center bg-blue-500/10 relative overflow-hidden group-hover:border-blue-400 group-hover:bg-blue-500/20 transition-colors">
                 <div className="absolute inset-0 bg-blue-500/20 animate-pulse" style={{ animationDelay: '1000ms' }}></div>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-400 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-400 relative z-10 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-white font-bold text-xl mb-2 tracking-wide">Get Online Supports</h3>
+                <h3 className="text-white font-bold text-xl mb-2 tracking-wide group-hover:text-blue-400 transition-colors">Get Online Supports</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">
                   Create profiles for professional esports players, including their bios, achievements, and current teams.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

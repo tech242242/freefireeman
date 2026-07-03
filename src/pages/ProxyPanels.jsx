@@ -1,11 +1,20 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import useSEO from "../hooks/useSEO";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ProxyPanels() {
   const navigate = useNavigate();
   const [copiedText, setCopiedText] = useState("");
+  const [showJoinPopup, setShowJoinPopup] = useState(false);
+
+  useEffect(() => {
+    // Show the popup automatically 400ms after component mounts for organic feel
+    const timer = setTimeout(() => {
+      setShowJoinPopup(true);
+    }, 400);
+    return () => clearTimeout(timer);
+  }, []);
 
   useSEO({
     title: "Free Fire Proxy & VIP Injection Panels | Kachu Army",
@@ -280,9 +289,18 @@ export default function ProxyPanels() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {panelsList.map((panel, index) => {
                 return (
-                  <div 
+                  <motion.div 
                     key={index}
-                    className="glass border border-white/5 hover:border-yellow-500/30 bg-black/60 hover:bg-white/[0.02] rounded-2xl p-5 transition-all duration-300 relative group flex flex-col justify-between"
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    whileHover={{ 
+                      y: -8, 
+                      borderColor: "rgba(234,179,8,0.4)",
+                      boxShadow: "0 15px 35px rgba(234,179,8,0.15)"
+                    }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="glass border border-white/5 bg-black/60 rounded-2xl p-5 relative group flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-3">
@@ -305,23 +323,25 @@ export default function ProxyPanels() {
                     </div>
 
                     <div className="flex gap-2">
-                      <a 
+                      <motion.a 
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         href={panel.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex-1 text-center bg-gradient-to-r ${panel.accent} text-white font-black uppercase tracking-widest text-[9px] py-2.5 rounded-lg hover:opacity-90 transition-all`}
+                        className={`flex-1 text-center bg-gradient-to-r ${panel.accent} text-white font-black uppercase tracking-widest text-[9px] py-2.5 rounded-lg hover:opacity-90 transition-all cursor-pointer`}
                       >
                         🚀 GET PANEL
-                      </a>
+                      </motion.a>
                       <button 
                         onClick={() => handleCopy(panel.url, panel.name)}
-                        className="bg-white/5 hover:bg-white/10 border border-white/5 px-2.5 rounded-lg text-xs hover:text-yellow-500 transition-colors"
+                        className="bg-white/5 hover:bg-white/10 border border-white/5 px-2.5 rounded-lg text-xs hover:text-yellow-500 transition-colors cursor-pointer"
                         title="Copy Link"
                       >
                         📋
                       </button>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
@@ -406,6 +426,88 @@ export default function ProxyPanels() {
           </p>
         </div>
       </main>
+
+      {/* WhatsApp Channel Join Popup */}
+      <AnimatePresence>
+        {showJoinPopup && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            {/* Backdrop overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowJoinPopup(false)}
+              className="absolute inset-0 bg-black/85 backdrop-blur-md"
+            />
+
+            {/* Modal Body */}
+            <motion.div
+              initial={{ scale: 0.9, y: 30, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.9, y: 30, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="relative w-full max-w-md bg-[#0a0a0c] border border-yellow-500/40 rounded-3xl p-6 md:p-8 shadow-[0_0_50px_rgba(234,179,8,0.25)] overflow-hidden z-10"
+            >
+              {/* Top ambient glow */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none" />
+
+              {/* Close Button */}
+              <button
+                onClick={() => setShowJoinPopup(false)}
+                className="absolute top-4 right-4 text-gray-500 hover:text-white bg-white/5 hover:bg-white/10 w-8 h-8 rounded-full flex items-center justify-center border border-white/10 transition-colors cursor-pointer"
+              >
+                ✕
+              </button>
+
+              <div className="text-center relative z-10">
+                {/* Glowing Icon Container */}
+                <div className="rgb-ring w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                  <div className="w-full h-full bg-black rounded-full flex items-center justify-center overflow-hidden">
+                    <img 
+                      src="https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png" 
+                      alt="Saqib X Eman Gaming" 
+                      className="w-14 h-14 object-contain animate-pulse"
+                    />
+                  </div>
+                </div>
+
+                <span className="text-[10px] bg-yellow-500/10 text-yellow-500 border border-yellow-500/30 px-3 py-1 rounded-full font-black uppercase tracking-[0.2em] inline-block mb-3">
+                  🔔 EXCLUSIVE TELECAST
+                </span>
+
+                <h3 className="bebas text-3xl md:text-4xl text-white tracking-wide italic mb-3">
+                  SAQIB X EMAN <span className="text-yellow-500">GAMING</span>
+                </h3>
+
+                <p className="text-slate-300 text-xs md:text-sm leading-relaxed mb-6 font-light">
+                  Join our official WhatsApp Channel to get <strong>instant notifications</strong> for new working custom rooms, elite bypass proxy updates, and premium VIP injection panels!
+                </p>
+
+                <div className="space-y-3">
+                  <motion.a
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    href="https://whatsapp.com/channel/0029Vb8oiIrKGGGDehRhyJ18"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setShowJoinPopup(false)}
+                    className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 via-emerald-600 to-teal-500 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-lg shadow-green-500/20 cursor-pointer"
+                  >
+                    🟢 JOIN OFFICIAL CHANNEL
+                  </motion.a>
+
+                  <button
+                    onClick={() => setShowJoinPopup(false)}
+                    className="w-full text-center text-gray-500 hover:text-white text-[10px] uppercase tracking-widest font-black py-2 cursor-pointer transition-colors"
+                  >
+                    I have already joined / Later
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Embedded styles for beautiful scrollbars */}
       <style>{`

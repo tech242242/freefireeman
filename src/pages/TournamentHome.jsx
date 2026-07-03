@@ -407,21 +407,31 @@ export default function TournamentHome() {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {tournaments.map((tour, index) => {
+             {tournaments.map((tour, index) => {
               const isFull = freeSeats <= 0;
               const btnText = settings.reg_status === "off" ? "REGISTRATION CLOSED" : (isFull ? "MATCH FULL" : "REGISTER SQUAD NOW");
               const btnStyle = settings.reg_status === "off" || isFull 
                 ? "bg-white/5 text-slate-500 cursor-not-allowed border border-white/10" 
-                : "btn-gradient hover:shadow-[0_0_30px_rgba(250,204,21,0.6)] transition-all";
+                : "btn-gradient hover:shadow-[0_0_30px_rgba(250,204,21,0.6)] transition-all cursor-pointer";
 
               return (
                 <motion.div
                   key={tour.id}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="glass rounded-[2rem] overflow-hidden group"
+                  viewport={{ once: true, margin: "-50px" }}
+                  whileHover={{ 
+                    y: -10, 
+                    borderColor: "rgba(250,204,21,0.5)",
+                    boxShadow: "0 25px 50px -12px rgba(250,204,21,0.25)" 
+                  }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 300, 
+                    damping: 20,
+                    y: { type: "spring", stiffness: 200, damping: 18 } 
+                  }}
+                  className="glass rounded-[2rem] overflow-hidden group border border-yellow-500/20"
                 >
                   <div className="tour-img-container">
                     <img 
@@ -471,13 +481,15 @@ export default function TournamentHome() {
                           {freeSeats}
                         </span>
                       </div>
-                      <button
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         onClick={handleBtnClick}
                         className={`w-full sm:w-auto flex-[2] py-4 px-6 rounded-2xl font-black text-xs md:text-sm tracking-widest uppercase shadow-lg ${btnStyle}`}
                         disabled={settings.reg_status === "off" || isFull}
                       >
                         {btnText}
-                      </button>
+                      </motion.button>
                     </div>
                   </div>
                 </motion.div>
@@ -503,36 +515,41 @@ export default function TournamentHome() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto justify-center">
             {gamingResources.map((resource, index) => (
               <motion.div
                 key={resource.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="glass rounded-2xl overflow-hidden group border border-white/5 hover:border-yellow-500/40 relative flex flex-col justify-between"
+                viewport={{ once: true, margin: "-50px" }}
+                whileHover={{ 
+                  y: -12, 
+                  borderColor: "rgba(250,204,21,0.5)",
+                  boxShadow: "0 30px 60px rgba(250,204,21,0.25)"
+                }}
+                transition={{ type: "spring", stiffness: 200, damping: 18 }}
+                className="glass rounded-[2rem] overflow-hidden group border border-yellow-500/10 relative flex flex-col justify-between"
               >
                 <div>
-                  <div className="h-44 overflow-hidden relative">
+                  <div className="h-64 md:h-80 overflow-hidden relative bg-black/40">
                     <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-transparent z-10"></div>
                     <img 
                       src={resource.image} 
                       alt={resource.title}
-                      className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700 ease-out mix-blend-luminosity group-hover:mix-blend-normal"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute top-4 right-4 z-20 bg-black/60 backdrop-blur-md px-3 py-2 rounded-xl border border-white/10 text-xl">
+                    <div className="absolute top-4 right-4 z-20 bg-black/85 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/10 text-xl shadow-lg">
                       {resource.icon}
                     </div>
                   </div>
-                  <div className="p-6 pb-2 relative z-20 -mt-6">
-                    <h3 className="bebas text-2xl text-white mb-2 tracking-wide group-hover:text-yellow-500 transition-colors">
+                  <div className="p-8 pb-2 relative z-20 -mt-6">
+                    <h3 className="bebas text-3xl text-white mb-2 tracking-wide group-hover:text-yellow-500 transition-colors italic">
                       {resource.title}
                     </h3>
-                    <p className="text-gray-400 mb-4 text-xs font-light leading-relaxed h-14 overflow-y-auto">
+                    <p className="text-gray-300 mb-4 text-sm font-light leading-relaxed">
                       {resource.description}
                     </p>
-
+                    
                     {/* Tutorial Link rendering */}
                     {resource.tutorialLink && (
                       <a 
@@ -567,15 +584,17 @@ export default function TournamentHome() {
                   </div>
                 </div>
 
-                <div className="p-6 pt-0 relative z-20">
-                  <a 
+                <div className="p-8 pt-0 relative z-20">
+                  <motion.a 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     href={resource.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`block w-full text-center bg-gradient-to-r ${resource.color} text-white py-3.5 rounded-xl font-black uppercase tracking-[0.2em] text-[10px] shadow-lg hover:shadow-2xl transition-all hover:scale-[1.02]`}
+                    className={`block w-full text-center bg-gradient-to-r ${resource.color} text-white py-4 rounded-2xl font-black uppercase tracking-[0.2em] text-[11px] shadow-lg hover:shadow-2xl transition-all cursor-pointer`}
                   >
                     {resource.buttonText}
-                  </a>
+                  </motion.a>
                 </div>
               </motion.div>
             ))}

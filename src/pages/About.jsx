@@ -72,7 +72,12 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="glass p-6 rounded-2xl border border-white/5 hover:border-yellow-500/20 transition-all flex gap-6 items-start group"
+              whileHover={{ 
+                y: -5, 
+                borderColor: "rgba(234,179,8,0.3)",
+                boxShadow: "0 10px 25px rgba(234,179,8,0.1)"
+              }}
+              className="glass p-6 rounded-2xl border border-white/5 transition-all flex gap-6 items-start group cursor-pointer"
             >
               <div className="w-14 h-14 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
                 {value.icon}

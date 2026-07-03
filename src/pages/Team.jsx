@@ -107,12 +107,17 @@ export default function Team() {
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}
-              initial={{ x: index % 2 === 0 ? -50 : 50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className={`glass flex flex-col justify-between border ${member.borderColor} rounded-3xl overflow-hidden relative group transition-all duration-300 hover:scale-[1.01]`}
+              initial={{ x: index % 2 === 0 ? -60 : 60, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              whileHover={{ 
+                y: -12, 
+                scale: 1.02,
+                boxShadow: `0 25px 60px -10px ${member.glowColor}`
+              }}
+              transition={{ type: "spring", stiffness: 100, damping: 15 }}
+              className={`glass flex flex-col justify-between border ${member.borderColor} rounded-3xl overflow-hidden relative group transition-all duration-300`}
               style={{ 
-                boxShadow: `0 0 40px -10px ${member.glowColor}`,
                 background: `linear-gradient(to bottom, ${member.glowColor.replace('0.4', '0.05')}, rgba(3,3,3,0.95))`
               }}
             >
