@@ -14,14 +14,14 @@ import Owner from "./Owner";
 export default function TournamentHome() {
   const navigate = useNavigate();
   useSEO({
-    title: "Esports Arena | Es Freefire Arm - Eman FF Army Tournaments",
-    description: "Explore ongoing and upcoming Free Fire tournaments organized by EMAN FF ARMY & SAQIB X EMAN GAMING. Register squads, check map details, slot distribution, rules, and win heavy cash prizes.",
-    keywords: "eman ff army, es freefire arm, free fire matches, register squad free fire, ms eman army tournaments, free fire custom rooms, saqib esports tournament, saqib x eman gaming",
-    ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
+    title: "Esports Arena | Es Freefire Arm - PBX Gaming Tournaments",
+    description: "Explore ongoing and upcoming Free Fire tournaments organized by PBX GAMING & SAQIB X PBX GAMING. Register squads, check map details, slot distribution, rules, and win heavy cash prizes.",
+    keywords: "pbx gaming, pbx esports, es freefire arm, free fire matches, register squad free fire, pbx gaming tournaments, free fire custom rooms, saqib esports tournament, saqib x pbx gaming",
+    ogImage: "https://i.ibb.co/YB1R7TSF/image.webp"
   });
 
   const [settings, setSettings] = useState({
-    name: "MS EMAN ARMY",
+    name: "PBX GAMING",
     uid: "---",
     cover_url: "",
     profile_url: "",
@@ -85,7 +85,7 @@ export default function TournamentHome() {
 
       if (settingsData) {
         setSettings({
-          name: settingsData.name || "MS EMAN ARMY",
+          name: settingsData.name || "PBX GAMING",
           uid: settingsData.uid || "---",
           cover_url: settingsData.cover_url || "",
           profile_url: settingsData.profile_url || "",
@@ -231,14 +231,14 @@ export default function TournamentHome() {
             >
               <div className="rgb-ring w-12 h-12 mr-4 group-hover:scale-110 transition-transform duration-300">
                 <img 
-                  src={settings.profile_url || "https://ik.imagekit.io/shaban/SHABAN-1769057701316_BszrYcha1.jpg"} 
+                  src={settings.profile_url || "https://i.ibb.co/995yZVyL/image.webp"} 
                   className="w-full h-full object-cover rounded-full border-2 border-black"
                   alt="Logo"
                 />
               </div>
               <div className="flex flex-col">
-                <h1 className="bebas text-3xl text-white tracking-widest leading-none group-hover:text-pink-400 transition-colors hidden sm:block drop-shadow-md">MS EMAN <span className="text-pink-500">ARMY</span></h1>
-                <h1 className="bebas text-2xl text-white tracking-widest leading-none group-hover:text-pink-400 transition-colors sm:hidden">MS EMAN <span className="text-pink-500">ARMY</span></h1>
+                <h1 className="bebas text-3xl text-white tracking-widest leading-none group-hover:text-pink-400 transition-colors hidden sm:block drop-shadow-md">PBX <span className="text-pink-500">GAMING</span></h1>
+                <h1 className="bebas text-2xl text-white tracking-widest leading-none group-hover:text-pink-400 transition-colors sm:hidden">PBX <span className="text-pink-500">GAMING</span></h1>
                 <span className="text-[9px] uppercase tracking-[0.3em] text-gray-500 font-bold hidden sm:block mt-1">Esports Portal</span>
               </div>
             </motion.div>
@@ -339,7 +339,7 @@ export default function TournamentHome() {
       </nav>
 
       {/* Main Content */}
-      <div className="min-h-screen bg-cyber-grid bg-fixed text-white overflow-x-hidden relative">
+      <div className="min-h-screen bg-cyber-grid bg-fixed text-white overflow-x-hidden relative pb-24 md:pb-0">
         {/* Glow Effects */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-pink-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
@@ -366,7 +366,7 @@ export default function TournamentHome() {
           >
             <div className="absolute inset-0 bg-pink-500/20 rounded-full blur-xl group-hover:bg-pink-500/40 transition-all duration-500"></div>
             <img 
-              src={settings.profile_url || "https://ik.imagekit.io/shaban/SHABAN-1769057701316_BszrYcha1.jpg"} 
+              src={settings.profile_url || "https://i.ibb.co/995yZVyL/image.webp"} 
               className="w-full h-full object-cover rounded-full border-4 border-[#030303] relative z-10"
               alt="Profile"
             />
@@ -656,7 +656,7 @@ export default function TournamentHome() {
         <footer className="bg-black/80 backdrop-blur-md border-t border-pink-500/20 mt-20 relative z-10">
           <div className="max-w-6xl mx-auto px-4 py-12">
             <div className="text-center">
-              <h2 className="bebas text-3xl text-pink-500 mb-2 italic tracking-wider">MS EMAN ARMY</h2>
+              <h2 className="bebas text-3xl text-pink-500 mb-2 italic tracking-wider">PBX GAMING</h2>
               <p className="text-gray-400 text-sm mb-6 tracking-widest uppercase">
                 Professional Free Fire Tournament Platform
               </p>
@@ -664,7 +664,7 @@ export default function TournamentHome() {
               <div className="h-px w-32 bg-gradient-to-r from-transparent via-pink-500/50 to-transparent mx-auto mb-6"></div>
               
               <p className="text-gray-500 text-xs mb-8 uppercase tracking-wider font-bold">
-                © {new Date().getFullYear()} Ms Eman Army Official. All rights reserved.
+                © {new Date().getFullYear()} PBX Gaming Official. All rights reserved.
               </p>
 
               {/* Creator Socials */}

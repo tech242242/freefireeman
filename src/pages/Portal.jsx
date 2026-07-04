@@ -2,16 +2,17 @@ import { useState, useEffect, useRef } from "react";
 import { createClient } from '@supabase/supabase-js';
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { Calendar, Trophy, Clock, Shield, Gamepad2, Users, Sparkles, MessageSquare, ArrowLeft, CheckCircle } from "lucide-react";
 import useSEO from "../hooks/useSEO";
 
 export default function Portal() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "Squad Registration Portal | Es Freefire Arm - Eman FF Army",
-    description: "Access the official Squad Registration and Player Verification portal of Eman FF Army & Saqib x Eman Gaming. Set up your squad name, verify teammate IDs, and register for active custom tournaments.",
-    keywords: "eman ff army, squad registration, player verification, freefire squad portal, ms eman army player login, es freefire arm squad, freefire registration pakistan, saqib x eman gaming",
-    ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
+    title: "Squad Registration Portal | Es Freefire Arm - PBX Gaming",
+    description: "Access the official Squad Registration and Player Verification portal of PBX GAMING & Saqib x PBX Gaming. Set up your squad name, verify teammate IDs, and register for active custom tournaments.",
+    keywords: "pbx gaming, squad registration, player verification, freefire squad portal, pbx gaming player login, es freefire arm squad, freefire registration pakistan, saqib x pbx gaming",
+    ogImage: "https://i.ibb.co/YB1R7TSF/image.webp"
   });
 
   // Supabase Client
@@ -23,6 +24,15 @@ export default function Portal() {
   // States
   const [currentUser, setCurrentUser] = useState(null);
   const [squadActiveUser, setSquadActiveUser] = useState(null);
+  const [tournaments, setTournaments] = useState([]);
+  const [settings, setSettings] = useState({
+    name: "PBX GAMING",
+    uid: "---",
+    cover_url: "",
+    profile_url: "",
+    reg_status: "on"
+  });
+  const [freeSeats, setFreeSeats] = useState(0);
   const [activeScreen, setActiveScreen] = useState("authScreen");
   const [toastMessage, setToastMessage] = useState({ text: "", color: "bg-green-600", show: false });
   const [statusBox, setStatusBox] = useState({ text: "", isError: false, show: false });
@@ -68,10 +78,63 @@ export default function Portal() {
   // Refs
   const fileInputRef = useRef(null);
 
-  // Initial session check
+  // Initial session check & sync data
   useEffect(() => {
     checkSession();
+    syncTournamentData();
+    const interval = setInterval(syncTournamentData, 10000);
+    return () => clearInterval(interval);
   }, []);
+
+  // Sync Tournament details from Supabase
+  const syncTournamentData = async () => {
+    try {
+      // Load settings
+      const { data: settingsData } = await supabase
+        .from('kashu_settings')
+        .select('*')
+        .eq('id', 1)
+        .single();
+
+      if (settingsData) {
+        setSettings({
+          name: settingsData.name || "PBX GAMING",
+          uid: settingsData.uid || "---",
+          cover_url: settingsData.cover_url || "",
+          profile_url: settingsData.profile_url || "",
+          reg_status: settingsData.reg_status || "on"
+        });
+      }
+
+      // Calculate free seats
+      const [{ data: auths }, { data: assigned }, { data: filled }] = await Promise.all([
+        supabase.from('squad_auth').select('user_id'),
+        supabase.from('payment_users').select('assigned_auth_id').eq('status', 'approved'),
+        supabase.from('squad_registrations').select('auth_user_id')
+      ]);
+
+      const assignedIds = assigned ? assigned.map(a => a.assigned_auth_id) : [];
+      const filledIds = filled ? filled.map(f => f.auth_user_id) : [];
+
+      let freeCount = 0;
+      if (auths) {
+        auths.forEach(s => {
+          if (!assignedIds.includes(s.user_id) && !filledIds.includes(s.user_id)) freeCount++;
+        });
+      }
+      setFreeSeats(freeCount);
+
+      // Load tournaments
+      const { data: tours } = await supabase
+        .from('kashu_tournaments')
+        .select('*')
+        .order('id', { ascending: true });
+
+      setTournaments(tours || []);
+    } catch (error) {
+      console.error("Error syncing data in Portal:", error);
+    }
+  };
 
   // Auto-login to squad portal when credentials are available
   useEffect(() => {
@@ -512,209 +575,368 @@ export default function Portal() {
   };
 
   // Render different screens
-  const renderAuthScreen = () => (
-    <motion.div 
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: -30, scale: 0.95 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="relative glass-card p-8 w-full max-w-md text-center"
-    >
-      <button 
-        onClick={() => navigate('/home')} 
-        className="absolute top-4 left-4 text-slate-400 hover:text-white transition-colors flex items-center justify-center bg-white/5 w-8 h-8 rounded-full border border-white/10 hover:bg-white/10 shadow-lg"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-      </button>
-      <h1 className="text-3xl font-black text-pink-500 rgb-text italic mb-2 uppercase mt-4">MS EMAN ARMY</h1>
-      <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Tournament Gate Pass</p>
+  const renderAuthScreen = () => {
+    const activeTour = tournaments[0];
 
-      {/* Signup Form */}
-      {showSignupForm ? (
-        <div className="space-y-4">
-          <input 
-            type="text" 
-            name="regName"
-            value={formData.regName}
-            onChange={handleInputChange}
-            placeholder="Full Name" 
-            className="w-full p-4 input-field font-bold"
-          />
-          <input 
-            type="tel" 
-            name="regPhone"
-            value={formData.regPhone}
-            onChange={handleInputChange}
-            placeholder="Phone Number (Login ID)" 
-            className="w-full p-4 input-field font-bold"
-          />
-          <input 
-            type="password" 
-            name="regPass"
-            value={formData.regPass}
-            onChange={handleInputChange}
-            placeholder="Create Password" 
-            className="w-full p-4 input-field font-bold"
-          />
-          <button 
-            onClick={handleSignup} 
-            disabled={isLoading}
-            className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-50"
+    return (
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-8 w-full max-w-5xl mx-auto py-8">
+        
+        {/* Left Column: Tournament Details Card */}
+        {activeTour ? (
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="glass-card overflow-hidden border border-pink-500/20 w-full lg:max-w-md flex flex-col"
           >
-            {isLoading ? "Registering..." : "Register Now"}
-          </button>
-          <p className="text-xs mt-4 text-slate-400 cursor-pointer hover:text-white" onClick={() => toggleAuth('login')}>
-            Already registered? Login
-          </p>
-        </div>
-      ) : (
-        /* Login Form */
-        <div className="space-y-4">
-          <input 
-            type="tel" 
-            name="loginPhone"
-            value={formData.loginPhone}
-            onChange={handleInputChange}
-            placeholder="Phone Number" 
-            className="w-full p-4 input-field font-bold"
-          />
-          <input 
-            type="password" 
-            name="loginPass"
-            value={formData.loginPass}
-            onChange={handleInputChange}
-            placeholder="Password" 
-            className="w-full p-4 input-field font-bold"
-          />
-          <button 
-            onClick={handleLogin} 
-            disabled={isLoading}
-            className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-50"
+            <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
+              <img 
+                src={activeTour.banner_url || "https://i.ibb.co/YB1R7TSF/image.webp"} 
+                className="w-full h-full object-cover brightness-110" 
+                alt="Tournament Banner" 
+              />
+              <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-pink-500/30 px-3 py-1 rounded-full flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                <span className="text-[10px] uppercase tracking-widest font-bold text-green-400">Active Match</span>
+              </div>
+            </div>
+            
+            <div className="p-6 md:p-8 flex-1 text-left relative">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-pink-500">Esports Tournament</span>
+              <h2 className="bebas text-3xl md:text-4xl italic text-white mt-1 mb-4 uppercase leading-none drop-shadow-md">
+                {activeTour.name || "PBX TOURNAMENT"}
+              </h2>
+
+              <div className="flex flex-wrap gap-2.5 mb-6">
+                <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
+                  <span className="text-pink-500 text-sm">⏰</span>
+                  <span className="text-[10px] font-bold text-gray-300 uppercase tracking-wider">
+                    {activeTour.time || "Time TBD"}
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
+                  <span className="text-pink-500 text-sm">📅</span>
+                  <span className="text-[10px] font-bold text-gray-300 uppercase tracking-wider">
+                    {activeTour.date || "Date TBD"}
+                  </span>
+                </div>
+              </div>
+
+              <div className="bg-black/40 p-4 rounded-xl border border-white/5 text-xs text-gray-400 italic mb-6 whitespace-pre-line leading-relaxed">
+                {activeTour.rules || "Official Tournament Rules Apply. Team IDs will be verified."}
+              </div>
+
+              <div className="flex items-center justify-between bg-pink-500/5 p-4 rounded-2xl border border-pink-500/20 backdrop-blur-sm">
+                <div>
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-pink-500/80 block mb-0.5">
+                    Available Slots
+                  </span>
+                  <span className="bebas text-3xl text-white block leading-none">
+                    {freeSeats} / 48
+                  </span>
+                </div>
+                <div className="text-right">
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-fuchsia-400 block mb-0.5">
+                    Registration Fee
+                  </span>
+                  <span className="text-lg font-black text-white uppercase font-mono">
+                    PKR 500
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="glass-card p-8 w-full lg:max-w-md text-left border border-white/10 flex flex-col justify-center min-h-[400px]"
           >
-            {isLoading ? "Logging in..." : "Login"}
+            <div className="w-12 h-12 border-4 border-pink-500 border-t-transparent rounded-full animate-spin mb-6 mx-auto"></div>
+            <h2 className="text-xl font-black text-white uppercase italic mb-2 text-center">Loading active tournament...</h2>
+            <p className="text-slate-400 text-xs font-medium uppercase tracking-wider text-center">Fetching details from backend...</p>
+          </motion.div>
+        )}
+
+        {/* Right Column: Auth Card */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -30, scale: 0.95 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="relative glass-card p-8 w-full max-w-md text-center"
+        >
+          <button 
+            onClick={() => navigate('/home')} 
+            className="absolute top-4 left-4 text-slate-400 hover:text-white transition-colors flex items-center justify-center bg-white/5 w-8 h-8 rounded-full border border-white/10 hover:bg-white/10 shadow-lg"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
           </button>
-          <p className="text-xs mt-4 text-slate-400 cursor-pointer hover:text-white" onClick={() => toggleAuth('signup')}>
-            New User? Register
-          </p>
-        </div>
-      )}
-    </motion.div>
-  );
+          
+          <h1 className="text-3xl font-black text-pink-500 rgb-text italic mb-2 uppercase mt-4">PBX GAMING</h1>
+          <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Tournament Gate Pass</p>
 
-  const renderPaymentScreen = () => (
-    <motion.div 
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: -30, scale: 0.95 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="glass-card p-8 w-full max-w-lg"
-    >
-      <div className="text-center mb-6">
-        <h2 className="text-2xl font-black text-white uppercase italic">Bank Transfer Details</h2>
-        <p className="text-slate-400 text-xs mt-1">Send Payment to Bank Account</p>
-      </div>
-
-      {/* Bank Account Details */}
-      <div className="bg-white/5 p-6 rounded-2xl mb-6 border border-white/10 text-left">
-        <p className="text-[10px] text-pink-500 font-black uppercase tracking-widest mb-4">Account Information</p>
-        <div className="space-y-3">
-          <div className="flex">
-            <span className="text-xs text-slate-400 font-bold w-40">Account Holder:</span>
-            <span className="text-sm font-bold text-white">Muhammad Fahad Ali</span>
-          </div>
-          <div className="flex">
-            <span className="text-xs text-slate-400 font-bold w-40">Bank Name:</span>
-            <span className="text-sm font-bold text-white">Askari Bank Limited</span>
-          </div>
-          <div className="flex">
-            <span className="text-xs text-slate-400 font-bold w-40">Branch:</span>
-            <span className="text-sm font-bold text-white">IBB Circular Road Branch, Lahore</span>
-          </div>
-          <div className="flex">
-            <span className="text-xs text-slate-400 font-bold w-40">Account Number:</span>
-            <span className="text-sm font-bold text-white">07060200020269</span>
-          </div>
-          <div className="flex">
-            <span className="text-xs text-slate-400 font-bold w-40">IBAN:</span>
-            <span className="text-sm font-bold text-white break-all">PK34ASCM0007060200020269</span>
-          </div>
-        </div>
-        <div className="mt-6 pt-6 border-t border-white/10 text-center">
-          <p className="text-xs text-slate-400 mb-2">Scan QR to get bank details</p>
-          <div className="bg-white p-2 w-32 h-32 mx-auto rounded-lg flex items-center justify-center">
-            <img 
-              src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Bank%20Details%3A%0AAccount%20Holder%3A%20Muhammad%20Fahad%20Ali%0ABank%3A%20Askari%20Bank%20Limited%0AIBAN%3A%20PK34ASCM0007060200020269%0AAC%2FNo%3A%2007060200020269" 
-              alt="QR Code" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
-
-      <form onSubmit={handlePaymentSubmit} className="space-y-4">
-        <select 
-          name="payMethod"
-          value={formData.payMethod}
-          onChange={handleInputChange}
-          className="w-full p-4 input-field font-bold bg-black"
-        >
-          <option value="Bank Transfer">Bank Transfer</option>
-          <option value="Easypaisa">Easypaisa</option>
-          <option value="JazzCash">JazzCash</option>
-        </select>
-        <input 
-          type="text" 
-          name="senderName"
-          value={formData.senderName}
-          onChange={handleInputChange}
-          placeholder="Your Account Name" 
-          className="w-full p-4 input-field font-bold" 
-          required
-        />
-        <input 
-          type="text" 
-          name="trxId"
-          value={formData.trxId}
-          onChange={handleInputChange}
-          placeholder="Transaction Reference / TRX ID" 
-          className="w-full p-4 input-field font-bold" 
-          required
-        />
-        <div 
-          className="relative border-2 border-dashed border-slate-600 rounded-xl p-4 text-center cursor-pointer hover:border-pink-500 transition-all"
-          onClick={() => fileInputRef.current?.click()}
-        >
-          <input 
-            type="file" 
-            ref={fileInputRef}
-            name="screenshot"
-            accept="image/*" 
-            className="hidden" 
-            onChange={handleInputChange}
-          />
-          <p className="text-xs font-bold text-slate-400 uppercase">
-            {formData.screenshot ? "Image Selected" : "Upload Payment Screenshot"}
-          </p>
-          {formData.screenshotPreview && (
-            <img 
-              src={formData.screenshotPreview} 
-              alt="Preview" 
-              className="mt-2 max-h-32 mx-auto rounded-lg"
-            />
+          {/* Signup Form */}
+          {showSignupForm ? (
+            <div className="space-y-4">
+              <input 
+                type="text" 
+                name="regName"
+                value={formData.regName}
+                onChange={handleInputChange}
+                placeholder="Full Name" 
+                className="w-full p-4 input-field font-bold"
+              />
+              <input 
+                type="tel" 
+                name="regPhone"
+                value={formData.regPhone}
+                onChange={handleInputChange}
+                placeholder="Phone Number (Login ID)" 
+                className="w-full p-4 input-field font-bold"
+              />
+              <input 
+                type="password" 
+                name="regPass"
+                value={formData.regPass}
+                onChange={handleInputChange}
+                placeholder="Create Password" 
+                className="w-full p-4 input-field font-bold"
+              />
+              <button 
+                onClick={handleSignup} 
+                disabled={isLoading}
+                className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-50"
+              >
+                {isLoading ? "Registering..." : "Register Now"}
+              </button>
+              <p className="text-xs mt-4 text-slate-400 cursor-pointer hover:text-white" onClick={() => toggleAuth('login')}>
+                Already registered? Login
+              </p>
+            </div>
+          ) : (
+            /* Login Form */
+            <div className="space-y-4">
+              <input 
+                type="tel" 
+                name="loginPhone"
+                value={formData.loginPhone}
+                onChange={handleInputChange}
+                placeholder="Phone Number" 
+                className="w-full p-4 input-field font-bold"
+              />
+              <input 
+                type="password" 
+                name="loginPass"
+                value={formData.loginPass}
+                onChange={handleInputChange}
+                placeholder="Password" 
+                className="w-full p-4 input-field font-bold"
+              />
+              <button 
+                onClick={handleLogin} 
+                disabled={isLoading}
+                className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-50"
+              >
+                {isLoading ? "Logging in..." : "Login"}
+              </button>
+              <p className="text-xs mt-4 text-slate-400 cursor-pointer hover:text-white" onClick={() => toggleAuth('signup')}>
+                New User? Register
+              </p>
+            </div>
           )}
-        </div>
-        <button 
-          type="submit" 
-          disabled={isLoading}
-          className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-50"
+        </motion.div>
+      </div>
+    );
+  };
+
+  const renderPaymentScreen = () => {
+    const activeTour = tournaments[0];
+
+    return (
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-8 w-full max-w-5xl mx-auto py-8">
+        
+        {/* Left Column: Tournament Details Card */}
+        {activeTour && (
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="glass-card overflow-hidden border border-pink-500/20 w-full lg:max-w-md flex flex-col text-left"
+          >
+            <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
+              <img 
+                src={activeTour.banner_url || "https://i.ibb.co/YB1R7TSF/image.webp"} 
+                className="w-full h-full object-cover brightness-110" 
+                alt="Tournament Banner" 
+              />
+              <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-pink-500/30 px-3 py-1 rounded-full flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                <span className="text-[10px] uppercase tracking-widest font-bold text-green-400">Selected Match</span>
+              </div>
+            </div>
+            
+            <div className="p-6 md:p-8 flex-1 text-left relative text-slate-200">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-pink-500">Esports Tournament</span>
+              <h2 className="bebas text-3xl md:text-4xl italic text-white mt-1 mb-4 uppercase leading-none drop-shadow-md">
+                {activeTour.name || "PBX TOURNAMENT"}
+              </h2>
+
+              <div className="flex flex-wrap gap-2.5 mb-6">
+                <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
+                  <span className="text-pink-500 text-sm">⏰</span>
+                  <span className="text-[10px] font-bold text-gray-300 uppercase tracking-wider">
+                    {activeTour.time || "Time TBD"}
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
+                  <span className="text-pink-500 text-sm">📅</span>
+                  <span className="text-[10px] font-bold text-gray-300 uppercase tracking-wider">
+                    {activeTour.date || "Date TBD"}
+                  </span>
+                </div>
+              </div>
+
+              <div className="bg-black/40 p-4 rounded-xl border border-white/5 text-xs text-gray-400 italic mb-6 whitespace-pre-line leading-relaxed">
+                {activeTour.rules || "Official Tournament Rules Apply. Team IDs will be verified."}
+              </div>
+
+              <div className="flex items-center justify-between bg-pink-500/5 p-4 rounded-2xl border border-pink-500/20 backdrop-blur-sm">
+                <div>
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-pink-500/80 block mb-0.5">
+                    Available Slots
+                  </span>
+                  <span className="bebas text-3xl text-white block leading-none">
+                    {freeSeats} / 48
+                  </span>
+                </div>
+                <div className="text-right">
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-fuchsia-400 block mb-0.5">
+                    Registration Fee
+                  </span>
+                  <span className="text-lg font-black text-white uppercase font-mono">
+                    PKR 500
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Right Column: Bank Details & Payment Form */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -30, scale: 0.95 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="glass-card p-8 w-full max-w-lg text-slate-200"
         >
-          {isLoading ? "Uploading..." : "Verify Payment"}
-        </button>
-      </form>
-    </motion.div>
-  );
+          <div className="text-center mb-6">
+            <h2 className="text-2xl font-black text-white uppercase italic">Bank Transfer Details</h2>
+            <p className="text-slate-400 text-xs mt-1">Send Payment to Bank Account</p>
+          </div>
+
+          {/* Bank Account Details */}
+          <div className="bg-white/5 p-6 rounded-2xl mb-6 border border-white/10 text-left">
+            <p className="text-[10px] text-pink-500 font-black uppercase tracking-widest mb-4">Account Information</p>
+            <div className="space-y-3">
+              <div className="flex">
+                <span className="text-xs text-slate-400 font-bold w-40">Account Holder:</span>
+                <span className="text-sm font-bold text-white">Muhammad Fahad Ali</span>
+              </div>
+              <div className="flex">
+                <span className="text-xs text-slate-400 font-bold w-40">Bank Name:</span>
+                <span className="text-sm font-bold text-white">Askari Bank Limited</span>
+              </div>
+              <div className="flex">
+                <span className="text-xs text-slate-400 font-bold w-40">Branch:</span>
+                <span className="text-sm font-bold text-white">IBB Circular Road Branch, Lahore</span>
+              </div>
+              <div className="flex">
+                <span className="text-xs text-slate-400 font-bold w-40">Account Number:</span>
+                <span className="text-sm font-bold text-white">07060200020269</span>
+              </div>
+              <div className="flex">
+                <span className="text-xs text-slate-400 font-bold w-40">IBAN:</span>
+                <span className="text-sm font-bold text-white break-all">PK34ASCM0007060200020269</span>
+              </div>
+            </div>
+            <div className="mt-6 pt-6 border-t border-white/10 text-center">
+              <p className="text-xs text-slate-400 mb-2">Scan QR to get bank details</p>
+              <div className="bg-white p-2 w-32 h-32 mx-auto rounded-lg flex items-center justify-center">
+                <img 
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Bank%20Details%3A%0AAccount%20Holder%3A%20Muhammad%20Fahad%20Ali%0ABank%3A%20Askari%20Bank%20Limited%0AIBAN%3A%20PK34ASCM0007060200020269%0AAC%2FNo%3A%2007060200020269" 
+                  alt="QR Code" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <form onSubmit={handlePaymentSubmit} className="space-y-4">
+            <select 
+              name="payMethod"
+              value={formData.payMethod}
+              onChange={handleInputChange}
+              className="w-full p-4 input-field font-bold bg-black"
+            >
+              <option value="Bank Transfer">Bank Transfer</option>
+              <option value="Easypaisa">Easypaisa</option>
+              <option value="JazzCash">JazzCash</option>
+            </select>
+            <input 
+              type="text" 
+              name="senderName"
+              value={formData.senderName}
+              onChange={handleInputChange}
+              placeholder="Your Account Name" 
+              className="w-full p-4 input-field font-bold" 
+              required
+            />
+            <input 
+              type="text" 
+              name="trxId"
+              value={formData.trxId}
+              onChange={handleInputChange}
+              placeholder="Transaction Reference / TRX ID" 
+              className="w-full p-4 input-field font-bold" 
+              required
+            />
+            <div 
+              className="relative border-2 border-dashed border-slate-600 rounded-xl p-4 text-center cursor-pointer hover:border-pink-500 transition-all"
+              onClick={() => fileInputRef.current?.click()}
+            >
+              <input 
+                type="file" 
+                ref={fileInputRef}
+                name="screenshot"
+                accept="image/*" 
+                className="hidden" 
+                onChange={handleInputChange}
+              />
+              <p className="text-xs font-bold text-slate-400 uppercase">
+                {formData.screenshot ? "Image Selected" : "Upload Payment Screenshot"}
+              </p>
+              {formData.screenshotPreview && (
+                <img 
+                  src={formData.screenshotPreview} 
+                  alt="Preview" 
+                  className="mt-2 max-h-32 mx-auto rounded-lg"
+                />
+              )}
+            </div>
+            <button 
+              type="submit" 
+              disabled={isLoading}
+              className="w-full btn-gradient hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-50"
+            >
+              {isLoading ? "Uploading..." : "Verify Payment"}
+            </button>
+          </form>
+        </motion.div>
+      </div>
+    );
+  };
 
   const renderPendingScreen = () => (
     <motion.div 
@@ -794,7 +1016,7 @@ export default function Portal() {
           <div className="glass-card-ios p-8 md:p-12 w-full max-w-md animate-ios">
             <div className="text-center mb-10">
               <h2 className="text-xs font-black text-white/60 tracking-[0.6em] uppercase mb-1">Free Fire</h2>
-              <h1 className="text-4xl font-black text-pink-500 rgb-glow italic tracking-tighter">MS EMAN ARMY</h1>
+              <h1 className="text-4xl font-black text-pink-500 rgb-glow italic tracking-tighter">PBX GAMING</h1>
               <p className="text-slate-400 mt-6 text-[10px] font-bold uppercase tracking-widest border-t border-white/10 pt-4">Squad Portal Login</p>
             </div>
             
@@ -825,7 +1047,7 @@ export default function Portal() {
           <header className="flex justify-between items-start mb-14 animate-ios">
             <div>
               <h2 className="text-xs font-black text-white/50 tracking-[0.5em] uppercase mb-1">Free Fire</h2>
-              <h1 className="text-4xl font-black text-pink-500 rgb-glow italic">MS EMAN ARMY</h1>
+              <h1 className="text-4xl font-black text-pink-500 rgb-glow italic">PBX GAMING</h1>
               <div className="mt-3">
                 <span className="text-[9px] font-black text-white/40 tracking-[0.2em] bg-white/5 px-4 py-1.5 rounded-full uppercase border border-white/5">
                   {squadActiveUser}
@@ -1092,7 +1314,7 @@ export default function Portal() {
       {activeScreen === "squadPortal" && renderSquadPortal()}
 
       {/* Inline Styles */}
-      <style jsx>{`
+      <style>{`
         :root { --ios-blur: blur(25px); }
         .glass-card {
           background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(20px);

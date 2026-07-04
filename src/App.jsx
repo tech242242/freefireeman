@@ -14,6 +14,7 @@ import Admin from "./pages/Admin";
 import WebDashboard from "./pages/WebDashboard";
 import SquadManager from "./pages/SquadManager";
 import AdminNavbar from "./components/AdminNavbar"; // Admin کے لیے الگ Navbar
+import MobileBottomNavbar from "./components/MobileBottomNavbar";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -99,6 +100,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       )}
+      {!showWelcome && <MobileBottomNavbar />}
     </Router>
   );
 }

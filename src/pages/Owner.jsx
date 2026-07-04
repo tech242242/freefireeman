@@ -41,7 +41,7 @@ export default function Owner() {
         </h2>
         <div className="h-1 w-24 bg-gradient-to-r from-transparent via-pink-500 to-transparent mx-auto mb-4"></div>
         <p className="text-gray-400 uppercase tracking-widest text-sm md:text-base font-medium">
-          Meet the founder behind Ms Eman Army's creative universe
+          Meet the founder behind PBX Gaming's creative universe
         </p>
       </div>
 
@@ -159,7 +159,7 @@ export default function Owner() {
             <div className="flex items-center justify-center lg:justify-start gap-4 pt-4">
               <div className="h-0.5 w-12 bg-pink-500/50"></div>
               <span className="font-mono text-[10px] uppercase tracking-widest text-pink-500/80 font-bold">
-                MS EMAN ARMY VERIFIED FOUNDER
+                PBX GAMING VERIFIED FOUNDER
               </span>
             </div>
           </div>

@@ -42,7 +42,7 @@ export default function SensitivityHub() {
 
   // Set SEO metadata
   useEffect(() => {
-    document.title = "Free Fire Pro Sensitivity Hub - AI Powered 2X Boost | Eman FF Army";
+    document.title = "Free Fire Pro Sensitivity Hub - AI Powered 2X Boost | PBX Gaming";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute("content", "Get 100% headshot accuracy with custom Free Fire 2X Sensitivity settings. Use Saqib's AI Generator to get optimal settings for any device.");
@@ -173,12 +173,12 @@ export default function SensitivityHub() {
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate("/")}>
             <img 
-              src="https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png" 
+              src="https://i.ibb.co/995yZVyL/image.webp" 
               alt="Logo" 
-              className="w-8 h-8 object-contain rounded-full border border-yellow-500/30"
+              className="w-8 h-8 object-cover rounded-full border border-pink-500/30"
             />
             <span className="bebas text-xl md:text-2xl tracking-widest text-white italic">
-              MS EMAN <span className="text-yellow-500">ARMY</span>
+              PBX <span className="text-pink-500">GAMING</span>
             </span>
           </div>
 

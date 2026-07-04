@@ -12,10 +12,10 @@ const Login = () => {
   const navigate = useNavigate();
 
   useSEO({
-    title: "Admin Organizer Login | Es Freefire Arm - Ms Eman Army",
-    description: "Secure login for organizers and administrators of Ms Eman Army & Es Freefire Arm esports. Manage tournaments, custom match rooms, squad placements, and user confirmations.",
-    keywords: "admin login freefire, esports administrator, ms eman army moderator login, tournament control dashboard",
-    ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
+    title: "Admin Organizer Login | Es Freefire Arm - PBX Gaming",
+    description: "Secure login for organizers and administrators of PBX GAMING & Es Freefire Arm esports. Manage tournaments, custom match rooms, squad placements, and user confirmations.",
+    keywords: "admin login freefire, esports administrator, pbx gaming moderator login, tournament control dashboard",
+    ogImage: "https://i.ibb.co/YB1R7TSF/image.webp"
   });
 
   useEffect(() => {
@@ -204,7 +204,7 @@ const Login = () => {
       </motion.div>
 
       {/* Inline CSS */}
-      <style jsx>{`
+      <style>{`
         .glass {
           background: rgba(255, 255, 255, 0.05);
           backdrop-filter: blur(15px);

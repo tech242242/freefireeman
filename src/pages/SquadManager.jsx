@@ -143,7 +143,7 @@ const SquadManager = () => {
       return;
     }
 
-    let fullReport = "🏆 *MS EMAN ARMY TOURNAMENT REPORT* 🏆\n============================\n\n";
+    let fullReport = "🏆 *PBX GAMING TOURNAMENT REPORT* 🏆\n============================\n\n";
     squadData.forEach((s, index) => {
       fullReport += `*${index + 1}. TEAM: ${s.squad_name.toUpperCase()}*\n👤 *LEADER:* ${s.leader_name.toUpperCase()}\n🆔 *UID:* ${s.leader_uid} | 📱 *WA:* ${s.leader_phone}\n👥 *TEAM:* ${s.p2_name || 'Empty'} (${s.p2_uid || '---'}), ${s.p3_name || 'Empty'} (${s.p3_uid || '---'}), ${s.p4_name || 'Empty'} (${s.p4_uid || '---'})\n🔑 *PORTAL ID:* ${s.auth_user_id}\n----------------------------\n`;
     });
@@ -154,7 +154,7 @@ const SquadManager = () => {
 
   // Copy single squad data
   const copySquadDetails = (squad) => {
-    const text = `🏆 *SQUAD REGISTRATION* 🏆\n\n*SQUAD:* ${squad.squad_name.toUpperCase()}\n*PORTAL ID:* ${squad.auth_user_id}\n\n👤 *LEADER (P1):* ${squad.leader_name.toUpperCase()}\n🆔 *UID:* ${squad.leader_uid}\n📱 *WA:* ${squad.leader_phone}\n\n👥 *TEAMMATES:*\n• P2: ${squad.p2_name || 'Empty'} (${squad.p2_uid || '---'})\n• P3: ${squad.p3_name || 'Empty'} (${squad.p3_uid || '---'})\n• P4: ${squad.p4_name || 'Empty'} (${squad.p4_uid || '---'})\n\n_Verified by Ms Eman Army Portal_`;
+    const text = `🏆 *SQUAD REGISTRATION* 🏆\n\n*SQUAD:* ${squad.squad_name.toUpperCase()}\n*PORTAL ID:* ${squad.auth_user_id}\n\n👤 *LEADER (P1):* ${squad.leader_name.toUpperCase()}\n🆔 *UID:* ${squad.leader_uid}\n📱 *WA:* ${squad.leader_phone}\n\n👥 *TEAMMATES:*\n• P2: ${squad.p2_name || 'Empty'} (${squad.p2_uid || '---'})\n• P3: ${squad.p3_name || 'Empty'} (${squad.p3_uid || '---'})\n• P4: ${squad.p4_name || 'Empty'} (${squad.p4_uid || '---'})\n\n_Verified by PBX Gaming Portal_`;
     
     navigator.clipboard.writeText(text);
     showStatus("Squad Details Copied!");
@@ -529,7 +529,7 @@ const SquadManager = () => {
       </AnimatePresence>
 
       {/* Inline CSS */}
-      <style jsx>{`
+      <style>{`
         .glass-panel {
           background: rgba(15, 23, 42, 0.85);
           backdrop-filter: blur(15px);

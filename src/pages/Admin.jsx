@@ -728,7 +728,7 @@ const Admin = () => {
       </AnimatePresence>
 
       {/* Inline CSS for components */}
-      <style jsx>{`
+      <style>{`
         .glass {
           background: rgba(15, 23, 42, 0.95);
           backdrop-filter: blur(20px);

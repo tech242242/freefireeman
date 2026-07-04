@@ -6,10 +6,10 @@ export default function Team() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "Meet the Team | Es Freefire Arm - SAQIB X EMAN GAMING",
-    description: "Discover the visionaries behind SAQIB X EMAN GAMING. Meet Eman, our expert dropshipping strategist, and Saqib, our lead AI developer.",
-    keywords: "saqib, eman, saqib x eman gaming, dropshipping expert, developer ai, freefire tournament organizers, ms eman army founders",
-    ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
+    title: "Meet the Team | Es Freefire Arm - PBX GAMING",
+    description: "Discover the visionaries behind PBX GAMING. Meet the professional organizers, designers, and developers powering PBX Esports leagues.",
+    keywords: "saqib, pbx gaming, pbx esports, developer ai, freefire tournament organizers, pbx gaming founders",
+    ogImage: "https://i.ibb.co/995yZVyL/image.webp"
   });
 
   const teamMembers = [
@@ -17,7 +17,7 @@ export default function Team() {
       id: "eman",
       name: "Eman",
       role: "Dropshipping Expert",
-      avatar: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png",
+      avatar: "https://i.ibb.co/995yZVyL/image.webp",
       glowColor: "rgba(239,68,68,0.4)", // Red/Crimson glow
       borderColor: "border-red-500/30",
       accentColor: "text-red-500",
@@ -52,7 +52,7 @@ export default function Team() {
   ];
 
   return (
-    <div className="relative w-full bg-[#030303] bg-cyber-grid min-h-screen text-white flex flex-col overflow-x-hidden">
+    <div className="relative w-full bg-[#030303] bg-cyber-grid min-h-screen text-white flex flex-col overflow-x-hidden pb-24 md:pb-0">
       {/* Background Glows */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-red-900/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-green-900/10 rounded-full blur-[120px] pointer-events-none"></div>
@@ -62,12 +62,12 @@ export default function Team() {
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate("/")}>
             <img 
-              src="https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png" 
+              src="https://i.ibb.co/995yZVyL/image.webp" 
               alt="Logo" 
-              className="w-8 h-8 object-contain rounded-full border border-green-500/30"
+              className="w-8 h-8 object-cover rounded-full border border-pink-500/30"
             />
             <span className="bebas text-xl md:text-2xl tracking-widest text-white italic">
-              SAQIB X <span className="text-green-500">EMAN</span>
+              PBX <span className="text-pink-500">GAMING</span>
             </span>
           </div>
 

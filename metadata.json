@@ -1,6 +1,6 @@
 {
-  "name": "Remix: freefiretourment",
-  "description": "Professional Free Fire tournament and sensitivity config platform for Ms Eman Army, featuring squad registrations, creator visual stats, and live match portals.",
+  "name": "PBX Gaming",
+  "description": "Professional Free Fire tournament and sensitivity config platform for PBX GAMING, featuring squad registrations, creator visual stats, and live match portals.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

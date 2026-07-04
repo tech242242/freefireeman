@@ -17,10 +17,10 @@ export default function ProxyPanels() {
   }, []);
 
   useSEO({
-    title: "Free Fire Proxy & VIP Injection Panels | Eman FF Army",
+    title: "Free Fire Proxy & VIP Injection Panels | PBX Gaming",
     description: "Get 100% working Free Fire Proxy. Unlock unlimited diamonds, bundles, gold, level 100, evo guns, emotes and elite VIP gameplay injection panels.",
-    keywords: "eman ff army, free fire proxy, free fire unlimited diamonds, free fire vip panels, free fire mod apk, hg panel mediafire, spg4x, ffmax hack panel, ms eman army vip panel, saqib x eman gaming",
-    ogImage: "https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png"
+    keywords: "pbx gaming, free fire proxy, free fire unlimited diamonds, free fire vip panels, free fire mod apk, hg panel mediafire, spg4x, ffmax hack panel, pbx gaming vip panel, saqib x pbx gaming",
+    ogImage: "https://i.ibb.co/995yZVyL/image.webp"
   });
 
   const handleCopy = (text, label) => {
@@ -102,7 +102,7 @@ export default function ProxyPanels() {
   ];
 
   return (
-    <div className="relative w-full bg-[#020202] bg-cyber-grid min-h-screen text-white flex flex-col overflow-x-hidden">
+    <div className="relative w-full bg-[#020202] bg-cyber-grid min-h-screen text-white flex flex-col overflow-x-hidden pb-24 md:pb-0">
       {/* Dynamic Background Glowing effects */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-red-600/5 rounded-full blur-[140px] pointer-events-none animate-pulse"></div>
       <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-yellow-500/5 rounded-full blur-[140px] pointer-events-none animate-pulse"></div>
@@ -112,12 +112,12 @@ export default function ProxyPanels() {
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate("/")}>
             <img 
-              src="https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png" 
+              src="https://i.ibb.co/995yZVyL/image.webp" 
               alt="Logo" 
-              className="w-8 h-8 object-contain rounded-full border border-yellow-500/30"
+              className="w-8 h-8 object-cover rounded-full border border-pink-500/30"
             />
             <span className="bebas text-xl md:text-2xl tracking-widest text-white italic">
-              MS EMAN <span className="text-yellow-500">ARMY</span>
+              PBX <span className="text-pink-500">GAMING</span>
             </span>
           </div>
 
@@ -464,19 +464,19 @@ export default function ProxyPanels() {
                 <div className="rgb-ring w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                   <div className="w-full h-full bg-black rounded-full flex items-center justify-center overflow-hidden">
                     <img 
-                      src="https://ik.imagekit.io/19imy4f1u/lite_1783018940377_lyEV8GfaD.png" 
-                      alt="Saqib X Eman Gaming" 
-                      className="w-14 h-14 object-contain animate-pulse"
+                      src="https://i.ibb.co/995yZVyL/image.webp" 
+                      alt="Saqib X PBX Gaming" 
+                      className="w-16 h-16 object-cover rounded-full animate-pulse"
                     />
                   </div>
                 </div>
 
-                <span className="text-[10px] bg-yellow-500/10 text-yellow-500 border border-yellow-500/30 px-3 py-1 rounded-full font-black uppercase tracking-[0.2em] inline-block mb-3">
+                <span className="text-[10px] bg-pink-500/10 text-pink-500 border border-pink-500/30 px-3 py-1 rounded-full font-black uppercase tracking-[0.2em] inline-block mb-3">
                   🔔 EXCLUSIVE TELECAST
                 </span>
 
                 <h3 className="bebas text-3xl md:text-4xl text-white tracking-wide italic mb-3">
-                  SAQIB X EMAN <span className="text-yellow-500">GAMING</span>
+                  SAQIB X PBX <span className="text-pink-500">GAMING</span>
                 </h3>
 
                 <p className="text-slate-300 text-xs md:text-sm leading-relaxed mb-6 font-light">
