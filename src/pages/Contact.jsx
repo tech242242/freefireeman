@@ -9,9 +9,14 @@ export default function Contact() {
     e.preventDefault();
     setStatus({ submitted: false, loading: true, error: false });
     
-    // Simulate API call
+    // Simulate transmitting message then open WhatsApp
     setTimeout(() => {
       setStatus({ submitted: true, loading: false, error: false });
+      
+      const whatsappText = `*New Contact Inquiry*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Subject:* ${formData.subject}\n*Message:* ${formData.message}`;
+      const encodedText = encodeURIComponent(whatsappText);
+      window.open(`https://wa.me/923478936242?text=${encodedText}`, "_blank");
+
       setFormData({ name: "", email: "", subject: "", message: "" });
     }, 1200);
   };

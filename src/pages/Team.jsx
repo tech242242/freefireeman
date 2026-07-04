@@ -17,7 +17,7 @@ export default function Team() {
       id: "eman",
       name: "Eman",
       role: "Dropshipping Expert",
-      avatar: "https://i.ibb.co/995yZVyL/image.webp",
+      avatar: "https://i.pinimg.com/736x/2e/ad/5e/2ead5e0dcfec9e7d6f18a11e44e446d7.jpg",
       glowColor: "rgba(239,68,68,0.4)", // Red/Crimson glow
       borderColor: "border-red-500/30",
       accentColor: "text-red-500",
@@ -203,7 +203,7 @@ export default function Team() {
             Need custom inquiries, dropshipping consultancy, or AI automation?
           </p>
           <button
-            onClick={() => navigate("/home#contact")}
+            onClick={() => window.open("https://wa.me/923478936242", "_blank")}
             className="mt-4 bg-gradient-to-r from-green-500 to-yellow-500 hover:from-green-400 hover:to-yellow-400 text-black px-8 py-3 rounded-sm font-black text-xs uppercase tracking-widest transition-all hover:scale-105 shadow-xl"
             style={{ clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0 100%)' }}
           >
