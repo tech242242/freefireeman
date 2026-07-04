@@ -7,7 +7,7 @@ export default function Help() {
   const faqs = [
     {
       question: "How to register for tournament?",
-      answer: "Click on the 'REGISTER NOW' button on an active tournament, subscribe to our YouTube channel for verification, then complete the payment process to secure your slot."
+      answer: "Click on the 'REGISTER NOW' button on an active tournament, join our WhatsApp channel for verification, then complete the payment process to secure your slot."
     },
     {
       question: "What is the tournament format?",

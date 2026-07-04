@@ -183,35 +183,35 @@ export default function TournamentHome() {
         </motion.div>
       )}
 
-      {/* YouTube Subscribe Modal */}
+      {/* WhatsApp Join Modal */}
       {showSubscribeModal && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="fixed inset-0 z-[2000] flex items-center justify-center px-6 bg-black/95 backdrop-blur-md"
         >
-          <div className="glass max-w-sm w-full p-8 rounded-[2rem] border-red-500/30 text-center">
-            <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+          <div className="glass max-w-sm w-full p-8 rounded-[2rem] border-green-500/30 text-center">
+            <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
               <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029 6.185.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412 0 6.556-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143l.346.206c1.554.923 3.35 1.41 5.187 1.411 5.399 0 9.792-4.393 9.795-9.792.001-2.618-1.02-5.08-2.876-6.937-1.856-1.856-4.318-2.877-6.936-2.878-5.4 0-9.792 4.393-9.795 9.793-.001 1.884.49 3.719 1.42 5.293l.226.383-.933 3.405 3.496-.917zm11.391-7.253c-.312-.156-1.848-.912-2.135-1.017-.286-.104-.494-.156-.703.156-.208.312-.807 1.017-.989 1.225-.182.208-.364.234-.676.078-.312-.156-1.318-.486-2.51-1.549-.927-.827-1.552-1.849-1.734-2.161-.182-.312-.019-.481.137-.636.141-.14.312-.364.468-.546.156-.182.208-.312.312-.52.104-.208.052-.39-.026-.546-.078-.156-.703-1.693-.963-2.316-.252-.605-.51-.523-.703-.533-.182-.008-.39-.01-.598-.01s-.546.078-.832.39c-.286.312-1.094 1.069-1.094 2.604s1.12 3.018 1.276 3.227c.156.208 2.203 3.364 5.338 4.717.745.322 1.327.514 1.78.658.749.238 1.431.205 1.97.124.601-.09 1.848-.755 2.11-1.484.262-.729.262-1.354.184-1.484-.078-.13-.286-.208-.598-.364z"/>
               </svg>
             </div>
-            <h3 className="bebas text-3xl mb-2 italic">YouTube Subscribe</h3>
-            <p className="text-slate-400 text-xs mb-6 italic">Aage barhne ke liye subscribe karna zaroori hai.</p>
+            <h3 className="bebas text-3xl mb-2 italic">WhatsApp Channel</h3>
+            <p className="text-slate-400 text-xs mb-6 italic">Aage barhne ke liye WhatsApp channel join karna zaroori hai.</p>
             <a 
-              href="https://www.youtube.com/@saqib242" 
+              href="https://whatsapp.com/channel/0029Vb8oiIrKGGGDehRhyJ18" 
               target="_blank" 
               rel="noopener noreferrer"
               onClick={finishSub}
-              className="block w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-black uppercase tracking-widest text-sm mb-4 shadow-lg shadow-red-600/30 transition-colors"
+              className="block w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-black uppercase tracking-widest text-sm mb-4 shadow-lg shadow-green-600/30 transition-colors"
             >
-              Subscribe Now
+              Join Channel
             </a>
             <button 
               onClick={() => setShowSubscribeModal(false)}
               className="text-slate-500 text-[10px] uppercase font-bold underline hover:text-slate-400"
             >
-              Mai ne pehle hi subscribe kiya hai
+              Mai ne pehle hi join kiya hai
             </button>
           </div>
         </motion.div>
