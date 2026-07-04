@@ -673,84 +673,15 @@ export default function Portal() {
   };
 
   const renderPaymentScreen = () => {
-    const activeTour = tournaments[0];
-
     return (
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-8 w-full max-w-5xl mx-auto py-8">
-        
-        {/* Left Column: Tournament Details Card */}
-        {activeTour && (
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="glass-card overflow-hidden border border-pink-500/20 w-full lg:max-w-md flex flex-col text-left"
-          >
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
-              <img 
-                src={activeTour.banner_url || "https://i.ibb.co/YB1R7TSF/image.webp"} 
-                className="w-full h-full object-cover brightness-110" 
-                alt="Tournament Banner" 
-              />
-              <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-pink-500/30 px-3 py-1 rounded-full flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                <span className="text-[10px] uppercase tracking-widest font-bold text-green-400">Selected Match</span>
-              </div>
-            </div>
-            
-            <div className="p-6 md:p-8 flex-1 text-left relative text-slate-200">
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-pink-500">Esports Tournament</span>
-              <h2 className="bebas text-3xl md:text-4xl italic text-white mt-1 mb-4 uppercase leading-none drop-shadow-md">
-                {activeTour.name || "PBX TOURNAMENT"}
-              </h2>
-
-              <div className="flex flex-wrap gap-2.5 mb-6">
-                <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
-                  <span className="text-pink-500 text-sm">⏰</span>
-                  <span className="text-[10px] font-bold text-gray-300 uppercase tracking-wider">
-                    {activeTour.time || "Time TBD"}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
-                  <span className="text-pink-500 text-sm">📅</span>
-                  <span className="text-[10px] font-bold text-gray-300 uppercase tracking-wider">
-                    {activeTour.date || "Date TBD"}
-                  </span>
-                </div>
-              </div>
-
-              <div className="bg-black/40 p-4 rounded-xl border border-white/5 text-xs text-gray-400 italic mb-6 whitespace-pre-line leading-relaxed">
-                {activeTour.rules || "Official Tournament Rules Apply. Team IDs will be verified."}
-              </div>
-
-              <div className="flex items-center justify-between bg-pink-500/5 p-4 rounded-2xl border border-pink-500/20 backdrop-blur-sm">
-                <div>
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-pink-500/80 block mb-0.5">
-                    Available Slots
-                  </span>
-                  <span className="bebas text-3xl text-white block leading-none">
-                    {freeSeats} / 48
-                  </span>
-                </div>
-                <div className="text-right">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-fuchsia-400 block mb-0.5">
-                    Registration Fee
-                  </span>
-                  <span className="text-lg font-black text-white uppercase font-mono">
-                    PKR 500
-                  </span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Right Column: Easypaisa Details & Payment Form */}
+      <div className="flex items-center justify-center min-h-[70vh] w-full max-w-lg mx-auto py-8 px-4">
+        {/* Easypaisa Details & Payment Form */}
         <motion.div 
           initial={{ opacity: 0, y: 30, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -30, scale: 0.95 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="glass-card p-8 w-full max-w-lg text-slate-200"
+          className="glass-card p-8 w-full text-slate-200 border border-white/10 shadow-[0_0_50px_rgba(236,72,153,0.15)]"
         >
           <div className="text-center mb-6">
             <h2 className="text-2xl font-black text-white uppercase italic">Easypaisa Details</h2>
