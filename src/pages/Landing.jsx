@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  "https://psiypllbqopudppugaxe.supabase.co",
+  "sb_publishable_PsL-7tSFu4EQU5ZHQgO6UA_Segl7g_e"
+);
 import { 
   Trophy, 
   Users, 
@@ -28,6 +34,28 @@ export default function Landing() {
 
   const [emailInput, setEmailInput] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState("");
+
+  const [tournaments, setTournaments] = useState([]);
+  const [loadingTournaments, setLoadingTournaments] = useState(true);
+
+  useEffect(() => {
+    const fetchTournaments = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('kashu_tournaments')
+          .select('*')
+          .order('id', { ascending: true });
+        if (data) {
+          setTournaments(data);
+        }
+      } catch (err) {
+        console.error("Error fetching tournaments in Landing:", err);
+      } finally {
+        setLoadingTournaments(false);
+      }
+    };
+    fetchTournaments();
+  }, []);
 
   useSEO({
     title: "PBX GAMING | Official Esports Custom Tournaments Portal",
@@ -316,7 +344,7 @@ export default function Landing() {
             </div>
 
             {/* Grid of Secondary Actions */}
-            <div className="grid grid-cols-2 gap-3 w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full">
               <motion.button
                 whileHover={{ scale: 1.03, backgroundColor: "rgba(255,255,255,0.03)" }}
                 whileTap={{ scale: 0.97 }}
@@ -355,6 +383,16 @@ export default function Landing() {
               >
                 <MessageSquare className="w-3.5 h-3.5 text-green-500" />
                 WhatsApp Channel
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(239,68,68,0.3)", borderColor: "rgba(239,68,68,0.5)" }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => window.open("https://mrsaqib242.vercel.app", "_blank")}
+                className="col-span-2 sm:col-span-1 flex items-center justify-center gap-2 border border-red-500/20 bg-red-950/10 hover:bg-red-950/20 text-[10px] font-black uppercase tracking-widest py-3 px-4 rounded-xl transition-all text-red-400 hover:text-red-300 cursor-pointer shadow-[0_0_10px_rgba(239,68,68,0.05)]"
+              >
+                <span className="animate-pulse">💀</span>
+                Explore Hacks
               </motion.button>
             </div>
           </div>
@@ -527,136 +565,189 @@ export default function Landing() {
         </div>
 
         {/* 3 Tournaments Card Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8">
-          
-          {/* Card 1: Solo Cup */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            whileHover={{ y: -6, boxShadow: "0 15px 30px rgba(0,0,0,0.5)" }}
-            className="col-span-1 group rounded-2xl sm:rounded-3xl bg-[#090910]/80 backdrop-blur-md border border-white/5 overflow-hidden transition-all duration-300 relative flex flex-col"
-          >
-            {/* Image section with custom Solo tint */}
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
-              <img 
-                src="/src/assets/images/pbx_tournament_bg_1783166895694.jpg" 
-                alt="PBX Solo Cup" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#090910] via-transparent to-black/30"></div>
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-8">
+          {loadingTournaments ? (
+            Array.from({ length: 3 }).map((_, idx) => (
+              <div key={idx} className="w-[calc(50%-6px)] md:w-[calc(33.333%-22px)] min-w-[145px] max-w-sm rounded-2xl sm:rounded-3xl bg-[#090910]/80 backdrop-blur-md border border-white/5 overflow-hidden p-4 animate-pulse h-64 flex flex-col justify-between">
+                <div className="w-full h-32 bg-white/5 rounded-xl"></div>
+                <div className="h-4 bg-white/5 rounded w-1/3 mt-2"></div>
+                <div className="h-6 bg-white/5 rounded w-2/3 mt-2"></div>
+                <div className="h-10 bg-white/5 rounded w-full mt-4"></div>
+              </div>
+            ))
+          ) : tournaments.length > 0 ? (
+            tournaments.slice(0, 3).map((tour, index) => {
+              const isSquad = tour.type?.toLowerCase().includes("squad") || tour.title?.toLowerCase().includes("squad");
+              const isDuo = tour.type?.toLowerCase().includes("duo") || tour.title?.toLowerCase().includes("duo");
+              const typeLabel = tour.type || (isSquad ? "Squad War" : isDuo ? "Duo Match" : "Solo Match");
               
-              {/* Badge Tag */}
-              <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-purple-600/90 text-white font-black text-[7px] sm:text-[9px] uppercase tracking-widest px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full border border-purple-400/30 shadow-md">
-                Solo Match
-              </div>
-            </div>
+              const borderStyle = isSquad 
+                ? "border-pink-500/20 shadow-[0_0_15px_rgba(236,72,153,0.05)]" 
+                : "border-white/5";
+              const badgeStyle = isSquad
+                ? "bg-pink-500 shadow-[0_0_15px_rgba(236,72,153,0.4)] animate-pulse"
+                : isDuo
+                ? "bg-indigo-600/90 border border-indigo-400/30"
+                : "bg-purple-600/90 border border-purple-400/30";
+              const btnStyle = isSquad
+                ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-[0_0_15px_rgba(236,72,153,0.3)] hover:brightness-110"
+                : "bg-white/[0.03] group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:to-purple-600 border border-white/10 group-hover:border-transparent group-hover:shadow-[0_0_15px_rgba(236,72,153,0.3)]";
 
-            {/* Information section */}
-            <div className="p-3 sm:p-6 flex-1 flex flex-col justify-between">
-              <div>
-                <span className="text-[8px] sm:text-[10px] text-pink-400 font-bold tracking-widest uppercase">FREE FIRE</span>
-                <h3 className="text-white font-black text-xs sm:text-xl uppercase tracking-wide mt-0.5 mb-2 sm:mb-6 group-hover:text-pink-400 transition-colors line-clamp-1">PBX Solo Cup</h3>
-              </div>
+              return (
+                <motion.div 
+                  key={tour.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -6, boxShadow: isSquad ? "0 15px 30px rgba(236,72,153,0.15)" : "0 15px 30px rgba(0,0,0,0.5)" }}
+                  className={`w-[calc(50%-6px)] md:w-[calc(33.333%-22px)] min-w-[145px] max-w-sm group rounded-2xl sm:rounded-3xl bg-[#090910]/80 backdrop-blur-md border ${borderStyle} overflow-hidden transition-all duration-300 relative flex flex-col`}
+                >
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
+                    <img 
+                      src={tour.banner_url || "https://ik.imagekit.io/shaban/SHABAN-1768843573796_wWUQgJ0Uo.jpg"} 
+                      alt={tour.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 brightness-110"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#090910] via-transparent to-black/30"></div>
+                    <div className={`absolute top-2 left-2 sm:top-4 sm:left-4 text-white font-black text-[7px] sm:text-[9px] uppercase tracking-widest px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full shadow-md ${badgeStyle}`}>
+                      {typeLabel}
+                    </div>
+                  </div>
 
-              <motion.button 
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/home')}
-                className="w-full py-2.5 sm:py-3.5 bg-white/[0.03] group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:to-purple-600 rounded-lg sm:rounded-xl font-black text-[8px] sm:text-[10px] uppercase tracking-widest border border-white/10 group-hover:border-transparent group-hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all mt-2 text-center cursor-pointer"
+                  <div className="p-3 sm:p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <span className="text-[8px] sm:text-[10px] text-pink-400 font-bold tracking-widest uppercase">FREE FIRE</span>
+                      <h3 className="text-white font-black text-xs sm:text-xl uppercase tracking-wide mt-0.5 mb-2 sm:mb-6 group-hover:text-pink-400 transition-colors line-clamp-1">{tour.title}</h3>
+                    </div>
+
+                    <motion.button 
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => navigate('/home')}
+                      className={`w-full py-2.5 sm:py-4 rounded-lg sm:rounded-xl font-black text-[8px] sm:text-[10px] uppercase tracking-widest transition-all mt-2 text-center cursor-pointer ${btnStyle}`}
+                    >
+                      Join Now
+                    </motion.button>
+                  </div>
+                </motion.div>
+              );
+            })
+          ) : (
+            <>
+              {/* Card 1: Solo Cup */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                whileHover={{ y: -6, boxShadow: "0 15px 30px rgba(0,0,0,0.5)" }}
+                className="w-[calc(50%-6px)] md:w-[calc(33.333%-22px)] min-w-[145px] max-w-sm group rounded-2xl sm:rounded-3xl bg-[#090910]/80 backdrop-blur-md border border-white/5 overflow-hidden transition-all duration-300 relative flex flex-col"
               >
-                Join Now
-              </motion.button>
-            </div>
-          </motion.div>
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
+                  <img 
+                    src="https://ik.imagekit.io/19imy4f1u/lite_1783173372427_dx9NfRm3S.webp" 
+                    alt="PBX Solo Cup" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090910] via-transparent to-black/30"></div>
+                  <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-purple-600/90 text-white font-black text-[7px] sm:text-[9px] uppercase tracking-widest px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full border border-purple-400/30 shadow-md">
+                    Solo Match
+                  </div>
+                </div>
+                <div className="p-3 sm:p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[8px] sm:text-[10px] text-pink-400 font-bold tracking-widest uppercase">FREE FIRE</span>
+                    <h3 className="text-white font-black text-xs sm:text-xl uppercase tracking-wide mt-0.5 mb-2 sm:mb-6 group-hover:text-pink-400 transition-colors line-clamp-1">PBX Solo Cup</h3>
+                  </div>
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => navigate('/home')}
+                    className="w-full py-2.5 sm:py-3.5 bg-white/[0.03] group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:to-purple-600 rounded-lg sm:rounded-xl font-black text-[8px] sm:text-[10px] uppercase tracking-widest border border-white/10 group-hover:border-transparent group-hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all mt-2 text-center cursor-pointer"
+                  >
+                    Join Now
+                  </motion.button>
+                </div>
+              </motion.div>
 
-          {/* Card 2: Squad Battle (Highlighted) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            whileHover={{ y: -6, boxShadow: "0 15px 30px rgba(236,72,153,0.15)" }}
-            className="col-span-1 group rounded-2xl sm:rounded-3xl bg-[#090910]/80 backdrop-blur-md border border-pink-500/20 overflow-hidden transition-all duration-300 relative flex flex-col shadow-[0_0_15px_rgba(236,72,153,0.05)]"
-          >
-            {/* Image section with custom Squad tint */}
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
-              <img 
-                src="/src/assets/images/pbx_tournament_bg_1783166895694.jpg" 
-                alt="PBX Squad Battle" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 brightness-110"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#090910] via-pink-950/10 to-black/30"></div>
-              
-              {/* Badge Tag */}
-              <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-pink-500 text-white font-black text-[7px] sm:text-[9px] uppercase tracking-widest px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full border border-pink-400/30 shadow-[0_0_15px_rgba(236,72,153,0.4)] animate-pulse">
-                Squad War
-              </div>
-            </div>
-
-            {/* Information section */}
-            <div className="p-3 sm:p-6 flex-1 flex flex-col justify-between">
-              <div>
-                <span className="text-[8px] sm:text-[10px] text-pink-400 font-bold tracking-widest uppercase">FREE FIRE</span>
-                <h3 className="text-white font-black text-xs sm:text-xl uppercase tracking-wide mt-0.5 mb-2 sm:mb-6 group-hover:text-pink-400 transition-colors line-clamp-1">PBX Squad Battle</h3>
-              </div>
-
-              <motion.button 
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/home')}
-                className="w-full py-2.5 sm:py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-lg sm:rounded-xl font-black text-[8px] sm:text-[10px] uppercase tracking-widest shadow-[0_0_15px_rgba(236,72,153,0.3)] hover:brightness-110 transition-all mt-2 text-center cursor-pointer"
+              {/* Card 2: Squad Battle */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ y: -6, boxShadow: "0 15px 30px rgba(236,72,153,0.15)" }}
+                className="w-[calc(50%-6px)] md:w-[calc(33.333%-22px)] min-w-[145px] max-w-sm group rounded-2xl sm:rounded-3xl bg-[#090910]/80 backdrop-blur-md border border-pink-500/20 overflow-hidden transition-all duration-300 relative flex flex-col shadow-[0_0_15px_rgba(236,72,153,0.05)]"
               >
-                Join Now
-              </motion.button>
-            </div>
-          </motion.div>
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
+                  <img 
+                    src="https://ik.imagekit.io/19imy4f1u/lite_1783173372427_dx9NfRm3S.webp" 
+                    alt="PBX Squad Battle" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 brightness-110"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090910] via-pink-950/10 to-black/30"></div>
+                  <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-pink-500 text-white font-black text-[7px] sm:text-[9px] uppercase tracking-widest px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full border border-pink-400/30 shadow-[0_0_15px_rgba(236,72,153,0.4)] animate-pulse">
+                    Squad War
+                  </div>
+                </div>
+                <div className="p-3 sm:p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[8px] sm:text-[10px] text-pink-400 font-bold tracking-widest uppercase">FREE FIRE</span>
+                    <h3 className="text-white font-black text-xs sm:text-xl uppercase tracking-wide mt-0.5 mb-2 sm:mb-6 group-hover:text-pink-400 transition-colors line-clamp-1">PBX Squad Battle</h3>
+                  </div>
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => navigate('/home')}
+                    className="w-full py-2.5 sm:py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-lg sm:rounded-xl font-black text-[8px] sm:text-[10px] uppercase tracking-widest shadow-[0_0_15px_rgba(236,72,153,0.3)] hover:brightness-110 transition-all mt-2 text-center cursor-pointer"
+                  >
+                    Join Now
+                  </motion.button>
+                </div>
+              </motion.div>
 
-          {/* Card 3: Duo Cup */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            whileHover={{ y: -6, boxShadow: "0 15px 30px rgba(0,0,0,0.5)" }}
-            className="col-span-2 md:col-span-1 group rounded-2xl sm:rounded-3xl bg-[#090910]/80 backdrop-blur-md border border-white/5 overflow-hidden transition-all duration-300 relative flex flex-col"
-          >
-            {/* Image section with custom Duo tint */}
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
-              <img 
-                src="/src/assets/images/pbx_tournament_bg_1783166895694.jpg" 
-                alt="PBX Duo Cup" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#090910] via-transparent to-black/30"></div>
-              
-              {/* Badge Tag */}
-              <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-indigo-600/90 text-white font-black text-[7px] sm:text-[9px] uppercase tracking-widest px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full border border-indigo-400/30 shadow-md">
-                Duo Match
-              </div>
-            </div>
-
-            {/* Information section */}
-            <div className="p-3 sm:p-6 flex-1 flex flex-col justify-between">
-              <div>
-                <span className="text-[8px] sm:text-[10px] text-pink-400 font-bold tracking-widest uppercase">FREE FIRE</span>
-                <h3 className="text-white font-black text-xs sm:text-xl uppercase tracking-wide mt-0.5 mb-2 sm:mb-6 group-hover:text-pink-400 transition-colors line-clamp-1">PBX Duo Cup</h3>
-              </div>
-
-              <motion.button 
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/home')}
-                className="w-full py-2.5 sm:py-3.5 bg-white/[0.03] group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:to-purple-600 rounded-lg sm:rounded-xl font-black text-[8px] sm:text-[10px] uppercase tracking-widest border border-white/10 group-hover:border-transparent group-hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all mt-2 text-center cursor-pointer"
+              {/* Card 3: Duo Cup */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ y: -6, boxShadow: "0 15px 30px rgba(0,0,0,0.5)" }}
+                className="w-[calc(100%-12px)] md:w-[calc(33.333%-22px)] min-w-[145px] max-w-sm group rounded-2xl sm:rounded-3xl bg-[#090910]/80 backdrop-blur-md border border-white/5 overflow-hidden transition-all duration-300 relative flex flex-col"
               >
-                Join Now
-              </motion.button>
-            </div>
-          </motion.div>
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
+                  <img 
+                    src="https://ik.imagekit.io/19imy4f1u/lite_1783173372427_dx9NfRm3S.webp" 
+                    alt="PBX Duo Cup" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090910] via-transparent to-black/30"></div>
+                  <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-indigo-600/90 text-white font-black text-[7px] sm:text-[9px] uppercase tracking-widest px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full border border-indigo-400/30 shadow-md">
+                    Duo Match
+                  </div>
+                </div>
+                <div className="p-3 sm:p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[8px] sm:text-[10px] text-pink-400 font-bold tracking-widest uppercase">FREE FIRE</span>
+                    <h3 className="text-white font-black text-xs sm:text-xl uppercase tracking-wide mt-0.5 mb-2 sm:mb-6 group-hover:text-pink-400 transition-colors line-clamp-1">PBX Duo Cup</h3>
+                  </div>
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => navigate('/home')}
+                    className="w-full py-2.5 sm:py-3.5 bg-white/[0.03] group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:to-purple-600 rounded-lg sm:rounded-xl font-black text-[8px] sm:text-[10px] uppercase tracking-widest border border-white/10 group-hover:border-transparent group-hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all mt-2 text-center cursor-pointer"
+                  >
+                    Join Now
+                  </motion.button>
+                </div>
+              </motion.div>
+            </>
+          )}
 
         </div>
       </section>

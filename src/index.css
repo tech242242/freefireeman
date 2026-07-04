@@ -152,3 +152,20 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #ec4899;
 }
+
+/* Custom marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(50%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+

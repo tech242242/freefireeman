@@ -823,7 +823,7 @@ export default function Portal() {
           </motion.div>
         )}
 
-        {/* Right Column: Bank Details & Payment Form */}
+        {/* Right Column: Easypaisa Details & Payment Form */}
         <motion.div 
           initial={{ opacity: 0, y: 30, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -832,42 +832,35 @@ export default function Portal() {
           className="glass-card p-8 w-full max-w-lg text-slate-200"
         >
           <div className="text-center mb-6">
-            <h2 className="text-2xl font-black text-white uppercase italic">Bank Transfer Details</h2>
-            <p className="text-slate-400 text-xs mt-1">Send Payment to Bank Account</p>
+            <h2 className="text-2xl font-black text-white uppercase italic">Easypaisa Details</h2>
+            <p className="text-slate-400 text-xs mt-1">Send Payment via Easypaisa</p>
           </div>
 
-          {/* Bank Account Details */}
+          {/* Easypaisa Account Details */}
           <div className="bg-white/5 p-6 rounded-2xl mb-6 border border-white/10 text-left">
-            <p className="text-[10px] text-pink-500 font-black uppercase tracking-widest mb-4">Account Information</p>
+            <p className="text-[10px] text-pink-500 font-black uppercase tracking-widest mb-4">Easypaisa Information</p>
             <div className="space-y-3">
               <div className="flex">
                 <span className="text-xs text-slate-400 font-bold w-40">Account Holder:</span>
-                <span className="text-sm font-bold text-white">Muhammad Fahad Ali</span>
+                <span className="text-sm font-bold text-white">Azia Akrem</span>
               </div>
               <div className="flex">
-                <span className="text-xs text-slate-400 font-bold w-40">Bank Name:</span>
-                <span className="text-sm font-bold text-white">Askari Bank Limited</span>
+                <span className="text-xs text-slate-400 font-bold w-40">Payment Method:</span>
+                <span className="text-sm font-bold text-white">Easypaisa</span>
               </div>
               <div className="flex">
-                <span className="text-xs text-slate-400 font-bold w-40">Branch:</span>
-                <span className="text-sm font-bold text-white">IBB Circular Road Branch, Lahore</span>
-              </div>
-              <div className="flex">
-                <span className="text-xs text-slate-400 font-bold w-40">Account Number:</span>
-                <span className="text-sm font-bold text-white">07060200020269</span>
-              </div>
-              <div className="flex">
-                <span className="text-xs text-slate-400 font-bold w-40">IBAN:</span>
-                <span className="text-sm font-bold text-white break-all">PK34ASCM0007060200020269</span>
+                <span className="text-xs text-slate-400 font-bold w-40">Phone Number:</span>
+                <span className="text-sm font-bold text-white">03438673242</span>
               </div>
             </div>
             <div className="mt-6 pt-6 border-t border-white/10 text-center">
-              <p className="text-xs text-slate-400 mb-2">Scan QR to get bank details</p>
-              <div className="bg-white p-2 w-32 h-32 mx-auto rounded-lg flex items-center justify-center">
+              <p className="text-xs text-slate-400 mb-2">Scan QR to pay with Easypaisa</p>
+              <div className="bg-white p-2 w-48 mx-auto rounded-lg flex items-center justify-center shadow-lg">
                 <img 
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Bank%20Details%3A%0AAccount%20Holder%3A%20Muhammad%20Fahad%20Ali%0ABank%3A%20Askari%20Bank%20Limited%0AIBAN%3A%20PK34ASCM0007060200020269%0AAC%2FNo%3A%2007060200020269" 
-                  alt="QR Code" 
-                  className="w-full h-full object-cover"
+                  src="https://ik.imagekit.io/19imy4f1u/lite_1783177867055_sePBrcyCA.webp" 
+                  alt="Easypaisa QR Code" 
+                  className="w-full h-auto object-contain"
+                  referrerPolicy="no-referrer"
                 />
               </div>
             </div>

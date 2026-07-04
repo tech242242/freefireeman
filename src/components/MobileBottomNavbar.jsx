@@ -22,7 +22,7 @@ export default function MobileBottomNavbar() {
       icon: Home,
     },
     {
-      label: "Proxy",
+      label: "Pannel",
       path: "/proxy-panels",
       icon: Shield,
     },

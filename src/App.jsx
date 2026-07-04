@@ -15,6 +15,7 @@ import WebDashboard from "./pages/WebDashboard";
 import SquadManager from "./pages/SquadManager";
 import AdminNavbar from "./components/AdminNavbar"; // Admin کے لیے الگ Navbar
 import MobileBottomNavbar from "./components/MobileBottomNavbar";
+import AnnouncementBar from "./components/AnnouncementBar";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -53,52 +54,57 @@ export default function App() {
       {showWelcome ? (
         <WelcomeAnimation onComplete={handleWelcomeComplete} />
       ) : (
-        <Routes>
-          {/* PUBLIC ROUTES */}
-          <Route path="/" element={<Landing />} />
-          <Route path="/home" element={<TournamentHome />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/portal" element={<Portal />} /> {/* Add this line */}
-          <Route path="/team" element={<Team />} />
-          <Route path="/proxy-panels" element={<ProxyPanels />} />
-          <Route path="/sensitivity-hub" element={<SensitivityHub />} />
-          
-          {/* ADMIN DASHBOARD ROUTES - باہر DashboardLayout سے الگ */}
-          <Route path="/dashboard" element={
-            <ProtectedRoute>
-              <DashboardLayout>
-                <DashboardHome />
-              </DashboardLayout>
-            </ProtectedRoute>
-          } />
-          
-          <Route path="/admin" element={
-            <ProtectedRoute>
-              <DashboardLayout>
-                <Admin />
-              </DashboardLayout>
-            </ProtectedRoute>
-          } />
-          
-          <Route path="/web-dashboard" element={
-            <ProtectedRoute>
-              <DashboardLayout>
-                <WebDashboard />
-              </DashboardLayout>
-            </ProtectedRoute>
-          } />
-          
-          <Route path="/squad-manager" element={
-            <ProtectedRoute>
-              <DashboardLayout>
-                <SquadManager />
-              </DashboardLayout>
-            </ProtectedRoute>
-          } />
-          
-          {/* Default redirect */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <div className="flex flex-col min-h-screen">
+          <AnnouncementBar />
+          <div className="flex-1">
+            <Routes>
+              {/* PUBLIC ROUTES */}
+              <Route path="/" element={<Landing />} />
+              <Route path="/home" element={<TournamentHome />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/portal" element={<Portal />} /> {/* Add this line */}
+              <Route path="/team" element={<Team />} />
+              <Route path="/proxy-panels" element={<ProxyPanels />} />
+              <Route path="/sensitivity-hub" element={<SensitivityHub />} />
+              
+              {/* ADMIN DASHBOARD ROUTES - باہر DashboardLayout سے الگ */}
+              <Route path="/dashboard" element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <DashboardHome />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } />
+              
+              <Route path="/admin" element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <Admin />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } />
+              
+              <Route path="/web-dashboard" element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <WebDashboard />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } />
+              
+              <Route path="/squad-manager" element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <SquadManager />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } />
+              
+              {/* Default redirect */}
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </div>
+        </div>
       )}
       {!showWelcome && <MobileBottomNavbar />}
     </Router>
