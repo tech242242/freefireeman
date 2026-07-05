@@ -11,7 +11,7 @@ export default function Owner() {
     age: "17 Years",
     location: "Faisalabad, Pakistan",
     phone: "+92 347 8936242",
-    email: "mrsaqib242242@gmail.com",
+    email: "Pbxgamingofficial2@gmail.com",
     website: "https://www.google.com/search?q=saqib242",
     socials: [
       { name: "WhatsApp", url: "https://wa.me/923478936242", icon: "💬", color: "hover:border-green-500/50 hover:bg-green-500/10 text-green-400" },

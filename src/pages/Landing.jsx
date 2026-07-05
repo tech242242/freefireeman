@@ -24,7 +24,10 @@ import {
   MessageSquare,
   AlertTriangle,
   Home,
-  Info
+  Info,
+  Mail,
+  Heart,
+  CheckCircle2
 } from "lucide-react";
 import useSEO from "../hooks/useSEO";
 
@@ -128,7 +131,7 @@ export default function Landing() {
       <div className="absolute bottom-40 left-20 w-96 h-96 bg-fuchsia-500/10 blur-[140px] rounded-full pointer-events-none"></div>
 
       {/* HEADER / NAVIGATION BAR */}
-      <header className="sticky top-0 w-full z-50 bg-[#050508]/75 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+      <header className="fixed top-0 left-0 right-0 w-full z-50 bg-[#050508]/75 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           
           {/* Logo Brand */}
@@ -209,58 +212,71 @@ export default function Landing() {
               exit="exit"
               className="md:hidden bg-[#07070c]/95 backdrop-blur-xl border-b border-white/5 overflow-hidden"
             >
-              <div className="px-6 py-6 flex flex-col gap-4 text-xs font-black uppercase tracking-[0.2em] text-slate-300">
-                <motion.div variants={menuItemVariants} className="flex items-center gap-3">
-                  <Home className="w-4 h-4 text-pink-500" />
-                  <a 
-                    href="#" 
-                    onClick={(e) => { e.preventDefault(); scrollToSection("top"); setMobileMenuOpen(false); }} 
-                    className="text-pink-400 py-1"
-                  >
-                    Home
-                  </a>
+              <div className="p-6 grid grid-cols-2 gap-3">
+                <motion.div 
+                  variants={menuItemVariants}
+                  onClick={(e) => { e.preventDefault(); scrollToSection("top"); setMobileMenuOpen(false); }}
+                  className="col-span-1 bg-white/5 border border-white/10 hover:border-pink-500/50 p-4 rounded-2xl flex flex-col items-center justify-center gap-3 cursor-pointer group transition-all"
+                >
+                  <Home className="w-6 h-6 text-pink-500 group-hover:scale-110 transition-transform" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 group-hover:text-white text-center">Home</span>
                 </motion.div>
                 
-                <motion.div variants={menuItemVariants} className="flex items-center gap-3">
-                  <Info className="w-4 h-4 text-pink-500" />
-                  <a 
-                    href="#about" 
-                    onClick={(e) => { e.preventDefault(); scrollToSection("about"); setMobileMenuOpen(false); }} 
-                    className="hover:text-pink-400 transition-colors py-1"
-                  >
-                    About PBX
-                  </a>
+                <motion.div 
+                  variants={menuItemVariants}
+                  onClick={(e) => { e.preventDefault(); scrollToSection("about"); setMobileMenuOpen(false); }}
+                  className="col-span-1 bg-white/5 border border-white/10 hover:border-pink-500/50 p-4 rounded-2xl flex flex-col items-center justify-center gap-3 cursor-pointer group transition-all"
+                >
+                  <Info className="w-6 h-6 text-pink-500 group-hover:scale-110 transition-transform" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 group-hover:text-white text-center">About</span>
                 </motion.div>
                 
-                <motion.div variants={menuItemVariants} className="flex items-center gap-3 cursor-pointer" onClick={() => { navigate("/home"); setMobileMenuOpen(false); }}>
-                  <Trophy className="w-4 h-4 text-pink-500" />
-                  <span className="hover:text-pink-400 transition-colors py-1">Tournaments</span>
+                <motion.div 
+                  variants={menuItemVariants}
+                  onClick={() => { navigate("/home"); setMobileMenuOpen(false); }}
+                  className="col-span-2 bg-gradient-to-r from-pink-500/10 to-purple-500/10 border border-pink-500/20 hover:border-pink-500/50 p-4 rounded-2xl flex items-center justify-between gap-3 cursor-pointer group transition-all"
+                >
+                  <div className="flex items-center gap-3">
+                    <Trophy className="w-6 h-6 text-pink-500 group-hover:scale-110 transition-transform" />
+                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 group-hover:text-white">Tournaments</span>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-pink-500 opacity-50 group-hover:opacity-100 transition-opacity" />
                 </motion.div>
                 
-                <motion.div variants={menuItemVariants} className="flex items-center gap-3 cursor-pointer" onClick={() => { navigate("/proxy-panels"); setMobileMenuOpen(false); }}>
-                  <Shield className="w-4 h-4 text-pink-500" />
-                  <span className="hover:text-pink-400 transition-colors py-1">Proxy Panels</span>
+                <motion.div 
+                  variants={menuItemVariants}
+                  onClick={() => { navigate("/proxy-panels"); setMobileMenuOpen(false); }}
+                  className="col-span-1 bg-white/5 border border-white/10 hover:border-pink-500/50 p-4 rounded-2xl flex flex-col items-center justify-center gap-3 cursor-pointer group transition-all"
+                >
+                  <Shield className="w-6 h-6 text-pink-500 group-hover:scale-110 transition-transform" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 group-hover:text-white text-center">Proxy</span>
+                </motion.div>
+
+                <motion.div 
+                  variants={menuItemVariants}
+                  onClick={() => { navigate("/sensitivity-hub"); setMobileMenuOpen(false); }}
+                  className="col-span-1 bg-white/5 border border-white/10 hover:border-pink-500/50 p-4 rounded-2xl flex flex-col items-center justify-center gap-3 cursor-pointer group transition-all"
+                >
+                  <Sparkles className="w-6 h-6 text-pink-500 group-hover:scale-110 transition-transform" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 group-hover:text-white text-center">Sensitivity</span>
+                </motion.div>
+
+                <motion.div 
+                  variants={menuItemVariants}
+                  onClick={() => { navigate("/team"); setMobileMenuOpen(false); }}
+                  className="col-span-1 bg-white/5 border border-white/10 hover:border-pink-500/50 p-4 rounded-2xl flex flex-col items-center justify-center gap-3 cursor-pointer group transition-all"
+                >
+                  <Users className="w-6 h-6 text-pink-500 group-hover:scale-110 transition-transform" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 group-hover:text-white text-center">Our Team</span>
                 </motion.div>
                 
-                <motion.div variants={menuItemVariants} className="flex items-center gap-3 cursor-pointer" onClick={() => { navigate("/sensitivity-hub"); setMobileMenuOpen(false); }}>
-                  <Sparkles className="w-4 h-4 text-pink-500" />
-                  <span className="hover:text-pink-400 transition-colors py-1">Sensitivity</span>
-                </motion.div>
-                
-                <motion.div variants={menuItemVariants} className="flex items-center gap-3 cursor-pointer" onClick={() => { navigate("/team"); setMobileMenuOpen(false); }}>
-                  <Users className="w-4 h-4 text-pink-500" />
-                  <span className="hover:text-pink-400 transition-colors py-1">Our Team</span>
-                </motion.div>
-                
-                <motion.div variants={menuItemVariants} className="h-[1px] bg-white/5 my-1" />
-                
-                <motion.div variants={menuItemVariants} className="flex flex-col gap-3">
-                  <button
-                    onClick={() => { navigate("/portal"); setMobileMenuOpen(false); }}
-                    className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-black text-[10px] py-3.5 rounded-xl text-center uppercase tracking-widest shadow-lg cursor-pointer"
-                  >
-                    Join Team / Portal
-                  </button>
+                <motion.div 
+                  variants={menuItemVariants}
+                  onClick={() => { navigate("/portal"); setMobileMenuOpen(false); }}
+                  className="col-span-1 bg-gradient-to-br from-pink-500 to-purple-600 border border-transparent p-4 rounded-2xl flex flex-col items-center justify-center gap-3 cursor-pointer group transition-all shadow-[0_0_20px_rgba(236,72,153,0.3)]"
+                >
+                  <Gamepad2 className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-white text-center">Portal</span>
                 </motion.div>
               </div>
             </motion.div>
@@ -275,7 +291,7 @@ export default function Landing() {
             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .8.11V9.4a6.27 6.27 0 0 0-3.11.3 6.3 6.3 0 0 0-3.64 5.39 6.3 6.3 0 0 0 5.4 7.07 6.3 6.3 0 0 0 6.94-5.27V11a8.27 8.27 0 0 0 5.74 2.29V9.83a4.8 4.8 0 0 1-1.97-.84 4.75 4.75 0 0 1-1.62-2.3z"/>
           </svg>
         </a>
-        <a href="https://whatsapp.com/channel/0029Vb8oiIrKGGGDehRhyJ18" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-green-500 transition-all duration-300 hover:scale-125" title="WhatsApp Channel">
+        <a href="https://chat.whatsapp.com/JFrvLw4KvAeG4HO6EUMSPo?s=cl&p=a&ilr=0&amv=2" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-green-500 transition-all duration-300 hover:scale-125" title="Join Community">
           <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
             <path d="M12.031 0C5.39 0 0 5.402 0 12.044c0 2.116.547 4.192 1.586 6.012L0 24l6.12-1.61c1.765.966 3.753 1.48 5.799 1.48C18.57 23.87 24 18.468 24 11.82 24 5.18 18.57 0 12.031 0zm0 21.873c-1.9 0-3.75-.512-5.36-1.478l-.38-.22-3.64.954.97-3.543-.24-.384c-1.06-1.69-1.62-3.664-1.62-5.71C1.76 5.92 6.37 1.306 12.03 1.306c2.74 0 5.31 1.07 7.25 3.012a10.16 10.16 0 0 1 3.01 7.26c0 5.652-4.61 10.267-10.26 10.267zm5.55-7.59c-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.36.23-.66.08-1.03-.52-1.81-.94-2.49-2.11-.27-.46.27-.43.77-1.43.08-.15.04-.28-.02-.38-.06-.1-.68-1.63-.93-2.23-.25-.59-.5-.51-.68-.52-.17-.01-.37-.01-.57-.01-.2 0-.52.08-.79.37-.27.3-1.03 1-1.03 2.44 0 1.44 1.05 2.83 1.2 3.03.15.2 2.06 3.15 5 4.41.7.3 1.24.48 1.66.61.71.22 1.35.19 1.85.12.56-.08 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.08-.13-.28-.2-.58-.35z"/>
           </svg>
@@ -293,7 +309,7 @@ export default function Landing() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative w-full max-w-7xl mx-auto px-6 py-10 md:py-20 z-10 flex flex-col lg:flex-row items-center justify-between gap-12 min-h-[calc(100vh-80px)]">
+      <section className="relative w-full max-w-7xl mx-auto px-6 py-10 md:py-20 pt-24 md:pt-32 z-10 flex flex-col lg:flex-row items-center justify-between gap-12 min-h-[calc(100vh-80px)]">
         
         {/* Left Info Column */}
         <motion.div 
@@ -304,8 +320,12 @@ export default function Landing() {
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 font-bold tracking-[0.3em] text-[10px] uppercase mb-6 shadow-[0_0_15px_rgba(236,72,153,0.1)]">
             <Sparkles className="w-3.5 h-3.5 text-pink-400 animate-pulse shrink-0" />
-            WELCOME TO
+            WELCOME TO THE ELITE ARENA
           </div>
+          
+          <h2 className="text-3xl sm:text-4xl font-black uppercase italic tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 mb-2 drop-shadow-md">
+            SAQIB X EMAN
+          </h2>
           
           <h1 className="text-5xl sm:text-6xl xl:text-7xl font-black uppercase italic leading-tight tracking-tight mb-4 drop-shadow-lg text-white">
             PBX <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 drop-shadow-[0_0_20px_rgba(236,72,153,0.3)]">GAMING</span>
@@ -378,11 +398,11 @@ export default function Landing() {
               <motion.button
                 whileHover={{ scale: 1.03, backgroundColor: "rgba(255,255,255,0.03)" }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => window.open("https://whatsapp.com/channel/0029Vb8oiIrKGGGDehRhyJ18", "_blank")}
+                onClick={() => window.open("https://chat.whatsapp.com/JFrvLw4KvAeG4HO6EUMSPo?s=cl&p=a&ilr=0&amv=2", "_blank")}
                 className="flex items-center justify-center gap-2 border border-white/5 bg-white/[0.01] hover:border-green-500/30 text-[10px] font-bold uppercase tracking-widest py-3 px-4 rounded-xl transition-all text-slate-300 hover:text-white cursor-pointer"
               >
                 <MessageSquare className="w-3.5 h-3.5 text-green-500" />
-                WhatsApp Channel
+                Join Community
               </motion.button>
 
               <motion.button
@@ -895,21 +915,14 @@ export default function Landing() {
             className="w-full lg:w-1/2 relative flex justify-center"
           >
             {/* Visual element representing stylized logo splash inside dark paint box */}
-            <div className="relative w-full max-w-[450px] aspect-video sm:aspect-square lg:aspect-video rounded-3xl overflow-hidden p-[1px] bg-gradient-to-tr from-pink-500/30 to-purple-600/30 shadow-[0_0_50px_rgba(236,72,153,0.15)] group">
-              <div className="w-full h-full rounded-[23px] bg-[#07070d]/90 backdrop-blur-md relative flex items-center justify-center p-8 overflow-hidden">
-                <div className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:scale-105 transition-transform duration-1000" style={{ backgroundImage: "url('/src/assets/images/pbx_tournament_bg_1783166895694.jpg')" }}></div>
-                <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-pink-500/10 blur-[60px] rounded-full pointer-events-none"></div>
-                
-                {/* Massive Styled Brand Name */}
-                <div className="text-center relative z-10">
-                  <div className="inline-block px-4 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 font-bold text-[8px] uppercase tracking-[0.4em] mb-4 shadow-sm">
-                    # PBX CLAN CORE
-                  </div>
-                  <h2 className="text-5xl sm:text-6xl font-black uppercase italic leading-none tracking-tight text-white mb-2">
-                    PBX <span className="text-pink-500 font-black">GAMING</span>
-                  </h2>
-                  <p className="text-[10px] text-slate-500 uppercase tracking-[0.3em] font-mono mt-3">Play. Compete. Win. Repeat.</p>
-                </div>
+            <div className="relative w-full max-w-[450px] aspect-square rounded-3xl overflow-hidden p-[1px] bg-gradient-to-tr from-pink-500/30 to-purple-600/30 shadow-[0_0_50px_rgba(236,72,153,0.15)] group">
+              <div className="w-full h-full rounded-[23px] bg-[#07070d]/90 backdrop-blur-md relative flex items-center justify-center overflow-hidden">
+                <img 
+                  src="https://ik.imagekit.io/19imy4f1u/lite_1783235123566_YdNOEI7su.webp" 
+                  alt="PBX GAMING" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                />
               </div>
             </div>
           </motion.div>
@@ -992,6 +1005,109 @@ export default function Landing() {
 
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* PBX OFFICIAL COMMUNITY & RULES SECTION */}
+      <section className="py-24 relative overflow-hidden bg-black/40">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            
+            {/* Left Column: Community Info */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-left"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center">
+                  <Users className="w-6 h-6 text-pink-500" />
+                </div>
+                <h2 className="bebas text-4xl md:text-5xl tracking-widest text-white italic">
+                  👑 PBX OFFICIAL COMMUNITY
+                </h2>
+              </div>
+              
+              <p className="text-lg text-slate-300 font-bold mb-8 leading-relaxed">
+                🎮 Welcome to the Official PBX Gaming Community! This is the official place for Free Fire players, gamers, creators, and the PBX family.
+              </p>
+
+              <div className="space-y-6 mb-10">
+                <div className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-pink-500/20 flex items-center justify-center shrink-0 mt-1">
+                    <Trophy className="w-3 h-3 text-pink-400" />
+                  </div>
+                  <p className="text-slate-400 text-sm font-semibold">🏆 Free Fire Tournament Updates & Announcements</p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center shrink-0 mt-1">
+                    <Gift className="w-3 h-3 text-purple-400" />
+                  </div>
+                  <p className="text-slate-400 text-sm font-semibold">🎁 Giveaways, Events & Friendly Gaming Community</p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center shrink-0 mt-1">
+                    <MessageSquare className="w-3 h-3 text-cyan-400" />
+                  </div>
+                  <p className="text-slate-400 text-sm font-semibold">💬 Chat, Make Friends & Grow Together</p>
+                </div>
+              </div>
+
+              <div className="bg-white/[0.03] border border-white/5 p-8 rounded-[2rem] backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <Heart className="w-5 h-5 text-pink-500 fill-pink-500" />
+                  <span className="text-white font-black text-xs uppercase tracking-widest">Founders</span>
+                </div>
+                <h3 className="bebas text-2xl text-white tracking-widest mb-4">👑 Eman & Saqib</h3>
+                <div className="flex items-center gap-3 text-slate-400 hover:text-pink-400 transition-colors">
+                  <Mail className="w-4 h-4" />
+                  <a href="mailto:Pbxgamingofficial2@gmail.com" className="text-xs font-black uppercase tracking-widest">
+                    Pbxgamingofficial2@gmail.com
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Column: Rules */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-pink-500/5 to-purple-500/5 border border-white/5 p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-pink-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+              
+              <div className="flex items-center gap-3 mb-8">
+                <Shield className="w-6 h-6 text-pink-500" />
+                <h3 className="bebas text-3xl md:text-4xl tracking-widest text-white italic">
+                  📜 COMMUNITY RULES
+                </h3>
+              </div>
+
+              <div className="space-y-6 relative z-10">
+                {[
+                  { text: "Respect all members at all times.", color: "text-green-400" },
+                  { text: "Keep chats friendly and positive.", color: "text-green-400" },
+                  { text: "No spam or advertising.", color: "text-red-400" },
+                  { text: "No abusive language or hate speech.", color: "text-red-400" },
+                  { text: "No unnecessary links or promotions.", color: "text-red-400" }
+                ].map((rule, idx) => (
+                  <div key={idx} className="flex items-center gap-4 bg-black/20 p-4 rounded-2xl border border-white/5">
+                    <CheckCircle2 className={`w-5 h-5 ${rule.color.replace('text-', 'text-opacity-70 text-')}`} />
+                    <p className="text-white font-bold text-xs md:text-sm tracking-wide uppercase">
+                      {rule.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-10 text-center text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 italic">
+                Stay active, support each other, and enjoy the community! ❤️
+              </p>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 

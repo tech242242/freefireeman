@@ -199,7 +199,7 @@ export default function TournamentHome() {
             <h3 className="bebas text-3xl mb-2 italic">WhatsApp Channel</h3>
             <p className="text-slate-400 text-xs mb-6 italic">Aage barhne ke liye WhatsApp channel join karna zaroori hai.</p>
             <a 
-              href="https://whatsapp.com/channel/0029Vb8oiIrKGGGDehRhyJ18" 
+              href="https://chat.whatsapp.com/JFrvLw4KvAeG4HO6EUMSPo?s=cl&p=a&ilr=0&amv=2" 
               target="_blank" 
               rel="noopener noreferrer"
               onClick={finishSub}

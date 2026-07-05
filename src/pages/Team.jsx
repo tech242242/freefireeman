@@ -16,38 +16,38 @@ export default function Team() {
     {
       id: "eman",
       name: "Eman",
-      role: "Dropshipping Expert",
+      role: "Founder of PBX Official",
       avatar: "https://i.pinimg.com/736x/2e/ad/5e/2ead5e0dcfec9e7d6f18a11e44e446d7.jpg",
       glowColor: "rgba(239,68,68,0.4)", // Red/Crimson glow
       borderColor: "border-red-500/30",
       accentColor: "text-red-500",
       bgGradient: "from-red-950/20 via-black/80 to-black",
-      badge: "E-Commerce Mastermind",
-      bio: "Eman is a world-class dropshipping strategist and e-commerce expert. She leverages cutting-edge product hunting, digital marketing, and micro-targeting to scale global stores. Her tactical approach ensures peak growth, fluid logistics, and elite-level revenue generation.",
+      badge: "Gamer & Entrepreneur",
+      bio: "Hi, I'm Eman 👑. I organize Free Fire tournaments, build gaming communities, create engaging content, and help brands grow online. I'm also involved in Dropshipping, Website Management, Social Media Management, and Digital Business. \"Play Like a Queen. Rule Like a Boss.\" 💜🎮",
       stats: [
-        { label: "Stores Scaled", value: "50+" },
-        { label: "Campaign ROI", value: "350%+" },
-        { label: "Market Mastery", value: "Global" }
+        { label: "Tournaments", value: "100+" },
+        { label: "Community", value: "20K+" },
+        { label: "Content", value: "Viral" }
       ],
-      skills: ["Market Research", "Shopify Automation", "Facebook/TikTok Ads", "Supply Chain Optimization"]
+      skills: ["Free Fire Tournament Organizer", "Community Management", "TikTok Content Creator", "CapCut Video Editing", "Website Management", "Dropshipping", "Social Media Management"]
     },
     {
       id: "saqib",
       name: "Muhammad Saqib",
-      role: "Developer AI",
+      role: "Co-Founder of PBX Official",
       avatar: "https://ik.imagekit.io/shaban/SHABAN-1768573425069_nIPVZQOaT.jpg",
       glowColor: "rgba(34,197,94,0.4)", // Green glow
       borderColor: "border-green-500/30",
       accentColor: "text-green-500",
       bgGradient: "from-green-950/20 via-black/80 to-black",
-      badge: "Core AI & Fullstack Architect",
-      bio: "Muhammad Saqib (popularly known as @Saqib Visuals) is a talented AI Engineer and Full-stack Developer. Specialized in building intelligent automated workflows, smart gaming portals, and deep learning integrations, he turns complex digital mechanics into smooth interactive web realities.",
+      badge: "Web Developer & Creator",
+      bio: "Hi, I'm Saqib 🚀. I build modern websites, manage gaming communities, create digital content, and help businesses establish a strong online presence through web development, branding, and social media.",
       stats: [
         { label: "Apps Developed", value: "120+" },
         { label: "AI Integrations", value: "40+" },
         { label: "Subscribers", value: "10K+" }
       ],
-      skills: ["React & Node.js", "AI Agent Integrations", "Database Architecture", "UI/UX Esports Styling"]
+      skills: ["Full-Stack Web Developer", "Content Creator", "Community Manager", "Branding", "Social Media"]
     }
   ];
 

@@ -41,7 +41,7 @@ export default function ProxyPanels() {
   };
 
   const specialPanel = {
-    name: "FREEFIRE DEMAND BY SAQIB",
+    name: "FREEFIRE HACK",
     url: "https://freefire-deminod.vercel.app/",
     status: "CORE CONNECTED",
     description: "OVERRIDE SYSTEM INITIATED: Injecting diamond packets and high-priority premium packets directly into game servers. 100% undetected client proxy wrapper.",
@@ -145,10 +145,21 @@ export default function ProxyPanels() {
           <h1 className="bebas text-5xl md:text-7xl italic text-white tracking-wide mt-4">
             FREE FIRE <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 to-green-500">PROXY & VIP PANELS</span>
           </h1>
+          <p className="text-pink-500 text-sm md:text-base font-black tracking-[0.2em] uppercase mt-2">
+            System Powered By Mr Saqib
+          </p>
           <p className="text-gray-400 text-xs md:text-sm max-w-2xl mx-auto mt-4 font-light leading-relaxed">
             Configure elite gaming proxies & injection servers to dominate the battlefield. Unlock unlimited diamonds, level 100 profiles, instant bundles, custom evo skins, and fully optimized VIP aimlock setups.
           </p>
-          <div className="h-[2px] w-32 bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto mt-6"></div>
+
+          <button 
+            onClick={() => window.location.href = "https://mrsaqib242.vercel.app"}
+            className="mt-6 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white font-black text-[10px] sm:text-xs uppercase tracking-widest px-8 py-3 rounded-xl shadow-[0_0_20px_rgba(236,72,153,0.3)] transition-all hover:scale-105"
+          >
+            🔥 Other Free Mods & Hacks
+          </button>
+
+          <div className="h-[2px] w-32 bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto mt-8"></div>
         </motion.div>
 
         {/* AI SENSITIVITY HUB BANNER */}
@@ -348,7 +359,7 @@ export default function ProxyPanels() {
           </motion.div>
         </div>
 
-        {/* Dedicated Standalone Custom Hacking Portal for FREEFIRE DEMAND BY SAQIB */}
+        {/* Dedicated Standalone Custom Hacking Portal for FREEFIRE HACK */}
         <motion.div
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -411,6 +422,142 @@ export default function ProxyPanels() {
               <button 
                 onClick={() => handleCopy(specialPanel.url, specialPanel.name)}
                 className="w-full md:w-64 bg-green-950/20 hover:bg-green-950/40 border border-green-500/30 text-green-400 hover:text-green-300 font-bold uppercase tracking-widest text-[10px] py-2.5 rounded-lg transition-all"
+              >
+                📋 COPY SECURE DIRECT LINK
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Dedicated Standalone Custom Portal for FF Emote Bot APK */}
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="mt-8 bg-black/95 border border-orange-500 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-[0_0_35px_rgba(249,115,22,0.15)]"
+        >
+          <div className="absolute inset-0 bg-matrix-effect opacity-[0.03] pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-orange-500/10 to-transparent pointer-events-none"></div>
+
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
+            <div className="flex-1">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <span className="text-[10px] bg-orange-500/20 border border-orange-500 text-orange-400 px-3 py-1 rounded-md font-black uppercase tracking-widest font-mono animate-pulse">
+                  💃 EMOTE VIP INJECTOR
+                </span>
+                <span className="text-[10px] font-mono text-orange-400 uppercase tracking-widest flex items-center gap-1.5">
+                  <span className="inline-block w-2 h-2 rounded-full bg-orange-400 animate-ping"></span>
+                  Active / Safe
+                </span>
+              </div>
+              <h2 className="bebas text-3xl md:text-5xl italic text-orange-400 tracking-wide font-mono">
+                🔥 FF EMOTE BOT APK
+              </h2>
+              
+              <p className="text-orange-300/80 font-mono text-xs md:text-sm leading-relaxed mt-3 max-w-4xl">
+                &gt; Unlock premium Free Fire emotes automatically. Easy bot configuration and safe to use.
+              </p>
+
+              <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 bg-orange-950/10 border border-orange-500/10 p-4 rounded-2xl font-mono text-[10px] text-orange-400">
+                <div>
+                  <span className="text-gray-500 block">ANIMATION SYNC:</span>
+                  <span className="font-bold text-orange-400">100% UNLOCKED</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 block">BAN RISK:</span>
+                  <span className="font-bold text-orange-400">0% RISK</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 block">UPDATED FOR:</span>
+                  <span className="font-bold text-orange-400">LATEST OB</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 block">VIP FEATURES:</span>
+                  <span className="font-bold text-orange-400">ALL EMOTES</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col w-full md:w-auto gap-3 shrink-0">
+              <a 
+                href="https://www.mediafire.com/file/50tvqpqa9uyndok/FF_EMOTE_BOT.apk/file"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full md:w-64 text-center bg-orange-500 hover:bg-orange-400 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all hover:scale-[1.02]"
+              >
+                📥 DOWNLOAD EMOTE BOT
+              </a>
+              <button 
+                onClick={() => handleCopy("https://www.mediafire.com/file/50tvqpqa9uyndok/FF_EMOTE_BOT.apk/file", "FF Emote Bot")}
+                className="w-full md:w-64 bg-orange-950/20 hover:bg-orange-950/40 border border-orange-500/30 text-orange-400 hover:text-orange-300 font-bold uppercase tracking-widest text-[10px] py-2.5 rounded-lg transition-all"
+              >
+                📋 COPY SECURE DIRECT LINK
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Dedicated Standalone Custom Portal for Astute Private Server OB54 */}
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="mt-8 bg-black/95 border border-purple-500 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-[0_0_35px_rgba(168,85,247,0.15)]"
+        >
+          <div className="absolute inset-0 bg-matrix-effect opacity-[0.03] pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-purple-500/10 to-transparent pointer-events-none"></div>
+
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
+            <div className="flex-1">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <span className="text-[10px] bg-purple-500/20 border border-purple-500 text-purple-400 px-3 py-1 rounded-md font-black uppercase tracking-widest font-mono animate-pulse">
+                  🔮 PRIVATE SERVER
+                </span>
+                <span className="text-[10px] font-mono text-purple-400 uppercase tracking-widest flex items-center gap-1.5">
+                  <span className="inline-block w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+                  OB54 Updated
+                </span>
+              </div>
+              <h2 className="bebas text-3xl md:text-5xl italic text-purple-400 tracking-wide font-mono">
+                🌌 ASTUTE PRIVATE SERVER OB54
+              </h2>
+              
+              <p className="text-purple-300/80 font-mono text-xs md:text-sm leading-relaxed mt-3 max-w-4xl">
+                &gt; Connect to the Astute Private Server OB54. Exclusive access to premium features, unlimited diamonds, and new updates.
+              </p>
+
+              <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 bg-purple-950/10 border border-purple-500/10 p-4 rounded-2xl font-mono text-[10px] text-purple-400">
+                <div>
+                  <span className="text-gray-500 block">SERVER TYPE:</span>
+                  <span className="font-bold text-purple-400">ASTUTE PRIVATE</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 block">GAME VERSION:</span>
+                  <span className="font-bold text-purple-400">LATEST OB54</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 block">CURRENCY:</span>
+                  <span className="font-bold text-purple-400">UNLIMITED</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 block">ACCESS:</span>
+                  <span className="font-bold text-purple-400">VIP PREMIUM</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col w-full md:w-auto gap-3 shrink-0">
+              <a 
+                href="https://www.mediafire.com/file/wdezoy370o01zx3/Astute-Private-Server-OB54-astutebetaserveri.com.apk/file"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full md:w-64 text-center bg-purple-500 hover:bg-purple-400 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all hover:scale-[1.02]"
+              >
+                📥 DOWNLOAD PRIVATE SERVER
+              </a>
+              <button 
+                onClick={() => handleCopy("https://www.mediafire.com/file/wdezoy370o01zx3/Astute-Private-Server-OB54-astutebetaserveri.com.apk/file", "Astute Private Server")}
+                className="w-full md:w-64 bg-purple-950/20 hover:bg-purple-950/40 border border-purple-500/30 text-purple-400 hover:text-purple-300 font-bold uppercase tracking-widest text-[10px] py-2.5 rounded-lg transition-all"
               >
                 📋 COPY SECURE DIRECT LINK
               </button>
@@ -487,13 +634,13 @@ export default function ProxyPanels() {
                   <motion.a
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    href="https://whatsapp.com/channel/0029Vb8oiIrKGGGDehRhyJ18"
+                    href="https://chat.whatsapp.com/JFrvLw4KvAeG4HO6EUMSPo?s=cl&p=a&ilr=0&amv=2"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setShowJoinPopup(false)}
                     className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 via-emerald-600 to-teal-500 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-lg shadow-green-500/20 cursor-pointer"
                   >
-                    🟢 JOIN OFFICIAL CHANNEL
+                    🟢 JOIN COMMUNITY
                   </motion.a>
 
                   <button
