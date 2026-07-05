@@ -11,6 +11,7 @@ import ProxyPanels from "./pages/ProxyPanels";
 import SensitivityHub from "./pages/SensitivityHub";
 import DashboardHome from "./pages/DashboardHome";
 import Admin from "./pages/Admin";
+import FakeAdmin from "./pages/FakeAdmin";
 import WebDashboard from "./pages/WebDashboard";
 import SquadManager from "./pages/SquadManager";
 import AdminNavbar from "./components/AdminNavbar"; // Admin کے لیے الگ Navbar
@@ -76,13 +77,15 @@ export default function App() {
                 </ProtectedRoute>
               } />
               
-              <Route path="/admin" element={
+              <Route path="/pbxadmin" element={
                 <ProtectedRoute>
                   <DashboardLayout>
                     <Admin />
                   </DashboardLayout>
                 </ProtectedRoute>
               } />
+
+              <Route path="/admin" element={<FakeAdmin />} />
               
               <Route path="/web-dashboard" element={
                 <ProtectedRoute>

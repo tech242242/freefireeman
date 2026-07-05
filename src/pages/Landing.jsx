@@ -119,7 +119,7 @@ export default function Landing() {
   };
 
   return (
-    <div className="relative w-full bg-[#050508] text-white flex flex-col items-center overflow-x-hidden min-h-screen font-sans selection:bg-pink-500/30 selection:text-pink-200 pb-24 md:pb-0">
+    <div className="relative w-full bg-[#050508] text-white flex flex-col items-center min-h-screen font-sans selection:bg-pink-500/30 selection:text-pink-200 pb-24 md:pb-0">
       
       {/* Background Cyber-Grid with Subtle Pink/Purple Radial Glow */}
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-purple-950/20 via-[#050508] to-[#030304] pointer-events-none z-0"></div>
@@ -131,7 +131,7 @@ export default function Landing() {
       <div className="absolute bottom-40 left-20 w-96 h-96 bg-fuchsia-500/10 blur-[140px] rounded-full pointer-events-none"></div>
 
       {/* HEADER / NAVIGATION BAR */}
-      <header className="fixed top-0 left-0 right-0 w-full z-50 bg-[#050508]/75 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+      <header className="sticky top-0 w-full z-50 bg-[#050508]/75 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           
           {/* Logo Brand */}
@@ -174,15 +174,6 @@ export default function Landing() {
 
           {/* Desktop Call to Action Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => navigate("/login")}
-              className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-slate-300 hover:text-white transition-colors py-2 px-4"
-            >
-              <User className="w-4 h-4 text-pink-500" />
-              Login
-            </motion.button>
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(236,72,153,0.5)" }}
               whileTap={{ scale: 0.95 }}

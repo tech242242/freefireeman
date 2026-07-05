@@ -163,7 +163,7 @@ export default function SensitivityHub() {
   };
 
   return (
-    <div className="relative w-full bg-[#020202] bg-cyber-grid min-h-screen text-white flex flex-col overflow-x-hidden">
+    <div className="relative w-full bg-[#020202] bg-cyber-grid min-h-screen text-white flex flex-col">
       {/* Background glowing decorations */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-red-600/5 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-yellow-500/5 rounded-full blur-[120px] pointer-events-none"></div>

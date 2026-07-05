@@ -52,7 +52,7 @@ export default function Team() {
   ];
 
   return (
-    <div className="relative w-full bg-[#030303] bg-cyber-grid min-h-screen text-white flex flex-col overflow-x-hidden pb-24 md:pb-0">
+    <div className="relative w-full bg-[#030303] bg-cyber-grid min-h-screen text-white flex flex-col pb-24 md:pb-0">
       {/* Background Glows */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-red-900/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-green-900/10 rounded-full blur-[120px] pointer-events-none"></div>

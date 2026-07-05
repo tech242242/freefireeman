@@ -8,7 +8,7 @@ export default function MobileBottomNavbar() {
   const currentPath = location.pathname;
 
   // List of paths where the bottom mobile navigation should be hidden
-  const hideOnRoutes = ["/login", "/dashboard", "/admin", "/web-dashboard", "/squad-manager"];
+  const hideOnRoutes = ["/login", "/dashboard", "/pbxadmin", "/admin", "/web-dashboard", "/squad-manager"];
   
   // If we are in admin panels, return null
   if (hideOnRoutes.includes(currentPath)) {

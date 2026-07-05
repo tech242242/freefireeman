@@ -102,7 +102,7 @@ export default function ProxyPanels() {
   ];
 
   return (
-    <div className="relative w-full bg-[#020202] bg-cyber-grid min-h-screen text-white flex flex-col overflow-x-hidden pb-24 md:pb-0">
+    <div className="relative w-full bg-[#020202] bg-cyber-grid min-h-screen text-white flex flex-col pb-24 md:pb-0">
       {/* Dynamic Background Glowing effects */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-red-600/5 rounded-full blur-[140px] pointer-events-none animate-pulse"></div>
       <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-yellow-500/5 rounded-full blur-[140px] pointer-events-none animate-pulse"></div>

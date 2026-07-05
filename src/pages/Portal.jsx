@@ -832,7 +832,7 @@ export default function Portal() {
   );
 
   const renderSquadPortal = () => (
-    <div className="min-h-screen font-sans text-slate-200 antialiased overflow-x-hidden">
+    <div className="min-h-screen font-sans text-slate-200 antialiased">
       {/* Background Image */}
       <div 
         className="fixed top-0 left-0 w-full h-full bg-cover opacity-75 -z-10"

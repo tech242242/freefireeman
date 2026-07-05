@@ -24,7 +24,7 @@ export default function AdminNavbar() {
   return (
     <>
       {/* Main Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-cyan-400/30 bg-black/90 backdrop-blur-lg">
+      <nav className="sticky top-0 left-0 right-0 z-50 border-b border-cyan-400/30 bg-black/90 backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Left Side */}
@@ -42,7 +42,7 @@ export default function AdminNavbar() {
             {/* Desktop Navigation - Center */}
             <div className="hidden md:flex items-center justify-center space-x-2">
               <NavButton to="/dashboard" icon="🏠" label="Dashboard" />
-              <NavButton to="/admin" icon="🔐" label="Admin Panel" />
+              <NavButton to="/pbxadmin" icon="🔐" label="Admin Panel" />
               <NavButton to="/web-dashboard" icon="⚙️" label="Web Dashboard" />
               <NavButton to="/squad-manager" icon="👥" label="Squad Manager" />
             </div>
@@ -116,7 +116,7 @@ export default function AdminNavbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
               />
               <MobileNavLink 
-                to="/admin" 
+                to="/pbxadmin" 
                 icon="🔐" 
                 label="Admin Panel" 
                 onClick={() => setIsMobileMenuOpen(false)}
