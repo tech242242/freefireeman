@@ -2,9 +2,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import useSEO from "../hooks/useSEO";
 import { useState, useEffect } from "react";
+import usePasswordProtection from "../hooks/usePasswordProtection";
+import PasswordPrompt from "../components/PasswordPrompt";
 
 export default function ProxyPanels() {
   const navigate = useNavigate();
+  const { isPromptOpen, handleProtectedAction, closePrompt, handleSuccess } = usePasswordProtection();
   const [copiedText, setCopiedText] = useState("");
   const [showJoinPopup, setShowJoinPopup] = useState(false);
 
@@ -254,27 +257,13 @@ export default function ProxyPanels() {
 
             <div className="space-y-3.5">
               {/* Watch Tutorial Button */}
-              <a 
-                href={proxyDetails.tutorialLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-500 text-white font-black uppercase tracking-[0.15em] text-xs py-3.5 rounded-xl transition-all hover:scale-[1.02] shadow-lg shadow-red-600/20"
-              >
-                🎥 WATCH HOW TO USE PROXY
-              </a>
+              <button onClick={() => handleProtectedAction(() => window.open(proxyDetails.tutorialLink, "_blank"))} className="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-500 text-white font-black uppercase tracking-[0.15em] text-xs py-3.5 rounded-xl transition-all hover:scale-[1.02] shadow-lg shadow-red-600/20">🎥 WATCH HOW TO USE PROXY</button>
 
               {/* TeraBox Download Proxy Link */}
-              <a 
-                href={proxyDetails.downloadLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-black font-black uppercase tracking-[0.15em] text-xs py-3.5 rounded-xl transition-all hover:scale-[1.02] shadow-lg shadow-yellow-500/20"
-              >
-                📥 DOWNLOAD PROXY FILE NOW
-              </a>
+              <button onClick={() => handleProtectedAction(() => window.open(proxyDetails.downloadLink, "_blank"))} className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-black font-black uppercase tracking-[0.15em] text-xs py-3.5 rounded-xl transition-all hover:scale-[1.02] shadow-lg shadow-yellow-500/20">📥 DOWNLOAD PROXY FILE NOW</button>
 
               <button 
-                onClick={() => handleCopy(proxyDetails.downloadLink, "Proxy Link")}
+                onClick={() => handleProtectedAction(() => handleCopy(proxyDetails.downloadLink, "Proxy Link"))}
                 className="w-full text-center text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors"
               >
                 🔗 COPY SECURE DOWNLOAD LINK
@@ -345,7 +334,7 @@ export default function ProxyPanels() {
                         🚀 GET PANEL
                       </motion.a>
                       <button 
-                        onClick={() => handleCopy(panel.url, panel.name)}
+                        onClick={() => handleProtectedAction(() => handleCopy(panel.url, panel.name))}
                         className="bg-white/5 hover:bg-white/10 border border-white/5 px-2.5 rounded-lg text-xs hover:text-yellow-500 transition-colors cursor-pointer"
                         title="Copy Link"
                       >
@@ -411,16 +400,9 @@ export default function ProxyPanels() {
             </div>
 
             <div className="flex flex-col w-full md:w-auto gap-3 shrink-0">
-              <a 
-                href={specialPanel.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full md:w-64 text-center bg-green-500 hover:bg-green-400 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-[0_0_20px_rgba(34,197,94,0.4)] transition-all hover:scale-[1.02]"
-              >
-                ⚡ EXPLOIT & LAUNCH PORTAL
-              </a>
+              <button onClick={() => handleProtectedAction(() => window.open(specialPanel.url, "_blank"))} className="w-full md:w-64 text-center bg-green-500 hover:bg-green-400 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-[0_0_20px_rgba(34,197,94,0.4)] transition-all hover:scale-[1.02]">⚡ EXPLOIT & LAUNCH PORTAL</button>
               <button 
-                onClick={() => handleCopy(specialPanel.url, specialPanel.name)}
+                onClick={() => handleProtectedAction(() => handleCopy(specialPanel.url, specialPanel.name))}
                 className="w-full md:w-64 bg-green-950/20 hover:bg-green-950/40 border border-green-500/30 text-green-400 hover:text-green-300 font-bold uppercase tracking-widest text-[10px] py-2.5 rounded-lg transition-all"
               >
                 📋 COPY SECURE DIRECT LINK
@@ -479,16 +461,9 @@ export default function ProxyPanels() {
             </div>
 
             <div className="flex flex-col w-full md:w-auto gap-3 shrink-0">
-              <a 
-                href="https://www.mediafire.com/file/50tvqpqa9uyndok/FF_EMOTE_BOT.apk/file"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full md:w-64 text-center bg-orange-500 hover:bg-orange-400 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all hover:scale-[1.02]"
-              >
-                📥 DOWNLOAD EMOTE BOT
-              </a>
+              <button onClick={() => handleProtectedAction(() => window.open("https://www.mediafire.com/file/50tvqpqa9uyndok/FF_EMOTE_BOT.apk/file", "_blank"))} className="w-full md:w-64 text-center bg-orange-500 hover:bg-orange-400 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all hover:scale-[1.02]">📥 DOWNLOAD EMOTE BOT</button>
               <button 
-                onClick={() => handleCopy("https://www.mediafire.com/file/50tvqpqa9uyndok/FF_EMOTE_BOT.apk/file", "FF Emote Bot")}
+                onClick={() => handleProtectedAction(() => handleCopy("https://www.mediafire.com/file/50tvqpqa9uyndok/FF_EMOTE_BOT.apk/file", "FF Emote Bot"))}
                 className="w-full md:w-64 bg-orange-950/20 hover:bg-orange-950/40 border border-orange-500/30 text-orange-400 hover:text-orange-300 font-bold uppercase tracking-widest text-[10px] py-2.5 rounded-lg transition-all"
               >
                 📋 COPY SECURE DIRECT LINK
@@ -547,16 +522,9 @@ export default function ProxyPanels() {
             </div>
 
             <div className="flex flex-col w-full md:w-auto gap-3 shrink-0">
-              <a 
-                href="https://www.mediafire.com/file/wdezoy370o01zx3/Astute-Private-Server-OB54-astutebetaserveri.com.apk/file"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full md:w-64 text-center bg-purple-500 hover:bg-purple-400 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all hover:scale-[1.02]"
-              >
-                📥 DOWNLOAD PRIVATE SERVER
-              </a>
+              <button onClick={() => handleProtectedAction(() => window.open("https://www.mediafire.com/file/wdezoy370o01zx3/Astute-Private-Server-OB54-astutebetaserveri.com.apk/file", "_blank"))} className="w-full md:w-64 text-center bg-purple-500 hover:bg-purple-400 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all hover:scale-[1.02]">📥 DOWNLOAD PRIVATE SERVER</button>
               <button 
-                onClick={() => handleCopy("https://www.mediafire.com/file/wdezoy370o01zx3/Astute-Private-Server-OB54-astutebetaserveri.com.apk/file", "Astute Private Server")}
+                onClick={() => handleProtectedAction(() => handleCopy("https://www.mediafire.com/file/wdezoy370o01zx3/Astute-Private-Server-OB54-astutebetaserveri.com.apk/file", "Astute Private Server"))}
                 className="w-full md:w-64 bg-purple-950/20 hover:bg-purple-950/40 border border-purple-500/30 text-purple-400 hover:text-purple-300 font-bold uppercase tracking-widest text-[10px] py-2.5 rounded-lg transition-all"
               >
                 📋 COPY SECURE DIRECT LINK
@@ -574,6 +542,7 @@ export default function ProxyPanels() {
         </div>
       </main>
 
+      <PasswordPrompt isOpen={isPromptOpen} onClose={closePrompt} onSuccess={handleSuccess} />
       {/* WhatsApp Channel Join Popup */}
       <AnimatePresence>
         {showJoinPopup && (
