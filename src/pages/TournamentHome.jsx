@@ -339,7 +339,7 @@ export default function TournamentHome() {
       </nav>
 
       {/* Main Content */}
-      <div className="min-h-screen bg-cyber-grid bg-fixed text-white relative pb-24 md:pb-0">
+      <div className="min-h-screen bg-cyber-grid bg-fixed text-white relative pb-24 md:pb-0 overflow-x-hidden w-full max-w-[100vw]">
         {/* Glow Effects */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-pink-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 

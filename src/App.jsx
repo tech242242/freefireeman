@@ -55,7 +55,7 @@ export default function App() {
       {showWelcome ? (
         <WelcomeAnimation onComplete={handleWelcomeComplete} />
       ) : (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen overflow-x-hidden w-full max-w-[100vw]">
           <AnnouncementBar />
           <div className="flex-1">
             <Routes>

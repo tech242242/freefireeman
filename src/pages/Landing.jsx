@@ -119,7 +119,7 @@ export default function Landing() {
   };
 
   return (
-    <div className="relative w-full bg-[#050508] text-white flex flex-col items-center min-h-screen font-sans selection:bg-pink-500/30 selection:text-pink-200 pb-24 md:pb-0">
+    <div className="relative w-full overflow-x-hidden bg-[#050508] text-white flex flex-col items-center min-h-screen font-sans selection:bg-pink-500/30 selection:text-pink-200 pb-24 md:pb-0">
       
       {/* Background Cyber-Grid with Subtle Pink/Purple Radial Glow */}
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-purple-950/20 via-[#050508] to-[#030304] pointer-events-none z-0"></div>
