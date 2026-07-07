@@ -559,7 +559,7 @@ export default function ProxyPanels() {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 30, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-md bg-[#0a0a0c] border border-yellow-500/40 rounded-3xl p-6 md:p-8 shadow-[0_0_50px_rgba(234,179,8,0.25)] overflow-hidden z-10"
+              className="relative w-[92vw] max-w-md bg-[#0a0a0c] border border-yellow-500/40 rounded-3xl p-5 md:p-8 shadow-[0_0_50px_rgba(234,179,8,0.25)] overflow-hidden z-10"
             >
               {/* Top ambient glow */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -588,16 +588,16 @@ export default function ProxyPanels() {
                   🔔 EXCLUSIVE TELECAST
                 </span>
 
-                <h3 className="bebas text-3xl md:text-4xl text-white tracking-wide italic mb-3">
+                <h3 className="bebas text-2xl md:text-4xl text-white tracking-wide italic mb-3 text-wrap break-words leading-tight">
                   SAQIB X PBX <span className="text-pink-500">GAMING</span>
                 </h3>
 
-                <p className="text-slate-300 text-xs md:text-sm leading-relaxed mb-6 font-light">
+                <p className="text-slate-300 text-[11px] md:text-sm leading-relaxed mb-5 md:mb-6 font-light">
                   Join our official WhatsApp Channel to get <strong>instant notifications</strong> for new working custom rooms, elite bypass proxy updates, and premium VIP injection panels!
                 </p>
 
                 <div className="space-y-3">
-                  <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} onClick={() => handleProtectedAction(() => { setShowJoinPopup(false); window.open("https://chat.whatsapp.com/JFrvLw4KvAeG4HO6EUMSPo?s=cl&p=a&ilr=0&amv=2", "_blank"); })} className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 via-emerald-600 to-teal-500 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-lg shadow-green-500/20 cursor-pointer">🟢 JOIN COMMUNITY</motion.button>
+                  <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} onClick={() => { setShowJoinPopup(false); window.open("https://chat.whatsapp.com/JFrvLw4KvAeG4HO6EUMSPo?s=cl&p=a&ilr=0&amv=2", "_blank"); }} className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 via-emerald-600 to-teal-500 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-lg shadow-green-500/20 cursor-pointer">🟢 JOIN COMMUNITY</motion.button>
 
                   <button
                     onClick={() => setShowJoinPopup(false)}
