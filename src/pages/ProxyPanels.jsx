@@ -10,25 +10,14 @@ export default function ProxyPanels() {
   const { isPromptOpen, handleProtectedAction, closePrompt, handleSuccess } = usePasswordProtection();
   const [copiedText, setCopiedText] = useState("");
   const [showJoinPopup, setShowJoinPopup] = useState(false);
-  const [isPageLocked, setIsPageLocked] = useState(false);
 
   useEffect(() => {
-    const unlockedDate = localStorage.getItem("appUnlockedDate");
-    const todayDate = new Date().toDateString();
-    if (unlockedDate !== todayDate) {
-      setIsPageLocked(true);
-    }
+    // Show the popup automatically 400ms after component mounts for organic feel
+    const timer = setTimeout(() => {
+      setShowJoinPopup(true);
+    }, 400);
+    return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    if (!isPageLocked) {
-      // Show the popup automatically 400ms after component mounts or page unlocks for organic feel
-      const timer = setTimeout(() => {
-        setShowJoinPopup(true);
-      }, 400);
-      return () => clearTimeout(timer);
-    }
-  }, [isPageLocked]);
 
   useSEO({
     title: "Free Fire Proxy & VIP Injection Panels | PBX Gaming",
@@ -550,7 +539,6 @@ export default function ProxyPanels() {
         </div>
       </main>
 
-      <PasswordPrompt isOpen={isPageLocked} onClose={() => navigate("/")} onSuccess={() => setIsPageLocked(false)} />
       <PasswordPrompt isOpen={isPromptOpen} onClose={closePrompt} onSuccess={handleSuccess} />
       {/* WhatsApp Channel Join Popup */}
       <AnimatePresence>
