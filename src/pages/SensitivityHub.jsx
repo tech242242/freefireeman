@@ -26,6 +26,15 @@ export default function SensitivityHub() {
   const navigate = useNavigate();
   const { isPromptOpen, handleProtectedAction, closePrompt, handleSuccess } = usePasswordProtection();
   const [deviceInput, setDeviceInput] = useState("");
+  const [isPageLocked, setIsPageLocked] = useState(false);
+
+  useEffect(() => {
+    const unlockedDate = localStorage.getItem("appUnlockedDate");
+    const todayDate = new Date().toDateString();
+    if (unlockedDate !== todayDate) {
+      setIsPageLocked(true);
+    }
+  }, []);
   const [copiedText, setCopiedText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("");
@@ -585,6 +594,7 @@ export default function SensitivityHub() {
           </div>
         </div>
       </main>
+      <PasswordPrompt isOpen={isPageLocked} onClose={() => navigate("/")} onSuccess={() => setIsPageLocked(false)} />
       <PasswordPrompt isOpen={isPromptOpen} onClose={closePrompt} onSuccess={handleSuccess} />
     </div>
   );
