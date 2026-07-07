@@ -5,7 +5,9 @@ export default function usePasswordProtection() {
   const [pendingAction, setPendingAction] = useState(null);
 
   const handleProtectedAction = (action) => {
-    const isUnlocked = localStorage.getItem("isAppUnlocked") === "true";
+    const unlockedDate = localStorage.getItem("appUnlockedDate");
+    const todayDate = new Date().toDateString();
+    const isUnlocked = unlockedDate === todayDate;
     if (isUnlocked) {
       action();
     } else {

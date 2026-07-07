@@ -323,16 +323,13 @@ export default function ProxyPanels() {
                     </div>
 
                     <div className="flex gap-2">
-                      <motion.a 
+                      <motion.button 
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        href={panel.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                         onClick={() => handleProtectedAction(() => window.open(panel.url, "_blank"))}
+                        
                         className={`flex-1 text-center bg-gradient-to-r ${panel.accent} text-white font-black uppercase tracking-widest text-[9px] py-2.5 rounded-lg hover:opacity-90 transition-all cursor-pointer`}
-                      >
-                        🚀 GET PANEL
-                      </motion.a>
+                      >🚀 GET PANEL</motion.button>
                       <button 
                         onClick={() => handleProtectedAction(() => handleCopy(panel.url, panel.name))}
                         className="bg-white/5 hover:bg-white/10 border border-white/5 px-2.5 rounded-lg text-xs hover:text-yellow-500 transition-colors cursor-pointer"
@@ -600,17 +597,7 @@ export default function ProxyPanels() {
                 </p>
 
                 <div className="space-y-3">
-                  <motion.a
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                    href="https://chat.whatsapp.com/JFrvLw4KvAeG4HO6EUMSPo?s=cl&p=a&ilr=0&amv=2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setShowJoinPopup(false)}
-                    className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 via-emerald-600 to-teal-500 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-lg shadow-green-500/20 cursor-pointer"
-                  >
-                    🟢 JOIN COMMUNITY
-                  </motion.a>
+                  <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} onClick={() => handleProtectedAction(() => { setShowJoinPopup(false); window.open("https://chat.whatsapp.com/JFrvLw4KvAeG4HO6EUMSPo?s=cl&p=a&ilr=0&amv=2", "_blank"); })} className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 via-emerald-600 to-teal-500 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-lg shadow-green-500/20 cursor-pointer">🟢 JOIN COMMUNITY</motion.button>
 
                   <button
                     onClick={() => setShowJoinPopup(false)}

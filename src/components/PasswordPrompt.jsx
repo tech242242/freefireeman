@@ -23,7 +23,7 @@ export default function PasswordPrompt({ isOpen, onClose, onSuccess }) {
     const correctPassword = dailyPasswords[today].pass;
 
     if (password === correctPassword) {
-      localStorage.setItem("isAppUnlocked", "true");
+      localStorage.setItem("appUnlockedDate", new Date().toDateString());
       setError(false);
       setPassword("");
       onSuccess();

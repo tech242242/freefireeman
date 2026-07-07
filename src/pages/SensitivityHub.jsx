@@ -289,15 +289,11 @@ export default function SensitivityHub() {
                     </p>
                   </div>
                   <div className="space-y-2">
-                    <a 
-                      href="https://www.youtube.com/@saqib242"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => handleProtectedAction(() => setAiWaitingForUnlock(true))}
+                    <button onClick={() => handleProtectedAction(() => { window.open("https://www.youtube.com/@saqib242", "_blank"); setAiWaitingForUnlock(true); })}
+                      
+                      
                       className="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-500 text-white font-black uppercase tracking-wider text-xs py-3 rounded-lg transition-all"
-                    >
-                      <Play className="w-4 h-4 fill-current" /> SUBSCRIBE ON YOUTUBE
-                    </a>
+                    ><Play className="w-4 h-4 fill-current" /> SUBSCRIBE ON YOUTUBE</button>
                     <p className="text-[9px] text-gray-500 italic">Settings will load automatically when you return.</p>
                   </div>
                 </div>
@@ -482,15 +478,11 @@ export default function SensitivityHub() {
                   </div>
 
                   <div className="space-y-3">
-                    <a 
-                      href="https://www.youtube.com/@saqib242"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => handleProtectedAction(() => setDbWaitingForUnlock(true))}
+                    <button onClick={() => handleProtectedAction(() => { window.open("https://www.youtube.com/@saqib242", "_blank"); setDbWaitingForUnlock(true); })}
+                      
+                      
                       className="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-500 text-white font-black uppercase tracking-widest text-xs py-3.5 rounded-xl transition-all hover:scale-[1.02] shadow-lg shadow-red-600/20"
-                    >
-                      🎥 SUBSCRIBE ON YOUTUBE
-                    </a>
+                    >🎥 SUBSCRIBE ON YOUTUBE</button>
                     
                     <button 
                       onClick={() => {
