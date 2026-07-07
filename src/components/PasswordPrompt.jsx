@@ -77,7 +77,7 @@ export default function PasswordPrompt({ isOpen, onClose, onSuccess }) {
               <div className="bg-black/50 border border-white/10 rounded-xl p-3 text-center mb-4">
                 <p className="text-[11px] font-bold text-yellow-400 mb-3">Password price is 300rs just</p>
                 <a 
-                  href="https://wa.me/923478936242?text=Buy" 
+                  href="https://wa.me/923071356242?text=Buy" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-block bg-green-500 hover:bg-green-600 text-white font-black text-xs py-2 px-4 rounded-lg uppercase tracking-widest transition-all shadow-[0_0_15px_rgba(34,197,94,0.3)]"

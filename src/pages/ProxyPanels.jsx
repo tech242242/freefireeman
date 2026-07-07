@@ -430,7 +430,7 @@ export default function ProxyPanels() {
                 </span>
               </div>
               <h2 className="bebas text-3xl md:text-5xl italic text-orange-400 tracking-wide font-mono">
-                🔥 FF EMOTE BOT APK
+                🔥 FF EMOTE BOT APK (DEFULTE BROKEN)
               </h2>
               
               <p className="text-orange-300/80 font-mono text-xs md:text-sm leading-relaxed mt-3 max-w-4xl">
@@ -460,7 +460,7 @@ export default function ProxyPanels() {
             <div className="flex flex-col w-full md:w-auto gap-3 shrink-0">
               <button onClick={() => handleProtectedAction(() => window.open("https://www.mediafire.com/file/50tvqpqa9uyndok/FF_EMOTE_BOT.apk/file", "_blank"))} className="w-full md:w-64 text-center bg-orange-500 hover:bg-orange-400 text-black font-black uppercase tracking-widest text-xs py-4 rounded-xl shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all hover:scale-[1.02]">📥 DOWNLOAD EMOTE BOT</button>
               <button 
-                onClick={() => handleProtectedAction(() => handleCopy("https://www.mediafire.com/file/50tvqpqa9uyndok/FF_EMOTE_BOT.apk/file", "FF Emote Bot"))}
+                onClick={() => handleProtectedAction(() => handleCopy("https://www.mediafire.com/file/50tvqpqa9uyndok/FF_EMOTE_BOT.apk/file", "FF Emote Bot (Defulte Broken)"))}
                 className="w-full md:w-64 bg-orange-950/20 hover:bg-orange-950/40 border border-orange-500/30 text-orange-400 hover:text-orange-300 font-bold uppercase tracking-widest text-[10px] py-2.5 rounded-lg transition-all"
               >
                 📋 COPY SECURE DIRECT LINK
