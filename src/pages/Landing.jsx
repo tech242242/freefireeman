@@ -277,7 +277,7 @@ export default function Landing() {
 
       {/* FLOATING SOCIAL MEDIA SIDEBAR (VERTICAL RAIL) */}
       <div className="fixed left-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-6 bg-[#09090f]/80 backdrop-blur-lg px-3.5 py-7 rounded-full border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-        <a href="https://www.tiktok.com/@mr_saqib_242" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-pink-500 transition-all duration-300 hover:scale-125" title="TikTok">
+        <a href="https://www.tiktok.com/@pbx_queen?_r=1&_t=ZN-97xvi7bHEQg" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-pink-500 transition-all duration-300 hover:scale-125" title="TikTok">
           <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .8.11V9.4a6.27 6.27 0 0 0-3.11.3 6.3 6.3 0 0 0-3.64 5.39 6.3 6.3 0 0 0 5.4 7.07 6.3 6.3 0 0 0 6.94-5.27V11a8.27 8.27 0 0 0 5.74 2.29V9.83a4.8 4.8 0 0 1-1.97-.84 4.75 4.75 0 0 1-1.62-2.3z"/>
           </svg>
@@ -287,12 +287,12 @@ export default function Landing() {
             <path d="M12.031 0C5.39 0 0 5.402 0 12.044c0 2.116.547 4.192 1.586 6.012L0 24l6.12-1.61c1.765.966 3.753 1.48 5.799 1.48C18.57 23.87 24 18.468 24 11.82 24 5.18 18.57 0 12.031 0zm0 21.873c-1.9 0-3.75-.512-5.36-1.478l-.38-.22-3.64.954.97-3.543-.24-.384c-1.06-1.69-1.62-3.664-1.62-5.71C1.76 5.92 6.37 1.306 12.03 1.306c2.74 0 5.31 1.07 7.25 3.012a10.16 10.16 0 0 1 3.01 7.26c0 5.652-4.61 10.267-10.26 10.267zm5.55-7.59c-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.36.23-.66.08-1.03-.52-1.81-.94-2.49-2.11-.27-.46.27-.43.77-1.43.08-.15.04-.28-.02-.38-.06-.1-.68-1.63-.93-2.23-.25-.59-.5-.51-.68-.52-.17-.01-.37-.01-.57-.01-.2 0-.52.08-.79.37-.27.3-1.03 1-1.03 2.44 0 1.44 1.05 2.83 1.2 3.03.15.2 2.06 3.15 5 4.41.7.3 1.24.48 1.66.61.71.22 1.35.19 1.85.12.56-.08 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.08-.13-.28-.2-.58-.35z"/>
           </svg>
         </a>
-        <a href="https://www.instagram.com/mr_saqib242" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-pink-500 transition-all duration-300 hover:scale-125" title="Instagram">
+        <a href="https://www.instagram.com/pbx_queen1?igsh=dzZpZjl4OG42NGw4" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-pink-500 transition-all duration-300 hover:scale-125" title="Instagram">
           <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
           </svg>
         </a>
-        <a href="https://web.facebook.com/muhammad.saqib.718278" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-500 transition-all duration-300 hover:scale-125" title="Facebook">
+        <a href="https://www.facebook.com/share/1DWVhp3qqB/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-500 transition-all duration-300 hover:scale-125" title="Facebook">
           <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
             <path d="M24 12.073c0-6.627-5.373-12-12-12-6.627 0-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
           </svg>
@@ -1154,7 +1154,7 @@ export default function Landing() {
               <motion.a 
                 whileHover={{ scale: 1.12, y: -4, rotate: -2 }}
                 whileTap={{ scale: 0.92 }}
-                href="https://wa.me/923478936242" 
+                href="https://wa.me/923071356242" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-11 h-11 rounded-xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#2be673] to-[#1cb854] text-white shadow-md cursor-pointer group overflow-hidden"
@@ -1169,7 +1169,7 @@ export default function Landing() {
               <motion.a 
                 whileHover={{ scale: 1.12, y: -4, rotate: 2 }}
                 whileTap={{ scale: 0.92 }}
-                href="https://www.tiktok.com/@mr_saqib_242" 
+                href="https://www.tiktok.com/@pbx_queen?_r=1&_t=ZN-97xvi7bHEQg" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-11 h-11 rounded-xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#242428] to-[#0a0a0c] text-white shadow-md cursor-pointer group overflow-hidden"
@@ -1184,7 +1184,7 @@ export default function Landing() {
               <motion.a 
                 whileHover={{ scale: 1.12, y: -4, rotate: -2 }}
                 whileTap={{ scale: 0.92 }}
-                href="https://www.instagram.com/mr_saqib242" 
+                href="https://www.instagram.com/pbx_queen1?igsh=dzZpZjl4OG42NGw4" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-11 h-11 rounded-xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-tr from-[#f9ce3f] via-[#e1306c] to-[#833ab4] text-white shadow-md cursor-pointer group overflow-hidden"
@@ -1199,7 +1199,7 @@ export default function Landing() {
               <motion.a 
                 whileHover={{ scale: 1.12, y: -4, rotate: 2 }}
                 whileTap={{ scale: 0.92 }}
-                href="https://web.facebook.com/muhammad.saqib.718278" 
+                href="https://www.facebook.com/share/1DWVhp3qqB/" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-11 h-11 rounded-xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#18acf8] to-[#1877F2] text-white shadow-md cursor-pointer group overflow-hidden"

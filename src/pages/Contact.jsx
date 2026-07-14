@@ -15,7 +15,7 @@ export default function Contact() {
       
       const whatsappText = `*New Contact Inquiry*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Subject:* ${formData.subject}\n*Message:* ${formData.message}`;
       const encodedText = encodeURIComponent(whatsappText);
-      window.open(`https://wa.me/923478936242?text=${encodedText}`, "_blank");
+      window.open(`https://wa.me/923071356242?text=${encodedText}`, "_blank");
 
       setFormData({ name: "", email: "", subject: "", message: "" });
     }, 1200);
@@ -63,7 +63,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-[10px] uppercase tracking-widest font-bold text-green-400">WhatsApp Support</h4>
-                  <p className="text-white text-sm font-semibold">+92 347 8936242</p>
+                  <p className="text-white text-sm font-semibold">+92 307 1356242</p>
                 </div>
               </div>
 
@@ -81,13 +81,13 @@ export default function Contact() {
             <div className="mt-8 pt-8 border-t border-white/5 space-y-3">
               <h4 className="text-[10px] uppercase tracking-widest font-bold text-gray-500">Connect with us</h4>
               <div className="flex gap-3">
-                <a href="https://www.instagram.com/mr_saqib242" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-pink-500/40 flex items-center justify-center hover:bg-pink-500/10 text-slate-400 hover:text-pink-400 transition-all text-sm" title="Instagram">
+                <a href="https://www.instagram.com/pbx_queen1?igsh=dzZpZjl4OG42NGw4" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-pink-500/40 flex items-center justify-center hover:bg-pink-500/10 text-slate-400 hover:text-pink-400 transition-all text-sm" title="Instagram">
                   📸
                 </a>
-                <a href="https://wa.me/923478936242" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-pink-500/40 flex items-center justify-center hover:bg-pink-500/10 text-slate-400 hover:text-pink-400 transition-all text-sm" title="WhatsApp">
+                <a href="https://wa.me/923071356242" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-pink-500/40 flex items-center justify-center hover:bg-pink-500/10 text-slate-400 hover:text-pink-400 transition-all text-sm" title="WhatsApp">
                   💬
                 </a>
-                <a href="https://www.tiktok.com/@mr_saqib_242" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-pink-500/40 flex items-center justify-center hover:bg-pink-500/10 text-slate-400 hover:text-pink-400 transition-all text-sm" title="TikTok">
+                <a href="https://www.tiktok.com/@pbx_queen?_r=1&_t=ZN-97xvi7bHEQg" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-pink-500/40 flex items-center justify-center hover:bg-pink-500/10 text-slate-400 hover:text-pink-400 transition-all text-sm" title="TikTok">
                   🎵
                 </a>
               </div>

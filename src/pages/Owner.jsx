@@ -10,11 +10,11 @@ export default function Owner() {
     quote: "Technology and creativity combined can form wonders. Let's connect, create, and build legendary digital spaces.",
     age: "17 Years",
     location: "Faisalabad, Pakistan",
-    phone: "+92 347 8936242",
+    phone: "+92 307 1356242",
     email: "Pbxgamingofficial2@gmail.com",
     website: "https://www.google.com/search?q=saqib242",
     socials: [
-      { name: "WhatsApp", url: "https://wa.me/923478936242", icon: "💬", color: "hover:border-green-500/50 hover:bg-green-500/10 text-green-400" },
+      { name: "WhatsApp", url: "https://wa.me/923071356242", icon: "💬", color: "hover:border-green-500/50 hover:bg-green-500/10 text-green-400" },
       { name: "TikTok", url: "https://www.tiktok.com/@mr_saqib_242", icon: "🎵", color: "hover:border-pink-500/50 hover:bg-pink-500/10 text-pink-400" },
       { name: "Instagram", url: "https://www.instagram.com/mr_saqib242", icon: "📸", color: "hover:border-purple-500/50 hover:bg-purple-500/10 text-purple-400" },
       { name: "Facebook", url: "https://web.facebook.com/muhammad.saqib.718278", icon: "👥", color: "hover:border-blue-500/50 hover:bg-blue-500/10 text-blue-400" },

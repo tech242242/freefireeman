@@ -673,7 +673,7 @@ export default function TournamentHome() {
                 <motion.a 
                   whileHover={{ scale: 1.12, y: -4, rotate: -2 }}
                   whileTap={{ scale: 0.92 }}
-                  href="https://wa.me/923478936242" 
+                  href="https://wa.me/923071356242" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#2be673] to-[#1cb854] text-white shadow-[0_10px_25px_rgba(37,211,102,0.45)] overflow-hidden cursor-pointer group"
@@ -692,7 +692,7 @@ export default function TournamentHome() {
                 <motion.a 
                   whileHover={{ scale: 1.12, y: -4, rotate: 2 }}
                   whileTap={{ scale: 0.92 }}
-                  href="https://www.tiktok.com/@mr_saqib_242" 
+                  href="https://www.tiktok.com/@pbx_queen?_r=1&_t=ZN-97xvi7bHEQg" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#242428] to-[#0a0a0c] text-white shadow-[0_10px_25px_rgba(0,0,0,0.6)] overflow-hidden cursor-pointer group"
@@ -711,7 +711,7 @@ export default function TournamentHome() {
                 <motion.a 
                   whileHover={{ scale: 1.12, y: -4, rotate: -2 }}
                   whileTap={{ scale: 0.92 }}
-                  href="https://www.instagram.com/mr_saqib242" 
+                  href="https://www.instagram.com/pbx_queen1?igsh=dzZpZjl4OG42NGw4" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-tr from-[#f9ce3f] via-[#e1306c] to-[#833ab4] text-white shadow-[0_10px_25px_rgba(225,48,108,0.45)] overflow-hidden cursor-pointer group"
@@ -730,7 +730,7 @@ export default function TournamentHome() {
                 <motion.a 
                   whileHover={{ scale: 1.12, y: -4, rotate: 2 }}
                   whileTap={{ scale: 0.92 }}
-                  href="https://web.facebook.com/muhammad.saqib.718278" 
+                  href="https://www.facebook.com/share/1DWVhp3qqB/" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#18acf8] to-[#1877F2] text-white shadow-[0_10px_25px_rgba(24,119,242,0.45)] overflow-hidden cursor-pointer group"

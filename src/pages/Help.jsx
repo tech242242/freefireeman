@@ -106,7 +106,7 @@ export default function Help() {
           </div>
           <div className="flex w-full md:w-auto gap-4">
             <a 
-              href="https://wa.me/923478936242" 
+              href="https://wa.me/923071356242" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-full md:w-auto bg-green-500/20 hover:bg-green-500 text-green-400 hover:text-white border border-green-500/50 px-8 py-4 rounded-xl font-black text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(34,197,94,0.1)] hover:shadow-[0_0_30px_rgba(34,197,94,0.4)]"
