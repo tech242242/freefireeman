@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import usePasswordProtection from "../hooks/usePasswordProtection";
-import PasswordPrompt from "../components/PasswordPrompt";
 import { 
   Smartphone, 
   Search, 
@@ -23,9 +21,7 @@ import {
 } from "lucide-react";
 
 export default function SensitivityHub() {
-  const navigate = useNavigate();
-  const { isPromptOpen, handleProtectedAction, closePrompt, handleSuccess } = usePasswordProtection();
-  const [deviceInput, setDeviceInput] = useState("");
+  const navigate = useNavigate();  const [deviceInput, setDeviceInput] = useState("");
   const [copiedText, setCopiedText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("");
@@ -259,7 +255,7 @@ export default function SensitivityHub() {
 
                 {!isLoading && !aiResult && (
                   <button 
-                    onClick={() => handleProtectedAction(runAIFinder)}
+                    onClick={() => runAIFinder()}
                     className="w-full bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-black uppercase tracking-[0.15em] text-xs py-4 rounded-xl transition-all hover:scale-[1.01] shadow-lg shadow-red-600/20 flex items-center justify-center gap-2"
                   >
                     <Sparkles className="w-4 h-4" /> GENERATE AI SETTINGS
@@ -289,7 +285,7 @@ export default function SensitivityHub() {
                     </p>
                   </div>
                   <div className="space-y-2">
-                    <button onClick={() => handleProtectedAction(() => { window.open("https://www.youtube.com/@saqib242", "_blank"); setAiWaitingForUnlock(true); })}
+                    <button onClick={() => { window.open("https://www.youtube.com/@saqib242", "_blank"); setAiWaitingForUnlock(true); }}
                       
                       
                       className="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-500 text-white font-black uppercase tracking-wider text-xs py-3 rounded-lg transition-all"
@@ -478,7 +474,7 @@ export default function SensitivityHub() {
                   </div>
 
                   <div className="space-y-3">
-                    <button onClick={() => handleProtectedAction(() => { window.open("https://www.youtube.com/@saqib242", "_blank"); setDbWaitingForUnlock(true); })}
+                    <button onClick={() => { window.open("https://www.youtube.com/@saqib242", "_blank"); setDbWaitingForUnlock(true); }}
                       
                       
                       className="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-500 text-white font-black uppercase tracking-widest text-xs py-3.5 rounded-xl transition-all hover:scale-[1.02] shadow-lg shadow-red-600/20"
@@ -584,8 +580,6 @@ export default function SensitivityHub() {
             </p>
           </div>
         </div>
-      </main>
-      <PasswordPrompt isOpen={isPromptOpen} onClose={closePrompt} onSuccess={handleSuccess} />
-    </div>
+      </main>    </div>
   );
 }
