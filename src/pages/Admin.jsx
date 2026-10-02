@@ -528,7 +528,7 @@ const Admin = () => {
         <div 
           className="absolute top-0 left-0 w-full h-full opacity-80 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://ik.imagekit.io/shaban/SHABAN-1768843573796_wWUQgJ0Uo.jpg')"
+            backgroundImage: "url('https://ik.imagekit.io/19imy4f1u/lite_1790834158013_ENp6orPYH.webp')"
           }}
         />
       </div>

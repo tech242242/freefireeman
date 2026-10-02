@@ -14,40 +14,22 @@ export default function Team() {
 
   const teamMembers = [
     {
-      id: "eman",
-      name: "Eman",
-      role: "Founder of PBX Official",
-      avatar: "https://i.pinimg.com/736x/2e/ad/5e/2ead5e0dcfec9e7d6f18a11e44e446d7.jpg",
-      glowColor: "rgba(239,68,68,0.4)", // Red/Crimson glow
-      borderColor: "border-red-500/30",
-      accentColor: "text-red-500",
-      bgGradient: "from-red-950/20 via-black/80 to-black",
-      badge: "Gamer & Entrepreneur",
-      bio: "Hi, I'm Eman 👑. I organize Free Fire tournaments, build gaming communities, create engaging content, and help brands grow online. I'm also involved in Dropshipping, Website Management, Social Media Management, and Digital Business. \"Play Like a Queen. Rule Like a Boss.\" 💜🎮",
-      stats: [
-        { label: "Tournaments", value: "100+" },
-        { label: "Community", value: "20K+" },
-        { label: "Content", value: "Viral" }
-      ],
-      skills: ["Free Fire Tournament Organizer", "Community Management", "TikTok Content Creator", "CapCut Video Editing", "Website Management", "Dropshipping", "Social Media Management"]
-    },
-    {
       id: "saqib",
       name: "Muhammad Saqib",
-      role: "Co-Founder of PBX Official",
-      avatar: "https://ik.imagekit.io/shaban/SHABAN-1768573425069_nIPVZQOaT.jpg",
-      glowColor: "rgba(34,197,94,0.4)", // Green glow
-      borderColor: "border-green-500/30",
-      accentColor: "text-green-500",
-      bgGradient: "from-green-950/20 via-black/80 to-black",
-      badge: "Web Developer & Creator",
-      bio: "Hi, I'm Saqib 🚀. I build modern websites, manage gaming communities, create digital content, and help businesses establish a strong online presence through web development, branding, and social media.",
+      role: "Full-Stack Developer • AI Enthusiast • Creative Visual Artist",
+      avatar: null, // Photo hidden per user request
+      glowColor: "rgba(236,72,153,0.4)", // Cyber Pink/Purple glow
+      borderColor: "border-pink-500/30",
+      accentColor: "text-pink-400",
+      bgGradient: "from-pink-950/20 via-black/80 to-black",
+      badge: "Saqib Visuals Founder",
+      bio: "Hi! I'm Muhammad Saqib, a passionate developer and creative professional dedicated to designing high-quality digital experiences. I specialize in building fast, modern, and user-friendly websites, web applications, AI-powered solutions, and creative visual content.",
       stats: [
-        { label: "Apps Developed", value: "120+" },
-        { label: "AI Integrations", value: "40+" },
-        { label: "Subscribers", value: "10K+" }
+        { label: "Age", value: "17 Yrs" },
+        { label: "Brand", value: "Visuals" },
+        { label: "Location", value: "Pakistan" }
       ],
-      skills: ["Full-Stack Web Developer", "Content Creator", "Community Manager", "Branding", "Social Media"]
+      skills: ["Premium Websites", "Web Apps", "AI Integration", "React.js", "UI/UX", "Tailwind CSS", "Video Editing", "Branding"]
     }
   ];
 
@@ -103,7 +85,7 @@ export default function Team() {
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 w-full items-stretch">
+        <div className="max-w-2xl mx-auto w-full">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}
@@ -130,17 +112,29 @@ export default function Team() {
                   {member.badge}
                 </span>
 
-                {/* Avatar Display with Gaming Mask */}
+                {/* Avatar Display with Gaming Mask or Cyber Monogram */}
                 <div className="relative w-44 h-44 mb-6 group-hover:scale-105 transition-transform duration-500">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-500/20 to-red-500/20 animate-spin-slow blur-md"></div>
-                  <div className="w-full h-full rounded-2xl overflow-hidden border border-white/10 relative bg-black/40">
-                    <img 
-                      src={member.avatar} 
-                      alt={member.name}
-                      className="w-full h-full object-contain object-bottom scale-110 origin-bottom"
-                    />
-                    {/* Bottom fade within image frame */}
-                    <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-black to-transparent"></div>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-pink-500/20 to-purple-500/20 animate-spin-slow blur-md"></div>
+                  <div className="w-full h-full rounded-2xl overflow-hidden border border-white/10 relative bg-black/40 flex items-center justify-center">
+                    {member.avatar ? (
+                      <>
+                        <img 
+                          src={member.avatar} 
+                          alt={member.name}
+                          className="w-full h-full object-contain object-bottom scale-110 origin-bottom"
+                        />
+                        {/* Bottom fade within image frame */}
+                        <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-black to-transparent"></div>
+                      </>
+                    ) : (
+                      <div className="flex flex-col items-center justify-center p-4 text-center">
+                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-pink-500/30 via-purple-500/30 to-cyan-500/30 border border-white/20 flex items-center justify-center mb-2 shadow-lg">
+                          <span className="bebas text-3xl text-pink-400 font-black">MS</span>
+                        </div>
+                        <span className="bebas text-lg text-white tracking-widest leading-none">MR SAQIB</span>
+                        <span className="text-[8px] font-mono text-pink-400 uppercase tracking-widest mt-1">SAQIB VISUALS</span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -203,7 +197,7 @@ export default function Team() {
             Need custom inquiries, dropshipping consultancy, or AI automation?
           </p>
           <button
-            onClick={() => window.open("https://wa.me/923071356242", "_blank")}
+            onClick={() => window.open("https://wa.me/923478936242", "_blank")}
             className="mt-4 bg-gradient-to-r from-green-500 to-yellow-500 hover:from-green-400 hover:to-yellow-400 text-black px-8 py-3 rounded-sm font-black text-xs uppercase tracking-widest transition-all hover:scale-105 shadow-xl"
             style={{ clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0 100%)' }}
           >

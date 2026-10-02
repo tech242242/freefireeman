@@ -42,24 +42,34 @@ export default function TournamentHome() {
     "sb_publishable_PsL-7tSFu4EQU5ZHQgO6UA_Segl7g_e"
   );
 
-  // Gaming Resources Data
+  // Gaming Resources Data - 3 Distinct Resources with 3 Unique Images
   const gamingResources = [
     {
       id: 1,
       icon: "🎮",
       title: "FREE FIRE MOD APK",
-      image: "https://ik.imagekit.io/shaban/SHABAN-1768758303706_3WkOuMoSi.jpg",
+      image: "https://ik.imagekit.io/19imy4f1u/lite_1790833974315_ddHnp4KRmv.png",
       description: "Get the latest modded version of Free Fire with premium unlocked features.",
       buttonText: "Get Mod APK",
       link: "https://mrsaqib242.vercel.app",
       color: "from-purple-500 to-pink-500"
     },
     {
+      id: 2,
+      icon: "⚡",
+      title: "VIP PROXY & PANELS",
+      image: "https://i.ibb.co/YB1R7TSF/image.webp",
+      description: "Active VIP Free Fire proxy links and injector panels for zero ping and maximum headshot accuracy.",
+      buttonText: "Open VIP Panels",
+      link: "/proxypanels",
+      color: "from-pink-600 to-rose-600"
+    },
+    {
       id: 3,
       icon: "🇬🇧",
       title: "UK MONETIZED ACCOUNT",
-      image: "https://ik.imagekit.io/shaban/SHABAN-1768758331813_lq1xTnLv7.jpg",
-      description: "Special accounts for TikTok/Social media monetization.",
+      image: "https://ik.imagekit.io/19imy4f1u/lite_1790834158013_ENp6orPYH.webp",
+      description: "Special verified accounts for TikTok and gaming social media monetization.",
       buttonText: "Get UK Account",
       link: "https://techai.zone.id/",
       color: "from-blue-500 to-cyan-500"
@@ -349,7 +359,7 @@ export default function TournamentHome() {
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            src={settings.cover_url || "https://ik.imagekit.io/shaban/SHABAN-1768843573796_wWUQgJ0Uo.jpg"} 
+            src={settings.cover_url || "https://ik.imagekit.io/19imy4f1u/lite_1790834158013_ENp6orPYH.webp"} 
             className="w-full h-full object-cover"
             alt="Cover"
           />
@@ -445,7 +455,11 @@ export default function TournamentHome() {
                 >
                   <div className="tour-img-container">
                     <img 
-                      src={tour.banner_url || "https://ik.imagekit.io/shaban/SHABAN-1768843573796_wWUQgJ0Uo.jpg"} 
+                      src={tour.banner_url || [
+                        "https://ik.imagekit.io/19imy4f1u/lite_1790833974315_ddHnp4KRmv.png",
+                        "https://ik.imagekit.io/19imy4f1u/lite_1790834158013_ENp6orPYH.webp",
+                        "https://i.ibb.co/YB1R7TSF/image.webp"
+                      ][index % 3]} 
                       className="tour-img-full" 
                       alt="Tournament Banner" 
                     />
@@ -539,7 +553,7 @@ export default function TournamentHome() {
             </motion.button>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto justify-center">
             {gamingResources.map((resource, index) => (
               <motion.div
                 key={resource.id}
@@ -673,7 +687,7 @@ export default function TournamentHome() {
                 <motion.a 
                   whileHover={{ scale: 1.12, y: -4, rotate: -2 }}
                   whileTap={{ scale: 0.92 }}
-                  href="https://wa.me/923071356242" 
+                  href="https://wa.me/923478936242" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#2be673] to-[#1cb854] text-white shadow-[0_10px_25px_rgba(37,211,102,0.45)] overflow-hidden cursor-pointer group"
@@ -692,7 +706,7 @@ export default function TournamentHome() {
                 <motion.a 
                   whileHover={{ scale: 1.12, y: -4, rotate: 2 }}
                   whileTap={{ scale: 0.92 }}
-                  href="https://www.tiktok.com/@pbx_queen?_r=1&_t=ZN-97xvi7bHEQg" 
+                  href="https://www.tiktok.com/@mr_saqib_242" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#242428] to-[#0a0a0c] text-white shadow-[0_10px_25px_rgba(0,0,0,0.6)] overflow-hidden cursor-pointer group"
@@ -711,7 +725,7 @@ export default function TournamentHome() {
                 <motion.a 
                   whileHover={{ scale: 1.12, y: -4, rotate: -2 }}
                   whileTap={{ scale: 0.92 }}
-                  href="https://www.instagram.com/pbx_queen1?igsh=dzZpZjl4OG42NGw4" 
+                  href="https://www.instagram.com/mr_saqib242" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-tr from-[#f9ce3f] via-[#e1306c] to-[#833ab4] text-white shadow-[0_10px_25px_rgba(225,48,108,0.45)] overflow-hidden cursor-pointer group"
@@ -730,7 +744,7 @@ export default function TournamentHome() {
                 <motion.a 
                   whileHover={{ scale: 1.12, y: -4, rotate: 2 }}
                   whileTap={{ scale: 0.92 }}
-                  href="https://www.facebook.com/share/1DWVhp3qqB/" 
+                  href="https://web.facebook.com/muhammad.saqib.718278" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#18acf8] to-[#1877F2] text-white shadow-[0_10px_25px_rgba(24,119,242,0.45)] overflow-hidden cursor-pointer group"
@@ -743,6 +757,19 @@ export default function TournamentHome() {
                   <svg className="w-7 h-7 fill-white z-10 drop-shadow-[0_2px_5px_rgba(0,0,0,0.25)]" viewBox="0 0 24 24">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                   </svg>
+                </motion.a>
+
+                {/* Snapchat */}
+                <motion.a 
+                  whileHover={{ scale: 1.12, y: -4, rotate: -2 }}
+                  whileTap={{ scale: 0.92 }}
+                  href="https://www.snapchat.com/add/mrsaqib242" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all border border-white/20 bg-gradient-to-b from-[#fffc00] to-[#ffda00] text-black shadow-[0_10px_25px_rgba(255,218,0,0.35)] overflow-hidden cursor-pointer group"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/35 pointer-events-none z-20 group-hover:left-[100%] transition-all duration-1000 ease-out" style={{ left: '-100%', width: '200%' }} />
+                  <span className="text-2xl z-10">👻</span>
                 </motion.a>
               </div>
 

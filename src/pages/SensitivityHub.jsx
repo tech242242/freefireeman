@@ -139,7 +139,7 @@ export default function SensitivityHub() {
     statLabels.forEach((label, idx) => {
       text += `${statIcons[idx]} ${label}: ${values[idx]}\n`;
     });
-    text += `\nConfigured safely with anti-ban filters on Ms Eman Army Pro Sensitivity Hub.`;
+    text += `\nConfigured safely with anti-ban filters on Saqib Visuals Pro Sensitivity Hub.`;
     copyToClipboard(text, "All Settings");
   };
 
@@ -157,7 +157,7 @@ export default function SensitivityHub() {
     statLabels.forEach((label, idx) => {
       text += `${statIcons[idx]} ${label}: ${values[idx]}\n`;
     });
-    text += `\nOptimal headshot performance matrix generated on Ms Eman Army.`;
+    text += `\nOptimal headshot performance matrix generated on Saqib Visuals Pro Hub.`;
     copyToClipboard(text, "AI Settings");
   };
 
